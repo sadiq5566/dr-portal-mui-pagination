@@ -1,4 +1,3 @@
-import React from "react";
 import { Grid, Theme, Box, Typography } from "@mui/material";
 import loginone from "../../Assets/images/loginone.png";
 import { makeStyles } from "@mui/styles";
