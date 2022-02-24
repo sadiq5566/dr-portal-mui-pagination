@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Theme, TextField } from "@mui/material";
+import { Grid, Theme, TextField as Input } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -19,13 +19,13 @@ interface IProps {
   readonly size?: "small";
   readonly variant?: "filled" | "standard" | "outlined";
 }
-const InputField: React.FC<IProps> = ({ type, placeholder, size, variant, label }) => {
+const TextField: React.FC<IProps> = ({ type, placeholder, size, variant, label }) => {
   const classes = useStyles();
   return (
     <>
       <Grid container justifyContent="center">
         <Grid item xs={12} sm={12} md={12} lg={12}>
-          <TextField
+          <Input
             className={classes.inputField}
             type={type}
             id="outlined-basic"
@@ -40,4 +40,4 @@ const InputField: React.FC<IProps> = ({ type, placeholder, size, variant, label 
   );
 };
 
-export default InputField;
+export default TextField;

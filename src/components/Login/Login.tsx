@@ -4,7 +4,7 @@ import loginone from "../../Assets/images/loginone.png";
 import { makeStyles } from "@mui/styles";
 import Logo from "../../Assets/svgs/DrSvg/LogoSvg";
 import Button from "../Button/Button";
-import InputField from "../inputField/InputField";
+import TextField from "../TextField/TextField";
 
 const useStyles = makeStyles((theme: Theme) => ({
   img: {
@@ -49,7 +49,7 @@ const Login = () => {
         <Grid container justifyContent="center">
           <Grid item xs={10} sm={10} md={10} lg={6}>
             <Box mt={4}>
-              <InputField
+              <TextField
                 type="text"
                 placeholder="lan@gmail.com"
                 variant="outlined"
@@ -61,7 +61,7 @@ const Login = () => {
         <Grid container justifyContent="center">
           <Grid item xs={10} sm={10} md={10} lg={6}>
             <Box mt={2}>
-              <InputField type="password" variant="outlined" label="Password" />
+              <TextField type="password" variant="outlined" label="Password" />
             </Box>
           </Grid>
         </Grid>
