@@ -5,7 +5,7 @@ import StarIcon from "../../Assets/Svgs/StarIcon";
 import WorldIcon from "../../Assets/Svgs/WorldIcon";
 import HistoryIcon from "../../Assets/Svgs/HistoryIcon";
 import SettingIcon from "../../Assets/Svgs/SettingIcon";
-import ProfileImg from "../../Assets/images/ProfileImg.png";
+import Modal from "../Modal/index";
 const SideBar = () => {
   return (
     <Box>
@@ -26,7 +26,7 @@ const SideBar = () => {
           <SettingIcon />
         </Box>
         <Box pt={33}>
-          <img src={ProfileImg} alt="profile_picture" />
+          <Modal />
         </Box>
       </Stack>
     </Box>

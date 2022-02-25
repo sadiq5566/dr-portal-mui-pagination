@@ -71,7 +71,7 @@ const ChildModal = () => {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <div onClick={handleOpen}></div>
+      <div onClick={handleOpen}>.</div>
       <Modal hideBackdrop open={open} onClose={handleClose}>
         <Box sx={style}>
           <Box sx={{ display: "flex", justifyContent: "space-between" }} py={1}>
