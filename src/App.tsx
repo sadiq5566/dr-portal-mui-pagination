@@ -1,4 +1,8 @@
+import React from "react";
+import Layout from "./Components/Layout";
+
 const App = () => {
-  return <>Enviornment setup</>;
+  return <Layout />;
 };
+
 export default App;
