@@ -11,7 +11,6 @@ const Layout = ({ children }: any) => {
         <SideBar />
         <Status />
       </Grid>
-
       <Grid item xs={9}>
         <Header />
       </Grid>

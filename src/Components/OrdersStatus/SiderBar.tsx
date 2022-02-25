@@ -1,6 +1,6 @@
 import React from "react";
 import { Stack, Box } from "@mui/material";
-import LogoSvg from "../../Assets/svgs/DrSvg/LogoSvg";
+import LogoSvg from "../../Assets/svgs/LogoSvg";
 import StarIcon from "../../Assets/svgs/StarIcon";
 import WorldIcon from "../../Assets/svgs/WorldIcon";
 import HistoryIcon from "../../Assets/svgs/HistoryIcon";
@@ -26,7 +26,7 @@ const SideBar = () => {
           <SettingIcon />
         </Box>
         <Box pt={33}>
-          <img src={ProfileImg} alt="profileDp" />
+          <img src={ProfileImg} alt="profile_picture" />
         </Box>
       </Stack>
     </Box>
