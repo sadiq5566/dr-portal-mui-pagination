@@ -13,6 +13,9 @@ const Layout = ({ children }: any) => {
       </Grid>
       <Grid item xs={9}>
         <Header />
+        <Grid item xs={12} pt={2} px={2}>
+          {children}
+        </Grid>
       </Grid>
     </Grid>
   );

@@ -1,8 +1,14 @@
 import React from "react";
-import Layout from "./Components/Layout";
-
+import Orders from "./Components/ApiOrders/Orders";
+import { BrowserRouter as Router, Route, Routes as Switch } from "react-router-dom";
 const App = () => {
-  return <Layout />;
+  return (
+    <Router>
+      <Switch>
+        <Route path="/" element={<Orders />} />
+      </Switch>
+    </Router>
+  );
 };
 
 export default App;
