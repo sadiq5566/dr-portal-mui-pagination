@@ -18,6 +18,7 @@ import ProfileSvg from "../../Assets/Svgs/ProfileSvg/ProfileSvg";
 import LogoutSvg from "../../Assets/Svgs/LogoutSvg/LogoutSvg";
 import CloseSvg from "../../Assets/Svgs/CloseSvg/CloseSvg";
 import theme from "../../theme";
+
 const style = {
   position: "absolute" as "absolute",
   top: "50%",
