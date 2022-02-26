@@ -14,9 +14,9 @@ import {
 import Button from "../Button/index";
 import ProfileImg from "../../Assets/images/ProfileImg.png";
 import { makeStyles } from "@mui/styles";
-import ProfileSvg from "../../Assets/Svgs/ProfileSvg/ProfileSvg";
-import LogoutSvg from "../../Assets/Svgs/LogoutSvg/LogoutSvg";
-import CloseSvg from "../../Assets/Svgs/CloseSvg/CloseSvg";
+import ProfileSvg from "../../Assets/svgs/ProfileSvg/ProfileSvg";
+import LogoutSvg from "../../Assets/svgs/LogoutSvg/LogoutSvg";
+import CloseSvg from "../../Assets/svgs/CloseSvg/CloseSvg";
 import theme from "../../theme";
 
 const style = {

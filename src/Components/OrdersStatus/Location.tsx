@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid } from "@mui/material";
-import LocationSvg from "../../Assets/Svgs/LocationSvg";
+import LocationSvg from "../../Assets/svgs/LocationSvg";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";

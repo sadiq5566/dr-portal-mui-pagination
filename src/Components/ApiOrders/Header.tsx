@@ -3,8 +3,8 @@ import { Grid, Box, Paper, Typography, InputBase, IconButton } from "@mui/materi
 import Divider from "@mui/material/Divider";
 import { useTheme } from "@mui/material/styles";
 import { makeStyles } from "@mui/styles";
-import SearchSvg from "../../Assets/Svgs/SearchSvg/SearchSvg";
-import DropDownSvg from "../../Assets/Svgs/DropDownSvg/DropDownSvg";
+import SearchSvg from "../../Assets/svgs/SearchSvg/SearchSvg";
+import DropDownSvg from "../../Assets/svgs/DropDownSvg/DropDownSvg";
 const useStyles = makeStyles({
   mainHeading: {
     fontSize: "21px !important",

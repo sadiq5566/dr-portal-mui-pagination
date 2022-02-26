@@ -1,10 +1,10 @@
 import React from "react";
 import { Stack, Box } from "@mui/material";
-import LogoSvg from "../../Assets/Svgs/LogoSvg";
-import StarIcon from "../../Assets/Svgs/StarIcon";
-import WorldIcon from "../../Assets/Svgs/WorldIcon";
-import HistoryIcon from "../../Assets/Svgs/HistoryIcon";
-import SettingIcon from "../../Assets/Svgs/SettingIcon";
+import LogoSvg from "../../Assets/svgs/LogoSvg";
+import StarIcon from "../../Assets/svgs/StarIcon";
+import WorldIcon from "../../Assets/svgs/WorldIcon";
+import HistoryIcon from "../../Assets/svgs/HistoryIcon";
+import SettingIcon from "../../Assets/svgs/SettingIcon";
 import Modal from "../Modal/index";
 const SideBar = () => {
   return (

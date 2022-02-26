@@ -4,7 +4,7 @@ import { makeStyles } from "@mui/styles";
 import OrdersListing from "./OrdersListing";
 import Button from "../Button";
 import Layout from "../Layout/index";
-import StatusSvg from "../../Assets/Svgs/StatusSvg/StatusSvg";
+import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
 
 const useStyles = makeStyles({
   mainBox: {

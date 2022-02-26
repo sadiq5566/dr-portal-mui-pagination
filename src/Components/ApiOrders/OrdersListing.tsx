@@ -5,7 +5,7 @@ import DataStatus from "./DataStatus";
 import { Link } from "react-router-dom";
 import TableMockDataa from "../data/TableMockData";
 import Button from "../Button/index";
-import StatusSvg from "../../Assets/Svgs/StatusSvg/StatusSvg";
+import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
 import { Order } from "../../Interfaces/orderInterface";
 const OrdersListing = () => {
   const columns: TableColumn<Order>[] = [
