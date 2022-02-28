@@ -61,18 +61,84 @@ const useStyles: any = makeStyles({
   }
 });
 
-const ChildModal = () => {
+export default function NestedModal() {
   const [open, setOpen] = React.useState(false);
+  const [tinyModal, setTinyModal] = React.useState(false);
   const handleOpen = () => {
     setOpen(true);
   };
   const handleClose = () => {
     setOpen(false);
   };
+  const openTinyModal = () => {
+    setTinyModal(true);
+  };
+  const closeTinyModal = () => {
+    setTinyModal(false);
+  };
   const classes = useStyles();
   return (
     <React.Fragment>
-      <div onClick={handleOpen}>.</div>
+      <div>
+        <Box>
+          <Tooltip title="Profile setting">
+            <IconButton
+              onClick={openTinyModal}
+              size="small"
+              sx={{
+                padding: "0px"
+              }}
+            >
+              <Avatar src={ProfileImg} />
+            </IconButton>
+          </Tooltip>
+        </Box>
+        <Menu
+          open={tinyModal}
+          onClose={closeTinyModal}
+          PaperProps={{
+            elevation: 0,
+            sx: {
+              backgroundColor: "#585F67",
+              overflow: "visible",
+              top: "486px !important",
+              left: "15px !important",
+              "&:after": {
+                content: '""',
+                display: "block",
+                position: "absolute",
+                width: 0,
+                height: 0,
+                borderLeft: "17px solid transparent",
+                borderRight: "17px solid transparent",
+                borderTop: "26px solid #585F67",
+                top: "58px",
+                left: "11px",
+                padding: "0"
+              }
+            }
+          }}
+          transformOrigin={{ horizontal: "right", vertical: "top" }}
+          anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+        >
+          <MenuItem
+            onClick={handleOpen}
+            className={`${classes.profileBg} ${classes.profileTextColor} ${classes.profileContent}`}
+          >
+            <ListItemIcon>
+              <ProfileSvg />
+            </ListItemIcon>
+            <Typography variant="body4">Profile Settings</Typography>
+          </MenuItem>
+
+          <MenuItem className={`${classes.profileTextColor} ${classes.profileContent}`}>
+            <ListItemIcon>
+              <LogoutSvg />
+            </ListItemIcon>
+            <Typography variant="body4"> Logout</Typography>
+          </MenuItem>
+        </Menu>
+      </div>
       <Modal hideBackdrop open={open} onClose={handleClose}>
         <Box sx={style}>
           <Box sx={{ display: "flex", justifyContent: "space-between" }} py={1}>
@@ -172,78 +238,5 @@ const ChildModal = () => {
         </Box>
       </Modal>
     </React.Fragment>
-  );
-};
-
-export default function NestedModal() {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
-  const classes = useStyles();
-  return (
-    <div>
-      <Box>
-        <Tooltip title="Profile setting">
-          <IconButton
-            onClick={handleOpen}
-            size="small"
-            sx={{
-              padding: "0px"
-            }}
-          >
-            <Avatar src={ProfileImg} />
-          </IconButton>
-        </Tooltip>
-      </Box>
-      <Menu
-        open={open}
-        onClose={handleClose}
-        PaperProps={{
-          elevation: 0,
-          sx: {
-            backgroundColor: "#585F67",
-            overflow: "visible",
-            top: "498px !important",
-            left: "15px !important",
-            "&:after": {
-              content: '""',
-              display: "block",
-              position: "absolute",
-              width: 0,
-              height: 0,
-              borderLeft: "17px solid transparent",
-              borderRight: "17px solid transparent",
-              borderTop: "26px solid #585F67",
-              top: "58px",
-              left: "11px",
-              padding: "0"
-            }
-          }
-        }}
-        transformOrigin={{ horizontal: "right", vertical: "top" }}
-        anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
-      >
-        <MenuItem
-          className={`${classes.profileBg} ${classes.profileTextColor} ${classes.profileContent}`}
-        >
-          <ChildModal />
-          <ListItemIcon>
-            <ProfileSvg />
-          </ListItemIcon>
-          <Typography variant="body4">Profile Settings</Typography>
-        </MenuItem>
-
-        <MenuItem className={`${classes.profileTextColor} ${classes.profileContent}`}>
-          <ListItemIcon>
-            <LogoutSvg />
-          </ListItemIcon>
-          <Typography variant="body4"> Logout</Typography>
-        </MenuItem>
-      </Menu>
-    </div>
   );
 }
