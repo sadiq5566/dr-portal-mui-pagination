@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }));
 
-const Summary: React.FC<IProps> = ({ order }) => {
+const OrderSummary: React.FC<IProps> = ({ order }) => {
   const classes = useStyles();
   return (
     <>
@@ -134,4 +134,4 @@ const Summary: React.FC<IProps> = ({ order }) => {
   );
 };
 
-export default Summary;
+export default OrderSummary;

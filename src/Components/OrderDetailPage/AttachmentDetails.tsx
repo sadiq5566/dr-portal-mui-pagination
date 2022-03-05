@@ -2,7 +2,7 @@ import React from "react";
 import { Grid, Typography, Theme, Stack, Divider, Box } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import Button from "../Button/index";
-import Status from "./Status";
+import OrderStatus from "./OrderStatus";
 import OwnerInfo from "./OwnerInfo";
 import VehicleInfo from "./VehicleInfo";
 import DealershipInfo from "./DealershipInfo";
@@ -57,7 +57,7 @@ const AttachmentDetails: React.FC<IProps> = ({ order }) => {
       </Grid>
 
       <Grid item xs={3}>
-        <Status order={order} />
+        <OrderStatus order={order} />
       </Grid>
     </Grid>
   );

@@ -1,3 +1,4 @@
+import React from "react";
 import { Typography, Theme, Divider, Box } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import WestIcon from "@mui/icons-material/West";
@@ -5,7 +6,7 @@ import Button from "../Button/index";
 import AttachmentDetils from "./AttachmentDetails";
 import { Link } from "react-router-dom";
 import { Order } from "../../Interfaces/orderInterface";
-import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
+import CompleteOrder from "../Modal/CompleteOrder";
 
 interface IProps {
   order: Order;
@@ -49,6 +50,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const Orders: React.FC<IProps> = ({ order }) => {
   const classes = useStyles();
+  const [modal, setModal] = React.useState(false);
   return (
     <>
       <Box pl={3}>
@@ -69,14 +71,7 @@ const Orders: React.FC<IProps> = ({ order }) => {
           <Box>
             <Typography variant="body2" className={classes.order}>
               Order #: 124541
-              <Box className={classes.accepted} ml={2} px={1}>
-                {order.Status === "complete" && (
-                  <>
-                    <StatusSvg status="locked" />
-                    <Typography className={classes.accept}>Locked</Typography>
-                  </>
-                )}
-              </Box>
+              <Box className={classes.accepted} ml={2} px={1}></Box>
             </Typography>
           </Box>
           <Box sx={{ display: "flex", alignItems: "center" }}>
@@ -87,6 +82,7 @@ const Orders: React.FC<IProps> = ({ order }) => {
                   variant="contained"
                   color="success"
                   size="large"
+                  onClick={() => setModal(true)}
                 />
               ) : (
                 <Button
@@ -106,6 +102,7 @@ const Orders: React.FC<IProps> = ({ order }) => {
         <Box mt={4}>
           <AttachmentDetils order={order} />
         </Box>
+        {modal && <CompleteOrder setModal={setModal} />}
       </Box>
     </>
   );
