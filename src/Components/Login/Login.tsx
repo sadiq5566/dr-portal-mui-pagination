@@ -8,9 +8,8 @@ import InputField from "../TextField";
 const useStyles = makeStyles((theme: Theme) => ({
   img: {
     maxWidth: "100%",
-    height: "100vh",
-    objectFit: "fill",
-    overflow: "hidden"
+    height: "100%",
+    objectFit: "fill"
   },
   logo: {
     display: "flex",

@@ -6,6 +6,14 @@ import Button from "../Button";
 import Layout from "../Layout/index";
 import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
 
+interface Iprops {
+  new?: boolean;
+  accept?: boolean;
+  lock?: boolean;
+  complete?: boolean;
+  reject?: boolean;
+}
+
 const useStyles = makeStyles({
   mainBox: {
     display: "flex",
@@ -13,7 +21,7 @@ const useStyles = makeStyles({
   }
 });
 const Orders = () => {
-  const [activeClass, setActiveClass] = React.useState<any>({
+  const [activeClass, setActiveClass] = React.useState<Iprops>({
     new: false,
     accept: false,
     lock: false,

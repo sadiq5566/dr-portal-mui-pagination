@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     alignItems: "center",
     paddingTop: "2rem",
     cursor: "pointer",
-    paddingBottom: "1.1rem"
+    paddingBottom: "25px"
   },
   back: {
     paddingLeft: "0.7rem"
@@ -63,7 +63,7 @@ const Orders: React.FC<IProps> = ({ order }) => {
           </Box>
         </Link>
       </Box>
-      <Box mt={1}>
+      <Box>
         <Divider />
       </Box>
       <Box px={3}>

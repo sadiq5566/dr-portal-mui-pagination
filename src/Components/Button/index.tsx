@@ -3,27 +3,26 @@ import { makeStyles } from "@mui/styles";
 import { Theme, Button as Buttons } from "@mui/material";
 const useStyles = makeStyles((theme: Theme) => ({
   primary: {
+    background: "#4362EA !important",
     width: "100%",
     height: "100%",
     padding: "0.7rem !important",
     color: "#FFFFFF",
-    fontWeight: 500,
-    fontSize: "15px"
+    fontWeight: "bold !important"
   },
   secondary: {
     background: "#BF43EA !important",
     color: "#FFFFFF",
     borderRadius: "5px",
     fontWeight: 500,
-    fontSize: "0.9rem",
     marginLeft: "0.5rem"
   },
   warning: {
-    color: "#D75041",
-    background: "#FFFFFF",
-    border: "1px solid #E7E7E9",
+    color: "#D75041 !important",
+    background: "#FFFFFF !important",
+    border: "1px solid #E7E7E9 !important",
     borderRadius: "5px",
-    marginLeft: "1rem"
+    marginLeft: "1rem !important"
   },
   success: {
     background: "#24BD86 !important",

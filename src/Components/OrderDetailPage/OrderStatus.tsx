@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   accept: {
     paddingLeft: "8px",
-    fontWeight: "bold"
+    fontWeight: "bold !important"
   },
   timeUntil: {
     borderRadius: "6px",
@@ -52,21 +52,21 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginTop: "1rem"
   },
   timer: {
-    marginTop: "0.3rem",
-    fontWeight: "bold",
-    fontSize: "24px",
+    marginTop: "0.3rem important",
+    fontWeight: "bold !important",
+    fontSize: "24px !important",
     color: theme.palette.text.primary
   },
 
   text: {
-    marginTop: "0.3rem"
+    marginTop: "0.3rem important"
   },
   icontext: {
     display: "flex",
     alignItems: "center"
   },
   person: {
-    fontSize: "12px",
+    fontSize: "12px !important",
     fontWeight: 400,
     color: theme.palette.text.primary
   },
@@ -136,7 +136,8 @@ const OrderStatus: React.FC<IProps> = ({ order }) => {
               sx={{
                 display: "flex",
                 justifyContent: "space-between",
-                px: 1
+                px: 1,
+                py: 1
               }}
             >
               <Box>
@@ -167,7 +168,7 @@ const OrderStatus: React.FC<IProps> = ({ order }) => {
           </Box>
         </Box>
       </Box>
-      <Grid item>
+      <Grid item mt={3}>
         <OrderSummary order={order} />
       </Grid>
     </>

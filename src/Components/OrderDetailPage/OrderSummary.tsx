@@ -12,16 +12,16 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderRadius: "8px",
     background: "#FFFFFF",
     border: "1px solid #E7E7E9",
-    marginTop: "2rem"
+    marginTop: "2rem important"
   },
   summary: {
     color: theme.palette.text.primary,
-    fontSize: "14px",
-    fontWeight: "bold"
+    fontSize: "14px important",
+    fontWeight: "bold !important"
   },
   customer: {
     fontWeight: 400,
-    fontSize: "12px",
+    fontSize: "12px !important",
     color: theme.palette.text.primary
   }
 }));
