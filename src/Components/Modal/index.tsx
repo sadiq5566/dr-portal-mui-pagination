@@ -31,7 +31,7 @@ const style = {
   borderRadius: "5px"
 };
 
-const useStyles: any = makeStyles({
+const useStyles = makeStyles({
   profileContent: {
     marginLeft: "6px !important",
     borderRadius: "3px!important",
@@ -101,7 +101,7 @@ export default function NestedModal() {
             sx: {
               backgroundColor: "#585F67",
               overflow: "visible",
-              top: "486px !important",
+              top: "478px !important",
               left: "15px !important",
               "&:after": {
                 content: '""',

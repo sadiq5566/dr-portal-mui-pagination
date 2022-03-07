@@ -67,35 +67,29 @@ const useStyles: any = makeStyles({
 const OrderCard: React.FC<props> = ({ ordersdata, orderStatus }: props) => {
   const classes = useStyles();
   return (
-    <>
-      <Grid container>
-        <Grid item xs={12}>
-          <Box
-            className={
-              orderStatus
-                ? `${classes.ordersStatus} ${
-                    ordersdata?.orderStatus ? classes.active : ""
-                  }`
-                : classes.orderData
-            }
-            px={2}
-            sx={{ border: 1, borderColor: "grey.300", borderRadius: "5px" }}
-          >
-            <Box className={classes.ordersStatusBox}>
-              <Typography variant="subtitle1">{ordersdata.name}</Typography>
-              <Typography variant="body4">{ordersdata.location}</Typography>
-            </Box>
-            <Box
-              className={
-                ordersdata.orderStatus ? classes.MiniTextColor : classes.MiniText
-              }
-            >
-              <Typography variant="body3">{ordersdata?.numbering}</Typography>
-            </Box>
+    <Grid container>
+      <Grid item xs={12}>
+        <Box
+          className={
+            orderStatus
+              ? `${classes.ordersStatus} ${ordersdata?.orderStatus ? classes.active : ""}`
+              : classes.orderData
+          }
+          px={2}
+          sx={{ border: 1, borderColor: "grey.300", borderRadius: "5px" }}
+        >
+          <Box className={classes.ordersStatusBox}>
+            <Typography variant="subtitle1">{ordersdata.name}</Typography>
+            <Typography variant="body4">{ordersdata.location}</Typography>
           </Box>
-        </Grid>
+          <Box
+            className={ordersdata.orderStatus ? classes.MiniTextColor : classes.MiniText}
+          >
+            <Typography variant="body3">{ordersdata?.numbering}</Typography>
+          </Box>
+        </Box>
       </Grid>
-    </>
+    </Grid>
   );
 };
 

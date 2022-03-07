@@ -1,19 +1,20 @@
-import React from "react";
 import { Grid } from "@mui/material";
-import SideBar from "../OrdersStatus/SiderBar";
-import Status from "../OrdersStatus/Status";
-import Header from "../ApiOrders/Header";
+import { ReactNode } from "react";
+import SideBarIcon from "../OrdersStatus/SideBarIcon";
 
-const Layout = ({ children }: any) => {
+type IProps = {
+  children: ReactNode;
+  sideContent: ReactNode;
+};
+const Layout = ({ children, sideContent }: IProps) => {
   return (
     <Grid container>
       <Grid item xs={3} sx={{ display: "flex" }}>
-        <SideBar />
-        <Status />
+        <SideBarIcon />
+        {sideContent}
       </Grid>
       <Grid item xs={9}>
-        <Header />
-        <Grid item xs={12} pt={2} px={2}>
+        <Grid item xs={12}>
           {children}
         </Grid>
       </Grid>

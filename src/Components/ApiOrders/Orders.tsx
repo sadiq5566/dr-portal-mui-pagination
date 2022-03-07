@@ -5,15 +5,29 @@ import OrdersListing from "./OrdersListing";
 import Button from "../Button";
 import Layout from "../Layout/index";
 import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
+import Header from "./Header";
+import SideBarContent from "../OrdersStatus/SideBarContent";
 
 const useStyles = makeStyles({
   mainBox: {
     display: "flex",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    padding: "0px 32px 0px 16px"
+  },
+  orderListing: {
+    padding: "5px 32px 0px 32px !important"
   }
 });
+
+interface Iprops {
+  new?: boolean;
+  accept?: boolean;
+  lock?: boolean;
+  complete?: boolean;
+  reject?: boolean;
+}
 const Orders = () => {
-  const [activeClass, setActiveClass] = React.useState<any>({
+  const [activeClass, setActiveClass] = React.useState<Iprops>({
     new: false,
     accept: false,
     lock: false,
@@ -23,8 +37,9 @@ const Orders = () => {
   const classes = useStyles();
 
   return (
-    <Layout>
+    <Layout sideContent={<SideBarContent />}>
       <Grid container spacing={2}>
+        <Header />
         <Grid item xs={12}>
           <Box className={classes.mainBox}>
             <Box sx={{ display: "flex" }}>
@@ -138,7 +153,7 @@ const Orders = () => {
             </Box>
           </Box>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} className={classes.orderListing}>
           <OrdersListing />
         </Grid>
       </Grid>

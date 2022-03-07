@@ -31,13 +31,13 @@ const Header = () => {
   const theme = useTheme();
   return (
     <Grid container>
-      <Grid item xs={12}>
+      <Grid item xs={12} pt={2} px={2}>
         <Typography className={classes.mainHeading} px={2}>
           API Orders
         </Typography>
         <Divider sx={{ marginTop: "22px" }} />
       </Grid>
-      <Grid item xs={12} pt={2} px={2}>
+      <Grid item xs={12} pt={2} px={4}>
         <Box p={2} my={3} className={classes.MainBox}>
           <Box sx={{ display: "flex" }}>
             <Box>

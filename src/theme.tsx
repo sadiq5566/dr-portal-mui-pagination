@@ -35,75 +35,76 @@ const theme = createTheme({
     primary: {
       light: `${white}`,
       main: `${blue}`,
-      dark: `${blackIcon}`,
+      dark: `${blackIcon}`
     },
     secondary: {
       main: `${secondaryMain}`,
-      dark: `${secondaryDark}`,
+      dark: `${secondaryDark}`
     },
     warning: {
       main: `${yellow}`,
-      dark: `${newText}`,
+      dark: `${newText}`
     },
     success: {
       main: `${searchIcon}`,
-      dark: `${ButtonNumberText}`,
-    },
+      dark: `${ButtonNumberText}`
+    }
   },
   typography: {
     subtitle1: {
-      fontSize: 12,
+      fontSize: 12
     },
     subtitle4: {
-      fontSize: 14,
+      fontSize: 14
     },
     body3: {
-      fontSize: 11,
+      fontSize: 11
     },
     body4: {
-      fontSize: 10,
+      fontSize: 10
     },
     h1: {
       fontSize: "40px",
       fontWeight: 700,
       textTransform: "capitalize",
       paddingLeft: "2rem",
-      textAlign: "center",
+      textAlign: "center"
     },
     subtitle2: {
       fontSize: "22px",
       fontWeight: 700,
       color: "#000000",
       marginTop: "3rem",
-      textAlign: "center",
+      textAlign: "center"
     },
     body2: {
       fontSize: "21px",
       fontWeight: 600,
-      color: "#000000",
+      color: "#000000"
     },
     h4: {
       fontSize: "16px",
       fontWeight: "bold",
       lineHeight: "18.75px",
-      color: "#17202C",
+      color: "#17202C"
     },
     h5: {
       fontSize: "12px",
       fontWeight: 400,
       lineHeight: "18.75px",
-      color: "#585F67",
+      color: "#585F67"
     },
     h3: {
       fontSize: "14px",
       fontWeight: 400,
       lineHeight: "16.81px",
-      color: "#17202C",
+      color: "#17202C"
     },
+
     typo1: { fontSize: "15px", color: "#17202C" },
     typo2: { fontSize: "13px", color: " #3C4046 " },
     typo3: { fontSize: "14px", color: "#17202C" },
-    typo4: { fontSize: "11px", color: "#585F67" },
-  } as ExtendedTypographyOptions,
+    typo4: { fontSize: "11px", color: "#585F67" }
+  } as ExtendedTypographyOptions
 } as ThemeOptions);
 export default theme;

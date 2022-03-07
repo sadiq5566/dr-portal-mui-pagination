@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Grid } from "@mui/material";
 import Orders from "./Orders";
-import SideBar from "../OrdersStatus/SiderBar";
-import OrdersStatus from "../OrdersStatus/Status";
+import LeftBar from "../OrdersStatus/SideBarIcon";
 import { useParams } from "react-router-dom";
 import TableMockData from "../data/TableMockData";
 import { Order } from "../../Interfaces/orderInterface";
-
+import VersionHistory from "../OrdersStatus/VersionHistory";
 const Index = () => {
   const { id } = useParams();
   const [order, setOrders] = useState<Order | null>(null);
@@ -18,8 +17,8 @@ const Index = () => {
   return (
     <Grid container>
       <Grid item xs={3} sx={{ display: "flex" }}>
-        <SideBar />
-        <OrdersStatus />
+        <LeftBar />
+        <VersionHistory />
       </Grid>
 
       <Grid item xs={9}>

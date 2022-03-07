@@ -2,13 +2,12 @@ import React from "react";
 import { Stack, Box, Typography, Grid } from "@mui/material";
 import Location from "./Location";
 import { useTheme } from "@mui/material/styles";
-import OrderCard from "../OrdersStatus/OrderCard";
+import OrderCard from "./OrderCard";
 import Divider from "@mui/material/Divider";
 import OrderData from "../data/OrderData";
 import OrderStatusMockData from "../data/OrderStatusMockData";
 import { Scrollbars } from "react-custom-scrollbars-2";
-
-const Status = () => {
+const SideBarContent = () => {
   const theme = useTheme();
   return (
     <Grid container>
@@ -67,4 +66,4 @@ const Status = () => {
   );
 };
 
-export default Status;
+export default SideBarContent;
