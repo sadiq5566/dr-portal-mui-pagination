@@ -3,41 +3,45 @@ import { makeStyles } from "@mui/styles";
 import { Theme, Button as Buttons } from "@mui/material";
 const useStyles = makeStyles((theme: Theme) => ({
   primary: {
+    background: "#4362EA !important",
     width: "100%",
     height: "100%",
     padding: "0.7rem !important",
     color: "#FFFFFF",
-    fontWeight: 500,
-    fontSize: "15px"
+    fontWeight: "bold !important"
   },
   secondary: {
-    background: "#BF43EA",
+    background: "#BF43EA !important",
     color: "#FFFFFF",
     borderRadius: "5px",
     fontWeight: 500,
-    fontSize: "0.9rem",
     marginLeft: "0.5rem"
   },
   warning: {
-    color: "#D75041",
-    background: "#FFFFFF",
-    border: "1px solid #E7E7E9",
+    color: "#D75041 !important",
+    background: "#FFFFFF !important",
+    border: "1px solid #E7E7E9 !important",
     borderRadius: "5px",
-    marginLeft: "1rem"
+    marginLeft: "1rem !important"
   },
   success: {
-    background: "#24BD86",
+    background: "#24BD86 !important",
+    color: "#FFFFFF",
+    borderRadius: "5px"
+  },
+  disable: {
+    background: "#E5E6E8 !important",
     color: "#FFFFFF",
     borderRadius: "5px"
   },
   danger: {
     color: "#FFFFFF",
     borderRadius: "5px",
-    background: "#D75041",
+    background: "#D75041 !important",
     marginRight: "1rem"
   },
   info: {
-    color: "#4362EA",
+    color: "#4362EA !important",
     borderRadius: "5px",
     background: "#FFFFFF",
     marginRight: "1rem"
@@ -109,15 +113,17 @@ const useStyles = makeStyles((theme: Theme) => ({
 interface IProps {
   readonly size?: "medium" | "small" | "large";
   readonly primary?: string;
+  readonly disabled?: boolean;
   readonly text?: string;
   readonly startIcon?: React.ReactNode;
-  readonly onClick?: () => void;
+  readonly onClick?: (e: any) => void;
   readonly color?:
     | "secondary"
     | "primary"
     | "info"
     | "success"
     | "danger"
+    | "disable"
     | "warning"
     | "AccLock"
     | "chooseStatus"
@@ -138,6 +144,7 @@ const Button: React.FC<IProps> = ({
   info,
   text,
   color,
+  disabled,
   primary,
   warning,
   onClick
@@ -148,6 +155,7 @@ const Button: React.FC<IProps> = ({
       className={color ? classes[color] : ""}
       onClick={onClick}
       variant={variant}
+      disabled={disabled}
       startIcon={startIcon}
       size={size}
       style={{ textTransform: "capitalize" }}

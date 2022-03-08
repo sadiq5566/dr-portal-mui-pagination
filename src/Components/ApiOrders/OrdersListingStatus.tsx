@@ -26,7 +26,7 @@ interface Iprops {
   complete?: boolean;
   reject?: boolean;
 }
-const Orders = () => {
+const OrdersListingStatus = () => {
   const [activeClass, setActiveClass] = React.useState<Iprops>({
     new: false,
     accept: false,
@@ -49,10 +49,7 @@ const Orders = () => {
                 text="New"
                 color={activeClass.new ? "ActiveButtonStatus" : "chooseStatus"}
                 onClick={() =>
-                  setActiveClass({
-                    ...activeClass,
-                    new: !activeClass.new
-                  })
+                  setActiveClass((current) => ({ ...current, new: !activeClass.new }))
                 }
                 startIcon={<StatusSvg status="new" activeClass={activeClass.new} />}
               />
@@ -67,10 +64,7 @@ const Orders = () => {
                       : "chooseStatus"
                   }
                   onClick={() =>
-                    setActiveClass({
-                      ...activeClass,
-                      accept: !activeClass.accept
-                    })
+                    setActiveClass((current) => ({ ...current, accept: !current.accept }))
                   }
                   startIcon={
                     <StatusSvg status="accept" activeClass={activeClass.accept} />
@@ -88,10 +82,7 @@ const Orders = () => {
                       : "chooseStatus"
                   }
                   onClick={() =>
-                    setActiveClass({
-                      ...activeClass,
-                      lock: !activeClass.lock
-                    })
+                    setActiveClass((current) => ({ ...current, lock: !activeClass.lock }))
                   }
                   startIcon={<StatusSvg status="locked" activeClass={activeClass.lock} />}
                 />
@@ -107,10 +98,10 @@ const Orders = () => {
                       : "chooseStatus"
                   }
                   onClick={() =>
-                    setActiveClass({
-                      ...activeClass,
+                    setActiveClass((current) => ({
+                      ...current,
                       complete: !activeClass.complete
-                    })
+                    }))
                   }
                   startIcon={
                     <StatusSvg status="complete" activeClass={activeClass.complete} />
@@ -127,10 +118,10 @@ const Orders = () => {
                     : "chooseStatus"
                 }
                 onClick={() =>
-                  setActiveClass({
-                    ...activeClass,
+                  setActiveClass((current) => ({
+                    ...current,
                     reject: !activeClass.reject
-                  })
+                  }))
                 }
                 startIcon={<StatusSvg status="reject" activeClass={activeClass.reject} />}
               />
@@ -161,4 +152,4 @@ const Orders = () => {
   );
 };
 
-export default Orders;
+export default OrdersListingStatus;

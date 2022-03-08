@@ -29,7 +29,7 @@ const SideBarIcon = () => {
         <Box className={classes.mainBox}>
           <WorldIcon />
         </Box>
-        <Link to="/history">
+        <Link to="/orderdetails/1">
           <Box className={classes.mainBox}>
             <HistoryIcon />
           </Box>

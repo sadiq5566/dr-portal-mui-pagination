@@ -15,7 +15,7 @@ interface props {
   orderStatus?: Boolean;
   divStatus?: Boolean;
 }
-const useStyles: any = makeStyles({
+const useStyles = makeStyles({
   ordersStatus: {
     display: "flex",
     justifyContent: "space-between",
