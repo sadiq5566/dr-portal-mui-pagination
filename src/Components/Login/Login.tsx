@@ -1,4 +1,4 @@
-import { Grid, Theme, Box, Typography } from "@mui/material";
+import { Grid, Theme, Typography, Box } from "@mui/material";
 import loginone from "../../Assets/images/loginone.png";
 import { makeStyles } from "@mui/styles";
 import Logo from "../../Assets/svgs/DrSvg/Logo";
@@ -9,7 +9,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   img: {
     maxWidth: "100%",
     height: "100%",
-    objectFit: "fill"
+    position: "fixed"
+    // overflow: "hidden"
   },
   logo: {
     display: "flex",
@@ -26,27 +27,32 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const Login = () => {
   const classes = useStyles();
+
   return (
     <Grid container justifyContent="center">
-      <Grid item xs={10} sm={10} md={8} lg={6}>
-        <img src={loginone} alt="loginone" className={classes.img} />
+      <Grid item lg={6}>
+        <Box>
+          <img src={loginone} alt="loginone" className={classes.img} />
+        </Box>
       </Grid>
-      <Grid item xs={10} sm={10} md={7} lg={6}>
-        <Grid container justifyContent="center">
-          <Grid item xs={12} sm={10} md={12} lg={12}>
-            <Box className={classes.logo}>
-              <Logo />
-              <Typography variant="h1">DR Porter</Typography>
-            </Box>
-          </Grid>
-        </Grid>
-        <Grid container justifyContent="center">
-          <Grid item xs={12} sm={12} md={12} lg={12}>
-            <Typography variant="subtitle2">Log in</Typography>
-          </Grid>
-        </Grid>
-        <Grid container justifyContent="center">
-          <Grid item xs={10} sm={10} md={10} lg={6}>
+      <Grid item lg={6}>
+        <Box className={classes.logo}>
+          <Logo />
+          <Typography variant="h1">DR Porter</Typography>
+        </Box>
+        <Box>
+          <Typography variant="subtitle2">Log in</Typography>
+        </Box>
+        <Grid
+          container
+          justifyContent="center"
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center"
+          }}
+        >
+          <Grid item lg={6} sx={{ width: "100%" }}>
             <Box mt={4}>
               <InputField
                 type="text"
@@ -56,16 +62,15 @@ const Login = () => {
               />
             </Box>
           </Grid>
-        </Grid>
-        <Grid container justifyContent="center">
-          <Grid item xs={10} sm={10} md={10} lg={6}>
+
+          <Grid item lg={6} sx={{ width: "100%" }}>
             <Box mt={2}>
               <InputField type="password" variant="outlined" label="Password" />
             </Box>
           </Grid>
         </Grid>
         <Grid container justifyContent="center">
-          <Grid item xs={10} sm={10} md={10} lg={6}>
+          <Grid item lg={6}>
             <Box className={classes.loginbtn}>
               <Button size="small" variant="contained" text="Log in" color="primary" />
             </Box>

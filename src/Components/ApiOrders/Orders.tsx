@@ -5,6 +5,8 @@ import OrdersListing from "./OrdersListing";
 import Button from "../Button";
 import Layout from "../Layout/index";
 import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
+import Status from "../OrdersStatus/Status";
+import Header from "./Header";
 
 interface Iprops {
   new?: boolean;
@@ -17,9 +19,14 @@ interface Iprops {
 const useStyles = makeStyles({
   mainBox: {
     display: "flex",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    padding: "0px 32px 0px 16px"
+  },
+  orderListing: {
+    padding: "5px 32px 0px 32px !important"
   }
 });
+
 const Orders = () => {
   const [activeClass, setActiveClass] = React.useState<Iprops>({
     new: false,
@@ -31,8 +38,9 @@ const Orders = () => {
   const classes = useStyles();
 
   return (
-    <Layout>
+    <Layout sideContent={<Status />}>
       <Grid container spacing={2}>
+        <Header />
         <Grid item xs={12}>
           <Box className={classes.mainBox}>
             <Box sx={{ display: "flex" }}>
@@ -146,7 +154,7 @@ const Orders = () => {
             </Box>
           </Box>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} className={classes.orderListing}>
           <OrdersListing />
         </Grid>
       </Grid>

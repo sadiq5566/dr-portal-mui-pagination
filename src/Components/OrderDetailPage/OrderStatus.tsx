@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginTop: "1rem"
   },
   timer: {
-    marginTop: "0.3rem important",
+    marginTop: "0.2rem !important",
     fontWeight: "bold !important",
     fontSize: "24px !important",
     color: theme.palette.text.primary
@@ -71,7 +71,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     color: theme.palette.text.primary
   },
   icon: {
-    marginTop: "0.2rem",
     color: "#585F67",
     marginRight: "0.2rem"
   }

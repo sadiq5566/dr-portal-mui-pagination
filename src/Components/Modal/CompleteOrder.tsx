@@ -44,15 +44,18 @@ const CompleteOrder: React.FC<IProps> = ({ setModal }) => {
   };
   const submit = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     e.preventDefault();
-    console.log(user, "this is form");
   };
 
   let disable =
-    !user.reciept_number &&
-    !user.confirm_number &&
-    user.reciept_number === user.confirm_number
-      ? false
-      : true;
+    !user.reciept_number ||
+    !user.confirm_number ||
+    user.reciept_number !== user.confirm_number ||
+    !user.total_amount ||
+    !user.confirm_amount ||
+    user.total_amount !== user.confirm_amount
+      ? true
+      : false;
+  console.log(!user, "this is console");
   return (
     <Modal open={true}>
       <Box sx={style}>

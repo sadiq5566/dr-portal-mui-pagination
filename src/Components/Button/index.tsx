@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   info: {
     color: "#4362EA !important",
     borderRadius: "5px",
-    background: "#FFFFFF",
+    background: "#FFFFFF !important",
     marginRight: "1rem"
   },
   AccLock: {

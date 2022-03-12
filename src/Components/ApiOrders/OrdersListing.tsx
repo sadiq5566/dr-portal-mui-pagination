@@ -21,7 +21,7 @@ const OrdersListing = () => {
 
       selector: (TableMockData) => TableMockData.VIN,
       cell: (TableMockData) => (
-        <Link style={{ textDecoration: "none" }} to={`/index/${TableMockData.id}`}>
+        <Link style={{ textDecoration: "none" }} to={`/orderdetails/${TableMockData.id}`}>
           <Typography variant="typo3">{TableMockData.VIN}</Typography>
         </Link>
       )

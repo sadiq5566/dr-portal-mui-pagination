@@ -5,7 +5,8 @@ import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles((theme: Theme) => ({
   inputField: {
     width: "100%",
-    background: "#ffffff"
+    background: "#ffffff",
+    borderRadius: "10px"
   },
   info: {
     border: "2px solid #E5E6E8 !important",
@@ -76,7 +77,7 @@ interface IProps {
   readonly value?: string | number;
   readonly label?: string;
   readonly onClick?: (e: any) => void;
-  readonly size?: "small";
+  readonly size?: "small" | "medium";
   readonly variant?: "filled" | "standard" | "outlined";
   readonly onChange?: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
