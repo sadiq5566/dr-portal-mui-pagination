@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Box,
   Grid,
@@ -20,6 +20,8 @@ import historyData from "../data/HistoryData";
 import ExpandSvg from "../../Assets/svgs/ExpandSvg/ExpandSvg";
 import { Link } from "react-router-dom";
 import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
+import theme from "../../theme";
+import { useParams } from "react-router-dom";
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -28,9 +30,8 @@ interface ExpandMoreProps extends IconButtonProps {
   time: string;
   orderStatus: string;
   status: string;
-  theme: any;
 }
-const useStyles: any = makeStyles({
+const useStyles = makeStyles({
   cardActions: {
     paddingBottom: "6px !important",
     paddingTop: "4px !important"
@@ -45,17 +46,32 @@ const useStyles: any = makeStyles({
     padding: "0 !important",
     paddingTop: "8px !important"
   },
-  stackContent: {
+  main: {
     paddingLeft: "19px ",
     paddingRight: "13px ",
+    color: theme.palette.primary.dark,
     "&:hover": {
       backgroundColor: "#4363EA",
-      color: "#FFF !important"
-    },
-    "&:active": {
-      background: "#4363EA",
-      color: "#FFF !important"
+      color: "#FFF ",
+      "& $userName": {
+        color: "#FFF "
+      },
+      "& $orderTime": {
+        color: " #E3E5E9"
+      },
+      "& $userOrderStatus": {
+        color: " #E3E5E9"
+      }
     }
+  },
+  userName: {
+    color: theme.palette.secondary.dark
+  },
+  orderTime: {
+    color: theme.palette.primary.dark
+  },
+  userOrderStatus: {
+    color: theme.palette.primary.dark
   }
 });
 
@@ -70,9 +86,14 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 }));
 const VersionHistory = () => {
   const [active, setActive] = React.useState<string | null | boolean>(true);
-
   const classes = useStyles();
   const theme = useTheme();
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    setActive(id);
+  }, [id]);
   return (
     <Grid container>
       <Grid item xs={12}>
@@ -158,104 +179,100 @@ const VersionHistory = () => {
                     >
                       <CardContent className={classes.cardContent}>
                         <Link to={`/orderdetails/${historydata.id}`}>
-                          <Stack pb={1} className={`${classes.stackContent}`}>
+                          <Box pb={1} className={`${classes.main}`}>
+                            <Stack
+                              direction="row"
+                              alignItems="center"
+                              justifyContent="space-between"
+                              pl={2}
+                            >
+                              <Typography
+                                className={classes.userName}
+                                variant="subtitle1"
+                              >
+                                {historydata.name}
+                              </Typography>
+                              <Typography className={classes.orderTime} variant="body3">
+                                {historydata.time}
+                              </Typography>
+                            </Stack>
                             <Stack
                               direction="row"
                               alignItems="center"
                               pl={2}
-                              justifyContent="space-between"
+                              className={classes.userOrderStatus}
                             >
-                              <Typography
-                                variant="subtitle1"
-                                color={theme.palette.secondary.dark}
-                              >
-                                {historydata.name}
-                              </Typography>
-                              <Typography
-                                variant="body3"
-                                color={theme.palette.primary.dark}
-                              >
-                                {historydata.time}
-                              </Typography>
-                            </Stack>
-                            <Stack direction="row" alignItems="center" pl={2}>
                               <StatusSvg status={historydata.status} stroke />
-                              <Typography
-                                variant="body4"
-                                color={theme.palette.primary.dark}
-                                pl={1}
-                              >
+                              <Typography variant="body4" pl={1}>
                                 {historydata.orderStatus}
                               </Typography>
                             </Stack>
-                          </Stack>
+                          </Box>
                         </Link>
                         <Divider />
-                        <Stack py={1} className={classes.stackContent}>
-                          <Stack
-                            direction="row"
-                            alignItems="center"
-                            pl={2}
-                            justifyContent="space-between"
-                          >
-                            <Typography
-                              variant="subtitle1"
-                              color={theme.palette.secondary.dark}
+                        <Link to={`/orderdetails/${historydata.id}`}>
+                          <Box pb={1} className={`${classes.main}`}>
+                            <Stack
+                              direction="row"
+                              alignItems="center"
+                              justifyContent="space-between"
+                              pl={2}
                             >
-                              {historydata.name}
-                            </Typography>
-                            <Typography
-                              variant="body3"
-                              color={theme.palette.primary.dark}
+                              <Typography
+                                className={classes.userName}
+                                variant="subtitle1"
+                              >
+                                {historydata.name}
+                              </Typography>
+                              <Typography className={classes.orderTime} variant="body3">
+                                {historydata.time}
+                              </Typography>
+                            </Stack>
+                            <Stack
+                              direction="row"
+                              alignItems="center"
+                              pl={2}
+                              className={classes.userOrderStatus}
                             >
-                              {historydata.time}
-                            </Typography>
-                          </Stack>
-
-                          <Stack direction="row" alignItems="center" pl={2}>
-                            <StatusSvg status={historydata.status} stroke />
-                            <Typography
-                              variant="body4"
-                              color={theme.palette.primary.dark}
-                              pl={1}
-                            >
-                              {historydata.orderStatus}
-                            </Typography>
-                          </Stack>
-                        </Stack>
+                              <StatusSvg status={historydata.status} stroke />
+                              <Typography variant="body4" pl={1}>
+                                {historydata.orderStatus}
+                              </Typography>
+                            </Stack>
+                          </Box>
+                        </Link>
                         <Divider />
-                        <Stack py={1} className={classes.stackContent}>
-                          <Stack
-                            direction="row"
-                            alignItems="center"
-                            pl={2}
-                            justifyContent="space-between"
-                          >
-                            <Typography
-                              variant="subtitle1"
-                              color={theme.palette.secondary.dark}
+                        <Link to={`/orderdetails/${historydata.id}`}>
+                          <Box pb={1} className={`${classes.main}`}>
+                            <Stack
+                              direction="row"
+                              alignItems="center"
+                              justifyContent="space-between"
+                              pl={2}
                             >
-                              {historydata.name}
-                            </Typography>
-                            <Typography
-                              variant="body3"
-                              color={theme.palette.primary.dark}
+                              <Typography
+                                className={classes.userName}
+                                variant="subtitle1"
+                              >
+                                {historydata.name}
+                              </Typography>
+                              <Typography className={classes.orderTime} variant="body3">
+                                {historydata.time}
+                              </Typography>
+                            </Stack>
+                            <Stack
+                              direction="row"
+                              alignItems="center"
+                              pl={2}
+                              className={classes.userOrderStatus}
                             >
-                              {historydata.time}
-                            </Typography>
-                          </Stack>
-
-                          <Stack direction="row" alignItems="center" pl={2}>
-                            <StatusSvg status={historydata.status} stroke />
-                            <Typography
-                              variant="body4"
-                              color={theme.palette.primary.dark}
-                              pl={1}
-                            >
-                              {historydata.orderStatus}
-                            </Typography>
-                          </Stack>
-                        </Stack>
+                              <StatusSvg status={historydata.status} stroke />
+                              <Typography variant="body4" pl={1}>
+                                {historydata.orderStatus}
+                              </Typography>
+                            </Stack>
+                          </Box>
+                        </Link>
                       </CardContent>
                     </Collapse>
                   </Card>

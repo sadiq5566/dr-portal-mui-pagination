@@ -53,7 +53,7 @@ const useStyles = makeStyles({
     fontSize: "16px !important"
   },
   profileTitle: {
-    color: theme.palette.primary.dark
+    color: theme.palette.success.main
   },
   profileDetails: {
     fontSize: "14px !important",
@@ -118,8 +118,14 @@ export default function NestedModal() {
               }
             }
           }}
-          transformOrigin={{ horizontal: "right", vertical: "top" }}
-          anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "center"
+          }}
+          transformOrigin={{
+            vertical: "bottom",
+            horizontal: "center"
+          }}
         >
           <MenuItem
             onClick={handleOpen}

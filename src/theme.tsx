@@ -25,11 +25,12 @@ const blue = "#4363EA";
 const blackIcon = "#585F67";
 const yellow = "#F7CB68";
 const newText = "#383747";
-const searchIcon = "#24BD86";
+const green = "#24BD86";
 const ButtonNumberText = "#D5D9DE";
 const white = "#FFFFFF";
 const secondaryDark = "#17202C";
 const secondaryMain = "#3C4046";
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -46,7 +47,7 @@ const theme = createTheme({
       dark: `${newText}`
     },
     success: {
-      main: `${searchIcon}`,
+      main: `${green}`,
       dark: `${ButtonNumberText}`
     }
   },

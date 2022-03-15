@@ -5,6 +5,7 @@ import { useTheme } from "@mui/material/styles";
 import { makeStyles } from "@mui/styles";
 import SearchSvg from "../../Assets/svgs/SearchSvg/SearchSvg";
 import DropDownSvg from "../../Assets/svgs/DropDownSvg/DropDownSvg";
+import theme from "../../theme";
 const useStyles = makeStyles({
   mainHeading: {
     fontSize: "21px !important",
@@ -12,7 +13,7 @@ const useStyles = makeStyles({
     paddingTop: "35.5px"
   },
   SearchDiv: {
-    background: "#24BD86",
+    background: theme.palette.success.main,
     height: "40px",
     width: "40px",
     borderRadius: "10px",

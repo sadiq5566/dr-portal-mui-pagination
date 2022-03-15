@@ -24,7 +24,6 @@ const useStyles = makeStyles({
     alignItems: "center",
     backgroundColor: "#FFF",
     color: "#585F67",
-
     "&:hover": {
       backgroundColor: "#4363EA",
       color: "#FFF"
