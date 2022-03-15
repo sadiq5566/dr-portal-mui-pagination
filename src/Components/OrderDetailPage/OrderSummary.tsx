@@ -10,13 +10,13 @@ interface IProps {
 const useStyles = makeStyles((theme: Theme) => ({
   rightDiv: {
     borderRadius: "8px",
-    background: "#FFFFFF",
-    border: "1px solid #E7E7E9",
-    marginTop: "2rem important"
+    background: theme.palette.primary.light,
+    border: `1px solid ${theme.palette.secondary.contrastText}`,
+    marginTop: "1.7rem"
   },
   summary: {
     color: theme.palette.text.primary,
-    fontSize: "14px important",
+    fontSize: "14px !important",
     fontWeight: "bold !important"
   },
   customer: {

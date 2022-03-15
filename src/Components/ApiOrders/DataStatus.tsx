@@ -1,6 +1,7 @@
 import { Box, Button as Buttons } from "@mui/material";
 import React from "react";
 import Button from "../Button/index";
+import theme from "../../theme";
 
 const DataStatus = () => {
   return (
@@ -16,7 +17,7 @@ const DataStatus = () => {
           border: 1,
           borderColor: "grey.300",
           borderRadius: "5px",
-          backgroundColor: "#fff",
+          backgroundColor: theme.palette.success.light,
           justifyContent: "center",
           alignItems: "center",
           display: "flex",

@@ -5,57 +5,57 @@ import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles((theme: Theme) => ({
   inputField: {
     width: "100%",
-    background: "#ffffff",
+    background: theme.palette.primary.light,
     borderRadius: "10px"
   },
   info: {
-    border: "2px solid #E5E6E8 !important",
+    border: `2px solid ${theme.palette.primary.contrastText} !important`,
     "& .MuiInput-underline:after": {
-      border: "#E5E6E8"
+      border: `${theme.palette.primary.contrastText} `
     },
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
-        border: "#E5E6E8"
+        border: `${theme.palette.primary.contrastText} `
       },
       "&:hover fieldset": {
-        border: "#E5E6E8"
+        border: `${theme.palette.primary.contrastText} `
       },
       "&.Mui-focused fieldset": {
-        border: "#E5E6E8"
+        border: `${theme.palette.primary.contrastText}`
       }
     }
   },
   success: {
-    border: "2px solid #24BD86 !important",
+    border: `2px solid ${theme.palette.success.main}  !important`,
     "& .MuiInput-underline:after": {
-      border: "#E5E6E8"
+      border: ` ${theme.palette.primary.contrastText}`
     },
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
-        border: "#E5E6E8"
+        border: ` ${theme.palette.primary.contrastText}`
       },
       "&:hover fieldset": {
-        border: "#E5E6E8"
+        border: ` ${theme.palette.primary.contrastText}`
       },
       "&.Mui-focused fieldset": {
-        border: "#E5E6E8"
+        border: ` ${theme.palette.primary.contrastText}`
       }
     }
   },
   error: {
-    border: "2px solid #D75041 !important",
+    border: `2px solid ${theme.palette.secondary.light}  !important`,
     "& .MuiInput-underline:after": {
-      border: "#E5E6E8"
+      border: ` ${theme.palette.primary.contrastText} `
     },
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
-        border: "#E5E6E8"
+        border: ` ${theme.palette.primary.contrastText} `
       },
       "&:hover fieldset": {
-        border: "#E5E6E8"
+        border: ` ${theme.palette.primary.contrastText} `
       },
       "&.Mui-focused fieldset": {
-        border: "#E5E6E8"
+        border: ` ${theme.palette.primary.contrastText} `
       }
     }
   },
@@ -76,7 +76,7 @@ interface IProps {
   readonly placeholder?: string;
   readonly value?: string | number;
   readonly label?: string;
-  readonly onClick?: (e: any) => void;
+
   readonly size?: "small" | "medium";
   readonly variant?: "filled" | "standard" | "outlined";
   readonly onChange?: (
@@ -89,7 +89,6 @@ const InputField: React.FC<IProps> = ({
   error,
   success,
   info,
-  onClick,
   onChange,
   color,
   placeholder,
@@ -108,7 +107,6 @@ const InputField: React.FC<IProps> = ({
             type={type}
             name={name}
             color={color}
-            onClick={onClick}
             onChange={onChange}
             value={value}
             id="outlined-basic"

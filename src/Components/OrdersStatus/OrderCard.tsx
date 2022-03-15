@@ -22,12 +22,12 @@ const useStyles: any = makeStyles({
     height: "40px",
     borderRadius: "5px",
     alignItems: "center",
-    backgroundColor: "#FFF",
-    color: "#585F67",
+    backgroundColor: theme.palette.success.light,
+    color: theme.palette.primary.dark,
 
     "&:hover": {
-      backgroundColor: "#4363EA",
-      color: "#FFF"
+      backgroundColor: theme.palette.warning.contrastText,
+      color: theme.palette.success.light
     }
   },
 
@@ -36,15 +36,15 @@ const useStyles: any = makeStyles({
     justifyContent: "space-between",
     height: "45px",
     alignItems: "center",
-    backgroundColor: "#fff",
+    backgroundColor: theme.palette.success.light,
     paddingTop: "4px",
     paddingBottom: "4px",
     marginBottom: "8px",
-    color: "#585F67"
+    color: theme.palette.primary.dark
   },
   active: {
-    backgroundColor: "#4363EA !important",
-    color: "#FFF"
+    backgroundColor: theme.palette.warning.contrastText,
+    color: theme.palette.success.light
   },
 
   MiniText: {
@@ -53,7 +53,7 @@ const useStyles: any = makeStyles({
     alignItems: "center"
   },
   MiniTextColor: {
-    color: "#D5D9DE"
+    color: theme.palette.success.dark
   },
 
   ordersStatusFont: {

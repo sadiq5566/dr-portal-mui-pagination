@@ -14,7 +14,7 @@ interface IProps {
 
 const useStyles = makeStyles((theme: Theme) => ({
   documents: {
-    background: "#F6F6F7",
+    background: theme.palette.common.white,
     paddingBottom: "1rem",
     borderRadius: "8px",
     paddingLeft: "0.7rem"
@@ -33,6 +33,7 @@ const AttachmentDetails: React.FC<IProps> = ({ order }) => {
           </Stack>
           <Box pl={2}>
             <Button text="Print Attachments" size="large" color="info" />
+
             <Button text="Print Summary" size="large" color="info" />
           </Box>
         </Box>

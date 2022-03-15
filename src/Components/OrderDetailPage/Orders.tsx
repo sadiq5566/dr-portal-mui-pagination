@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Theme, Divider, Box } from "@mui/material";
+import { Grid, Typography, Theme, Divider, Box } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import WestIcon from "@mui/icons-material/West";
 import Button from "../Button/index";
@@ -20,8 +20,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     cursor: "pointer",
     paddingBottom: "25px"
   },
+  arrowIcon: {
+    color: theme.palette.info.dark,
+    textDecoration: "none"
+  },
   back: {
-    paddingLeft: "0.7rem"
+    paddingLeft: "0.7rem",
+    color: theme.palette.info.dark
   },
   order: {
     display: "flex",
@@ -30,21 +35,17 @@ const useStyles = makeStyles((theme: Theme) => ({
     paddingBottom: "2rem"
   },
   accepted: {
-    backgroundColor: " #F9FBFD",
-    color: " #383747",
+    backgroundColor: theme.palette.info.main,
+    color: theme.palette.warning.dark,
     textTransform: "none",
 
     borderRadius: "7px",
-    border: "1px solid #F2F1F6",
+    border: `1px solid ${theme.palette.success.contrastText}`,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
     fontSize: "10px"
-  },
-  accept: {
-    paddingLeft: "8px",
-    fontWeight: "bold"
   }
 }));
 
@@ -54,14 +55,19 @@ const Orders: React.FC<IProps> = ({ order }) => {
   return (
     <>
       <Box pl={3}>
-        <Link to="/" style={{ color: "#000000", textDecoration: "none" }}>
-          <Box className={classes.arrow}>
-            <WestIcon />
-            <Typography variant="h6" className={classes.back}>
-              Back
-            </Typography>
-          </Box>
-        </Link>
+        <Grid container>
+          <Link to="/" className={classes.arrowIcon}>
+            <Grid item lg={2}>
+              <Box className={classes.arrow}>
+                <WestIcon />
+                <Typography variant="h6" className={classes.back}>
+                  Back
+                </Typography>
+              </Box>
+            </Grid>
+          </Link>
+          <Grid item lg={9}></Grid>
+        </Grid>
       </Box>
       <Box>
         <Divider />
@@ -75,7 +81,7 @@ const Orders: React.FC<IProps> = ({ order }) => {
             </Typography>
           </Box>
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Box>
+            <>
               {order?.Status === "complete" ? (
                 <Button
                   text="Complete Order"
@@ -92,7 +98,7 @@ const Orders: React.FC<IProps> = ({ order }) => {
                   size="large"
                 />
               )}
-            </Box>
+            </>
             <Box>
               <Button variant="contained" text="Reject" size="medium" color="warning" />
             </Box>

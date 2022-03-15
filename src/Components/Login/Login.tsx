@@ -10,7 +10,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     maxWidth: "100%",
     height: "100%",
     position: "fixed"
-    // overflow: "hidden"
   },
   logo: {
     display: "flex",

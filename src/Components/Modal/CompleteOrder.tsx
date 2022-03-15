@@ -55,7 +55,7 @@ const CompleteOrder: React.FC<IProps> = ({ setModal }) => {
     user.total_amount !== user.confirm_amount
       ? true
       : false;
-  console.log(!user, "this is console");
+
   return (
     <Modal open={true}>
       <Box sx={style}>

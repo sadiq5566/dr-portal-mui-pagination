@@ -38,10 +38,10 @@ const useStyles: any = makeStyles({
     marginRight: "6px !important"
   },
   profileBg: {
-    backgroundColor: "#4363EA !important"
+    backgroundColor: theme.palette.warning.contrastText
   },
   profileTextColor: {
-    color: "#fff !important"
+    color: theme.palette.success.light
   },
   profileHeading: {
     fontSize: "18px !important",
@@ -49,7 +49,7 @@ const useStyles: any = makeStyles({
   },
   profileSubHeading: {
     fontWeight: "600 !important ",
-    color: "#17202C !important",
+    color: theme.palette.secondary.dark,
     fontSize: "16px !important"
   },
   profileTitle: {
@@ -99,7 +99,7 @@ export default function NestedModal() {
           PaperProps={{
             elevation: 0,
             sx: {
-              backgroundColor: "#585F67",
+              backgroundColor: theme.palette.primary.dark,
               overflow: "visible",
               top: "486px !important",
               left: "15px !important",
@@ -111,7 +111,7 @@ export default function NestedModal() {
                 height: 0,
                 borderLeft: "17px solid transparent",
                 borderRight: "17px solid transparent",
-                borderTop: "26px solid #585F67",
+                borderTop: `26px solid ${theme.palette.primary.dark}`,
                 top: "58px",
                 left: "11px",
                 padding: "0"

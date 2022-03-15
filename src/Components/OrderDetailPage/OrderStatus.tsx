@@ -18,16 +18,16 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   rightDive: {
     borderRadius: "8px",
-    backgroundColor: "#ffffff",
-    border: "1px solid #E7E7E9",
+    backgroundColor: theme.palette.primary.light,
+    border: `1px solid ${theme.palette.secondary.contrastText}`,
     alignItems: "center"
   },
   accepted: {
-    backgroundColor: " #F9FBFD",
-    color: " #383747",
+    backgroundColor: theme.palette.info.main,
+    color: theme.palette.warning.dark,
     textTransform: "none",
     borderRadius: "7px",
-    border: "1px solid #F2F1F6",
+    border: theme.palette.success.contrastText,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -39,15 +39,21 @@ const useStyles = makeStyles((theme: Theme) => ({
     paddingLeft: "8px",
     fontWeight: "bold !important"
   },
+  lock: {
+    display: "flex",
+    alignItems: "center",
+    background: theme.palette.info.main,
+    border: `1px solid ${theme.palette.success.contrastText}`
+  },
   timeUntil: {
     borderRadius: "6px",
     marginTop: "1rem",
-    border: "1px solid #F2F1F6",
-    background: "#F9FBFD"
+    border: `1px solid ${theme.palette.success.contrastText}`,
+    background: theme.palette.info.main
   },
   complete: {
-    background: "#F1FFFA",
-    border: "1px solid #24BD86",
+    background: theme.palette.info.light,
+    border: `1px solid ${theme.palette.success.main}`,
     borderRadius: "6px",
     marginTop: "1rem"
   },
@@ -71,7 +77,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     color: theme.palette.text.primary
   },
   icon: {
-    color: "#585F67",
+    color: theme.palette.primary.dark,
     marginRight: "0.2rem"
   }
 }));
@@ -93,13 +99,17 @@ const OrderStatus: React.FC<IProps> = ({ order }) => {
           <Box className={classes.accepted} px={1}>
             {order.Status === "complete" ? (
               <>
-                <StatusSvg status="complete" />
-                <Typography className={classes.accept}>Complete</Typography>
+                <Box className={classes.lock}>
+                  <StatusSvg status="complete" />
+                  <Typography className={classes.accept}>Complete</Typography>
+                </Box>
               </>
             ) : (
               <>
-                <StatusSvg status="accept" />
-                <Typography className={classes.accept}>Accepted</Typography>
+                <Box className={classes.lock}>
+                  <StatusSvg status="locked" />
+                  <Typography className={classes.accept}>Locked</Typography>
+                </Box>
               </>
             )}
           </Box>

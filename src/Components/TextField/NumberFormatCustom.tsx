@@ -7,7 +7,7 @@ import NumberFormat from "react-number-format";
 const useStyles = makeStyles((theme: Theme) => ({
   inputField: {
     width: "100%",
-    background: "#ffffff"
+    background: theme.palette.primary.light
   },
   label: {
     fontSize: "12px"
@@ -22,7 +22,6 @@ interface IProps {
   readonly placeholder?: string;
   readonly value?: string | number;
   readonly label?: string;
-  readonly onClick?: (e: any) => void;
   readonly size?: "small";
   readonly variant?: "filled" | "standard" | "outlined";
   readonly onChange?: (
@@ -32,7 +31,6 @@ interface IProps {
 const NumberFormatCustom: React.FC<IProps> = ({
   type,
   name,
-  onClick,
   onChange,
   color,
   placeholder,
@@ -51,7 +49,6 @@ const NumberFormatCustom: React.FC<IProps> = ({
           customInput={InputField}
           name={name}
           color={color}
-          onClick={onClick}
           onChange={onChange}
           value={value}
           id="outlined-basic"
