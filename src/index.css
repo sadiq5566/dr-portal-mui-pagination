@@ -5,7 +5,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
@@ -16,7 +15,6 @@ code {
   overflow: hidden !important;
   border-radius: 5px !important;
 }
-
 .gFRHYh:hover {
   overflow-y: scroll !important;
   overflow-x: scroll !important;

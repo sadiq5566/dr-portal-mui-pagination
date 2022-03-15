@@ -2,7 +2,7 @@ import React from "react";
 import { Grid, Typography, Theme, Stack, Divider, Box } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import Button from "../Button/index";
-import Status from "./Status";
+import OrderStatus from "./OrderStatus";
 import OwnerInfo from "./OwnerInfo";
 import VehicleInfo from "./VehicleInfo";
 import DealershipInfo from "./DealershipInfo";
@@ -14,7 +14,7 @@ interface IProps {
 
 const useStyles = makeStyles((theme: Theme) => ({
   documents: {
-    background: "#F6F6F7",
+    background: theme.palette.common.white,
     paddingBottom: "1rem",
     borderRadius: "8px",
     paddingLeft: "0.7rem"
@@ -33,6 +33,7 @@ const AttachmentDetails: React.FC<IProps> = ({ order }) => {
           </Stack>
           <Box pl={2}>
             <Button text="Print Attachments" size="large" color="info" />
+
             <Button text="Print Summary" size="large" color="info" />
           </Box>
         </Box>
@@ -57,7 +58,7 @@ const AttachmentDetails: React.FC<IProps> = ({ order }) => {
       </Grid>
 
       <Grid item xs={3}>
-        <Status order={order} />
+        <OrderStatus order={order} />
       </Grid>
     </Grid>
   );

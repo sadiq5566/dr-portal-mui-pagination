@@ -22,7 +22,6 @@ import { Link } from "react-router-dom";
 import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
 import theme from "../../theme";
 import { useParams } from "react-router-dom";
-
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
   orderNo: string;
@@ -74,7 +73,6 @@ const useStyles = makeStyles({
     color: theme.palette.primary.dark
   }
 });
-
 const ExpandMore = styled((props: ExpandMoreProps) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -88,9 +86,7 @@ const VersionHistory = () => {
   const [active, setActive] = React.useState<string | null | boolean>(true);
   const classes = useStyles();
   const theme = useTheme();
-
   const { id } = useParams();
-
   useEffect(() => {
     setActive(id);
   }, [id]);
@@ -110,7 +106,6 @@ const VersionHistory = () => {
             <Location />
           </Box>
           <Divider />
-
           <Scrollbars
             style={{
               width: "100%",
@@ -125,7 +120,6 @@ const VersionHistory = () => {
               <Typography variant="body4" color="#585F67">
                 Nov 11, 2021
               </Typography>
-
               {historyData?.map((historydata) => {
                 return (
                   <Card
@@ -171,7 +165,6 @@ const VersionHistory = () => {
                       </Stack>
                     </CardActions>
                     {<Divider />}
-
                     <Collapse
                       in={Number(active) === Number(historydata.id) ? true : false}
                       timeout="auto"
@@ -211,7 +204,7 @@ const VersionHistory = () => {
                         </Link>
                         <Divider />
                         <Link to={`/orderdetails/${historydata.id}`}>
-                          <Box pb={1} className={`${classes.main}`}>
+                          <Box py={1} className={`${classes.main}`}>
                             <Stack
                               direction="row"
                               alignItems="center"
@@ -243,7 +236,7 @@ const VersionHistory = () => {
                         </Link>
                         <Divider />
                         <Link to={`/orderdetails/${historydata.id}`}>
-                          <Box pb={1} className={`${classes.main}`}>
+                          <Box py={1} className={`${classes.main}`}>
                             <Stack
                               direction="row"
                               alignItems="center"
@@ -285,5 +278,4 @@ const VersionHistory = () => {
     </Grid>
   );
 };
-
 export default VersionHistory;

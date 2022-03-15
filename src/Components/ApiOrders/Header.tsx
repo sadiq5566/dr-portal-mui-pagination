@@ -23,7 +23,7 @@ const useStyles = makeStyles({
     marginLeft: "10px"
   },
   MainBox: {
-    backgroundColor: " #F6F6F7  ",
+    backgroundColor: theme.palette.common.white,
     borderRadius: "5px"
   }
 });
@@ -83,5 +83,4 @@ const Header = () => {
     </Grid>
   );
 };
-
 export default Header;

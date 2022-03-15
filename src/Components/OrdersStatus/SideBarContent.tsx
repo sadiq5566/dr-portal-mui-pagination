@@ -30,7 +30,6 @@ const SideBarContent = () => {
               <Typography variant="subtitle1" color={theme.palette.primary.dark}>
                 General Queues
               </Typography>
-
               {OrderStatusMockData.map((orderstatusMockData, i) => {
                 return (
                   <OrderCard
@@ -65,5 +64,4 @@ const SideBarContent = () => {
     </Grid>
   );
 };
-
 export default SideBarContent;

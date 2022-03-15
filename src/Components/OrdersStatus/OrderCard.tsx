@@ -15,18 +15,19 @@ interface props {
   orderStatus?: Boolean;
   divStatus?: Boolean;
 }
-const useStyles = makeStyles({
+const useStyles: any = makeStyles({
   ordersStatus: {
     display: "flex",
     justifyContent: "space-between",
     height: "40px",
     borderRadius: "5px",
     alignItems: "center",
-    backgroundColor: "#FFF",
-    color: "#585F67",
+    backgroundColor: theme.palette.success.light,
+    color: theme.palette.primary.dark,
+
     "&:hover": {
-      backgroundColor: "#4363EA",
-      color: "#FFF"
+      backgroundColor: theme.palette.warning.contrastText,
+      color: theme.palette.success.light
     }
   },
 
@@ -35,15 +36,15 @@ const useStyles = makeStyles({
     justifyContent: "space-between",
     height: "45px",
     alignItems: "center",
-    backgroundColor: "#fff",
+    backgroundColor: theme.palette.success.light,
     paddingTop: "4px",
     paddingBottom: "4px",
     marginBottom: "8px",
-    color: "#585F67"
+    color: theme.palette.primary.dark
   },
   active: {
-    backgroundColor: "#4363EA !important",
-    color: "#FFF"
+    backgroundColor: theme.palette.warning.contrastText,
+    color: theme.palette.success.light
   },
 
   MiniText: {
@@ -52,7 +53,7 @@ const useStyles = makeStyles({
     alignItems: "center"
   },
   MiniTextColor: {
-    color: "#D5D9DE"
+    color: theme.palette.success.dark
   },
 
   ordersStatusFont: {
@@ -66,29 +67,35 @@ const useStyles = makeStyles({
 const OrderCard: React.FC<props> = ({ ordersdata, orderStatus }: props) => {
   const classes = useStyles();
   return (
-    <Grid container>
-      <Grid item xs={12}>
-        <Box
-          className={
-            orderStatus
-              ? `${classes.ordersStatus} ${ordersdata?.orderStatus ? classes.active : ""}`
-              : classes.orderData
-          }
-          px={2}
-          sx={{ border: 1, borderColor: "grey.300", borderRadius: "5px" }}
-        >
-          <Box className={classes.ordersStatusBox}>
-            <Typography variant="subtitle1">{ordersdata.name}</Typography>
-            <Typography variant="body4">{ordersdata.location}</Typography>
-          </Box>
+    <>
+      <Grid container>
+        <Grid item xs={12}>
           <Box
-            className={ordersdata.orderStatus ? classes.MiniTextColor : classes.MiniText}
+            className={
+              orderStatus
+                ? `${classes.ordersStatus} ${
+                    ordersdata?.orderStatus ? classes.active : ""
+                  }`
+                : classes.orderData
+            }
+            px={2}
+            sx={{ border: 1, borderColor: "grey.300", borderRadius: "5px" }}
           >
-            <Typography variant="body3">{ordersdata?.numbering}</Typography>
+            <Box className={classes.ordersStatusBox}>
+              <Typography variant="subtitle1">{ordersdata.name}</Typography>
+              <Typography variant="body4">{ordersdata.location}</Typography>
+            </Box>
+            <Box
+              className={
+                ordersdata.orderStatus ? classes.MiniTextColor : classes.MiniText
+              }
+            >
+              <Typography variant="body3">{ordersdata?.numbering}</Typography>
+            </Box>
           </Box>
-        </Box>
+        </Grid>
       </Grid>
-    </Grid>
+    </>
   );
 };
 

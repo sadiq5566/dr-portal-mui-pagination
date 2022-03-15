@@ -2,7 +2,6 @@ import Layout from "../Layout";
 import VersionHistory from "./VersionHistory";
 import { Divider, Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-
 const useStyles = makeStyles({
   mainHeading: {
     fontSize: "21px !important",
@@ -26,5 +25,4 @@ const OrderVersionPage = () => {
     </Layout>
   );
 };
-
 export default OrderVersionPage;

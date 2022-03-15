@@ -7,7 +7,6 @@ import Layout from "../Layout/index";
 import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
 import Header from "./Header";
 import SideBarContent from "../OrdersStatus/SideBarContent";
-
 const useStyles = makeStyles({
   mainBox: {
     display: "flex",
@@ -18,7 +17,6 @@ const useStyles = makeStyles({
     padding: "5px 32px 0px 32px !important"
   }
 });
-
 interface Iprops {
   new?: boolean;
   accept?: boolean;
@@ -35,7 +33,6 @@ const OrdersListingStatus = () => {
     reject: false
   });
   const classes = useStyles();
-
   return (
     <Layout sideContent={<SideBarContent />}>
       <Grid container spacing={2}>
@@ -151,5 +148,4 @@ const OrdersListingStatus = () => {
     </Layout>
   );
 };
-
 export default OrdersListingStatus;

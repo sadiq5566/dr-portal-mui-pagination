@@ -1,6 +1,7 @@
 import * as React from "react";
 import { createTheme, ThemeOptions } from "@mui/material/styles";
 import { TypographyOptions } from "@mui/material/styles/createTypography";
+
 declare module "@mui/material/Typography" {
   interface TypographyPropsVariantOverrides {
     subtitle4: true;
@@ -21,34 +22,64 @@ interface ExtendedTypographyOptions extends TypographyOptions {
   typo3?: React.CSSProperties;
   typo4?: React.CSSProperties;
 }
-const blue = "#4363EA";
-const blackIcon = "#585F67";
-const yellow = "#F7CB68";
-const newText = "#383747";
-const green = "#24BD86";
-const ButtonNumberText = "#D5D9DE";
+const blue = "#4362EA";
+const blackIcon = "#585F67 ";
+const yellow = "#F7CB68 ";
+const docbg = "#F6F6F7 ";
+const accept = "#F9FBFD ";
+const complete = "#F1FFFA ";
+const borderclr = "#F1FFFA ";
+const commonBlack = "#000000 ";
+const back = "#17202C ";
+const bluebg = "#4363EA ";
+const newText = "#383747 ";
+const searchIcon = "#24BD86";
+const purple = "#BF43EA";
+const orange = "#D75041";
+const borderColor = "#E7E7E9";
+const ButtonNumberText = "#D5D9DE ";
 const white = "#FFFFFF";
-const secondaryDark = "#17202C";
-const secondaryMain = "#3C4046";
+const textColor = "#fff ";
+const chooseStatus = "#F2F1F6 ";
+const disablebg = "#E5E6E8";
+const secondaryDark = "#17202C ";
+const secondaryMain = "#3C4046 ";
 
 const theme = createTheme({
   palette: {
     primary: {
       light: `${white}`,
       main: `${blue}`,
-      dark: `${blackIcon}`
+      dark: `${blackIcon}`,
+      contrastText: `${disablebg}`
+    },
+    common: {
+      white: `${docbg}`,
+      black: `${commonBlack}`
     },
     secondary: {
       main: `${secondaryMain}`,
-      dark: `${secondaryDark}`
+      dark: `${secondaryDark}`,
+      light: `${orange}`,
+      contrastText: `${borderColor}`
     },
     warning: {
       main: `${yellow}`,
-      dark: `${newText}`
+      dark: `${newText}`,
+      light: `${purple}`,
+      contrastText: `${bluebg}`
     },
     success: {
-      main: `${green}`,
-      dark: `${ButtonNumberText}`
+      main: `${searchIcon}`,
+      dark: `${ButtonNumberText}`,
+      light: `${textColor}`,
+      contrastText: `${chooseStatus}`
+    },
+    info: {
+      main: `${accept}`,
+      light: `${complete}`,
+      contrastText: `${borderclr}`,
+      dark: `${back}`
     }
   },
   typography: {
@@ -74,26 +105,26 @@ const theme = createTheme({
     subtitle2: {
       fontSize: "22px",
       fontWeight: 700,
-      color: "#000000",
+      color: "#000000 !important",
       marginTop: "3rem",
       textAlign: "center"
     },
     body2: {
       fontSize: "21px",
       fontWeight: 600,
-      color: "#000000"
+      color: "#000000 !important"
     },
     h4: {
       fontSize: "16px",
       fontWeight: "bold",
       lineHeight: "18.75px",
-      color: "#17202C"
+      color: "#17202C !important"
     },
     h5: {
       fontSize: "12px",
       fontWeight: 400,
       lineHeight: "18.75px",
-      color: "#585F67"
+      color: "#585F67 !important"
     },
     h3: {
       fontSize: "14px",
@@ -101,11 +132,10 @@ const theme = createTheme({
       lineHeight: "16.81px",
       color: "#17202C"
     },
-
-    typo1: { fontSize: "15px", color: "#17202C" },
-    typo2: { fontSize: "13px", color: " #3C4046 " },
-    typo3: { fontSize: "14px", color: "#17202C" },
-    typo4: { fontSize: "11px", color: "#585F67" }
+    typo1: { fontSize: "15px", color: "#17202C !important" },
+    typo2: { fontSize: "13px", color: " #3C4046 !important" },
+    typo3: { fontSize: "14px", color: "#17202C !important" },
+    typo4: { fontSize: "11px", color: "#585F67 !important" }
   } as ExtendedTypographyOptions
 } as ThemeOptions);
 export default theme;

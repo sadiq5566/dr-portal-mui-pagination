@@ -1,5 +1,4 @@
 import React from "react";
-
 const ExpandSvg = () => {
   return (
     <svg
@@ -16,5 +15,4 @@ const ExpandSvg = () => {
     </svg>
   );
 };
-
 export default ExpandSvg;

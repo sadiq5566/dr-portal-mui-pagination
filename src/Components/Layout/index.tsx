@@ -1,7 +1,6 @@
 import { Grid } from "@mui/material";
 import { ReactNode } from "react";
-import SideBarIcon from "../OrdersStatus/SideBarIcon";
-
+import SideBarIcon from "../OrdersStatus/SiderBarIcon";
 type IProps = {
   children: ReactNode;
   sideContent: ReactNode;
@@ -21,5 +20,4 @@ const Layout = ({ children, sideContent }: IProps) => {
     </Grid>
   );
 };
-
 export default Layout;

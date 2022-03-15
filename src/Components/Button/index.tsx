@@ -1,50 +1,53 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
 import { Theme, Button as Buttons } from "@mui/material";
+import { useTheme } from "@emotion/react";
+
 const useStyles = makeStyles((theme: Theme) => ({
   primary: {
-    background: "#4362EA !important",
+    background: theme.palette.primary.main,
     width: "100%",
     height: "100%",
+
     padding: "0.7rem !important",
-    color: "#FFFFFF",
+    color: theme.palette.primary.light,
     fontWeight: "bold !important"
   },
   secondary: {
-    background: "#BF43EA !important",
-    color: "#FFFFFF",
+    background: `${theme.palette.warning.light} !important`,
+    color: `${theme.palette.primary.light} !important`,
     borderRadius: "5px",
     fontWeight: 500,
     marginLeft: "0.5rem"
   },
   warning: {
-    color: "#D75041 !important",
-    background: "#FFFFFF !important",
-    border: "1px solid #E7E7E9 !important",
+    color: `${theme.palette.secondary.light} !important`,
+    background: `${theme.palette.primary.light} !important`,
+    border: `1px solid ${theme.palette.secondary.contrastText} !important`,
     borderRadius: "5px",
     marginLeft: "1rem !important"
   },
   success: {
-    background: "#24BD86 !important",
-    color: "#FFFFFF",
+    background: `${theme.palette.success.main} !important`,
+    color: `${theme.palette.primary.light} !important`,
     borderRadius: "5px"
   },
   disable: {
-    background: "#E5E6E8 !important",
-    color: "#FFFFFF",
+    background: theme.palette.primary.contrastText,
+    color: `${theme.palette.primary.light} !important`,
     borderRadius: "5px"
   },
   danger: {
-    color: "#FFFFFF",
+    color: theme.palette.primary.light,
     borderRadius: "5px",
-    background: "#D75041 !important",
+    background: theme.palette.secondary.light,
     marginRight: "1rem"
   },
   info: {
-    color: "#4362EA !important",
+    color: theme.palette.primary.main,
     borderRadius: "5px",
-    background: "#FFFFFF",
-    marginRight: "1rem"
+    background: `${theme.palette.primary.light} !important`,
+    marginRight: "1rem !important"
   },
   AccLock: {
     whiteSpace: "nowrap"
@@ -52,52 +55,52 @@ const useStyles = makeStyles((theme: Theme) => ({
   chooseStatus: {
     borderRadius: "7px !important",
     textTransform: "none",
-    border: "1px solid !important",
-    borderColor: "#F2F1F6 !important",
-    color: "#585F67 !important",
+    border: `1px solid ${theme.palette.info.main}`,
+    borderColor: `${theme.palette.success.contrastText} !important`,
+    color: theme.palette.primary.dark,
     whiteSpace: "nowrap",
     height: "28px"
   },
   ActiveButtonStatus: {
-    backgroundColor: "#F7CB68 !important",
+    backgroundColor: `${theme.palette.warning.main} !important`,
     whiteSpace: "nowrap",
     height: "28px",
     borderRadius: "7px !important",
     textTransform: "none",
     border: "1px solid !important",
-    borderColor: "#F2F1F6 !important",
-    color: "#fff !important"
+    borderColor: `${theme.palette.success.contrastText}  !important`,
+    color: `${theme.palette.success.light}  !important`
   },
   ActiveAccept: {
-    backgroundColor: "#4362EA !important",
-    color: "#fff !important",
+    backgroundColor: `${theme.palette.primary.main} !important`,
+    color: `${theme.palette.success.light}  !important`,
     borderRadius: "7px !important",
     border: "1px solid !important",
-    borderColor: "#F2F1F6 !important",
+    borderColor: `${theme.palette.success.contrastText}  !important`,
     height: "28px"
   },
   ActiveLock: {
-    backgroundColor: "#BF43EA !important",
-    color: "#fff !important",
+    backgroundColor: `${theme.palette.warning.light} !important`,
+    color: `${theme.palette.success.light}  !important`,
     borderRadius: "7px !important",
     border: "1px solid !important",
-    borderColor: "#F2F1F6 !important",
+    borderColor: `${theme.palette.success.contrastText}  !important`,
     height: "28px"
   },
   ActiveComp: {
-    backgroundColor: "#24BD86 !important",
-    color: "#fff !important",
+    backgroundColor: `${theme.palette.success.main} !important`,
+    color: `${theme.palette.success.light}  !important`,
     borderRadius: "7px !important",
     border: "1px solid !important",
-    borderColor: "#F2F1F6 !important",
+    borderColor: `${theme.palette.success.contrastText}  !important`,
     height: "28px"
   },
   ActiveReject: {
-    backgroundColor: "#D75041 !important",
-    color: "#fff !important",
+    backgroundColor: `${theme.palette.secondary.light} !important`,
+    color: `${theme.palette.success.light}  !important`,
     borderRadius: "7px !important",
     border: "1px solid !important",
-    borderColor: "#F2F1F6 !important",
+    borderColor: `${theme.palette.success.contrastText}  !important`,
     height: "28px"
   },
   profileButton: {
@@ -150,6 +153,8 @@ const Button: React.FC<IProps> = ({
   onClick
 }) => {
   const classes = useStyles();
+  const theme = useTheme();
+  console.log(theme);
   return (
     <Buttons
       className={color ? classes[color] : ""}

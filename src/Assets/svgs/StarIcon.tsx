@@ -2,22 +2,12 @@ import React from "react";
 
 const StarIcon = () => {
   return (
-    <div
-      style={
-        {
-          // backgroundColor: "#F6F6F7",
-          // height: "34px",
-          // width: "34px",
-          // borderRadius: 8
-        }
-      }
-    >
+    <div>
       <div
         style={{
           display: "flex",
           justifyContent: "center",
-          paddingTop: "7px",
-          width: "34px"
+          paddingTop: "7px"
         }}
       >
         <svg

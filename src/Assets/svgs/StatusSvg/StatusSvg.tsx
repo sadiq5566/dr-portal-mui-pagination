@@ -4,7 +4,6 @@ interface Props {
   activeClass?: boolean;
   stroke?: boolean;
 }
-
 const colors = {
   new: "#F7CB68",
   accept: "#4362EA",
@@ -60,5 +59,4 @@ const StatusSvg: React.FC<Props> = ({ status, activeClass, stroke }) => {
     </>
   );
 };
-
 export default StatusSvg;
