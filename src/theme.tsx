@@ -22,6 +22,16 @@ interface ExtendedTypographyOptions extends TypographyOptions {
   typo3?: React.CSSProperties;
   typo4?: React.CSSProperties;
 }
+declare module "@mui/material/styles" {
+  interface Palette {
+    neutral: Palette["primary"];
+    lightGray: Palette["primary"];
+  }
+  interface PaletteOptions {
+    neutral?: PaletteOptions["primary"];
+    lightGray?: PaletteOptions["primary"];
+  }
+}
 const blue = "#4362EA";
 const blackIcon = "#585F67 ";
 const yellow = "#F7CB68 ";
@@ -44,7 +54,8 @@ const chooseStatus = "#F2F1F6 ";
 const disablebg = "#E5E6E8";
 const secondaryDark = "#17202C ";
 const secondaryMain = "#3C4046 ";
-
+const offWhite = "#E3E5E9";
+const lGray = "#E5E5E5";
 const theme = createTheme({
   palette: {
     primary: {
@@ -52,6 +63,12 @@ const theme = createTheme({
       main: `${blue}`,
       dark: `${blackIcon}`,
       contrastText: `${disablebg}`
+    },
+    neutral: {
+      main: `${offWhite}`
+    },
+    lightGray: {
+      light: `${lGray}`
     },
     common: {
       white: `${docbg}`,

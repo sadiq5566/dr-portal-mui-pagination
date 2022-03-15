@@ -16,9 +16,9 @@ const SideBarContent = () => {
           spacing={2}
           pt={1}
           sx={{
-            backgroundColor: "#F6F6F7",
+            backgroundColor: theme.palette.common.white,
             border: 1,
-            borderColor: "#E5E5E5"
+            borderColor: theme.palette.lightGray.light
           }}
         >
           <Box px={2}>
