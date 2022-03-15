@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     textTransform: "none",
     border: `1px solid ${theme.palette.info.main}`,
     borderColor: `${theme.palette.success.contrastText} !important`,
-    color: theme.palette.primary.dark,
+    color: `${theme.palette.primary.dark} !important`,
     whiteSpace: "nowrap",
     height: "28px"
   },
