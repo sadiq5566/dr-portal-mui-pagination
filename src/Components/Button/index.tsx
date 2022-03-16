@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@mui/styles";
 import { Theme, Button as Buttons } from "@mui/material";
 import { useTheme } from "@emotion/react";
+import { useTheme } from "@emotion/react";
 
 const useStyles = makeStyles((theme: Theme) => ({
   primary: {
@@ -56,51 +57,51 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderRadius: "7px !important",
     textTransform: "none",
     border: `1px solid ${theme.palette.info.main}`,
-    borderColor: theme.palette.success.contrastText,
+    borderColor: `${theme.palette.success.contrastText} !important`,
     color: theme.palette.primary.dark,
     whiteSpace: "nowrap",
     height: "28px"
   },
   ActiveButtonStatus: {
-    backgroundColor: theme.palette.warning.main,
+    backgroundColor: `${theme.palette.warning.main} !important`,
     whiteSpace: "nowrap",
     height: "28px",
     borderRadius: "7px !important",
     textTransform: "none",
     border: "1px solid !important",
-    borderColor: theme.palette.success.contrastText,
-    color: theme.palette.success.light
+    borderColor: `${theme.palette.success.contrastText}  !important`,
+    color: `${theme.palette.success.light}  !important`
   },
   ActiveAccept: {
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.success.light,
+    backgroundColor: `${theme.palette.primary.main} !important`,
+    color: `${theme.palette.success.light}  !important`,
     borderRadius: "7px !important",
     border: "1px solid !important",
-    borderColor: theme.palette.success.contrastText,
+    borderColor: `${theme.palette.success.contrastText}  !important`,
     height: "28px"
   },
   ActiveLock: {
-    backgroundColor: theme.palette.warning.light,
-    color: theme.palette.success.light,
+    backgroundColor: `${theme.palette.warning.light} !important`,
+    color: `${theme.palette.success.light}  !important`,
     borderRadius: "7px !important",
     border: "1px solid !important",
-    borderColor: theme.palette.success.contrastText,
+    borderColor: `${theme.palette.success.contrastText}  !important`,
     height: "28px"
   },
   ActiveComp: {
-    backgroundColor: theme.palette.success.main,
-    color: theme.palette.success.light,
+    backgroundColor: `${theme.palette.success.main} !important`,
+    color: `${theme.palette.success.light}  !important`,
     borderRadius: "7px !important",
     border: "1px solid !important",
-    borderColor: theme.palette.success.contrastText,
+    borderColor: `${theme.palette.success.contrastText}  !important`,
     height: "28px"
   },
   ActiveReject: {
-    backgroundColor: theme.palette.secondary.light,
-    color: theme.palette.success.light,
+    backgroundColor: `${theme.palette.secondary.light} !important`,
+    color: `${theme.palette.success.light}  !important`,
     borderRadius: "7px !important",
     border: "1px solid !important",
-    borderColor: theme.palette.success.contrastText,
+    borderColor: `${theme.palette.success.contrastText}  !important`,
     height: "28px"
   },
   profileButton: {

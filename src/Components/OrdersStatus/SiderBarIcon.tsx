@@ -6,23 +6,35 @@ import WorldIcon from "../../Assets/svgs/WorldIcon";
 import HistoryIcon from "../../Assets/svgs/HistoryIcon";
 import SettingIcon from "../../Assets/svgs/SettingIcon";
 import Modal from "../Modal/index";
-const SideBar = () => {
+import { makeStyles } from "@mui/styles";
+import { Link } from "react-router-dom";
+const useStyles = makeStyles({
+  mainBox: {
+    cursor: "pointer"
+  }
+});
+const SideBarIcon = () => {
+  const classes = useStyles();
   return (
     <Box>
       <Stack spacing={2} px={3} pt={4}>
-        <Box pb={3}>
+        <Box pb={3} className={classes.mainBox}>
           <LogoSvg />
         </Box>
-        <Box>
-          <StarIcon />
-        </Box>
-        <Box>
+        <Link to="/">
+          <Box className={classes.mainBox}>
+            <StarIcon />
+          </Box>
+        </Link>
+        <Box className={classes.mainBox}>
           <WorldIcon />
         </Box>
-        <Box>
-          <HistoryIcon />
-        </Box>
-        <Box>
+        <Link to="/orderdetails/1">
+          <Box className={classes.mainBox}>
+            <HistoryIcon />
+          </Box>
+        </Link>
+        <Box className={classes.mainBox}>
           <SettingIcon />
         </Box>
         <Box pt={33}>
@@ -32,5 +44,4 @@ const SideBar = () => {
     </Box>
   );
 };
-
-export default SideBar;
+export default SideBarIcon;

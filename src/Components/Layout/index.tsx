@@ -1,6 +1,6 @@
 import { Grid } from "@mui/material";
 import { ReactNode } from "react";
-import SideBarIcon from "../OrdersStatus/SiderBar";
+import SideBarIcon from "../OrdersStatus/SiderBarIcon";
 type IProps = {
   children: ReactNode;
   sideContent: ReactNode;

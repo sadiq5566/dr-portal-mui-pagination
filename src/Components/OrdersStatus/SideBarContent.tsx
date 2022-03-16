@@ -2,13 +2,12 @@ import React from "react";
 import { Stack, Box, Typography, Grid } from "@mui/material";
 import Location from "./Location";
 import { useTheme } from "@mui/material/styles";
-import OrderCard from "../OrdersStatus/OrderCard";
+import OrderCard from "./OrderCard";
 import Divider from "@mui/material/Divider";
 import OrderData from "../data/OrderData";
 import OrderStatusMockData from "../data/OrderStatusMockData";
 import { Scrollbars } from "react-custom-scrollbars-2";
-
-const Status = () => {
+const SideBarContent = () => {
   const theme = useTheme();
   return (
     <Grid container>
@@ -17,9 +16,9 @@ const Status = () => {
           spacing={2}
           pt={1}
           sx={{
-            backgroundColor: theme.palette.common.white,
+            backgroundColor: "#F6F6F7",
             border: 1,
-            borderColor: theme.palette.info.contrastText
+            borderColor: "#E5E5E5"
           }}
         >
           <Box px={2}>
@@ -31,7 +30,6 @@ const Status = () => {
               <Typography variant="subtitle1" color={theme.palette.primary.dark}>
                 General Queues
               </Typography>
-
               {OrderStatusMockData.map((orderstatusMockData, i) => {
                 return (
                   <OrderCard
@@ -66,5 +64,4 @@ const Status = () => {
     </Grid>
   );
 };
-
-export default Status;
+export default SideBarContent;
