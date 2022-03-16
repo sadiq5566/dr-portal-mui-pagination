@@ -20,7 +20,7 @@ import CloseSvg from "../../Assets/svgs/CloseSvg/CloseSvg";
 import theme from "../../theme";
 
 const style = {
-  position: "absolute" as "absolute",
+  position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
