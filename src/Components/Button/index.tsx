@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
 import { Theme, Button as Buttons } from "@mui/material";
-import { useTheme } from "@emotion/react";
 
 const useStyles = makeStyles((theme: Theme) => ({
   primary: {
@@ -153,8 +152,6 @@ const Button: React.FC<IProps> = ({
   onClick
 }) => {
   const classes = useStyles();
-  const theme = useTheme();
-  console.log(theme);
   return (
     <Buttons
       className={color ? classes[color] : ""}
