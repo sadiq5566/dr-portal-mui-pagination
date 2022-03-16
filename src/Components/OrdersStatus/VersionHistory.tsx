@@ -204,7 +204,7 @@ const VersionHistory = () => {
                         </Link>
                         <Divider />
                         <Link to={`/orderdetails/${historydata.id}`}>
-                          <Box pb={1} className={`${classes.main}`}>
+                          <Box py={1} className={`${classes.main}`}>
                             <Stack
                               direction="row"
                               alignItems="center"
@@ -236,7 +236,7 @@ const VersionHistory = () => {
                         </Link>
                         <Divider />
                         <Link to={`/orderdetails/${historydata.id}`}>
-                          <Box pb={1} className={`${classes.main}`}>
+                          <Box py={1} className={`${classes.main}`}>
                             <Stack
                               direction="row"
                               alignItems="center"
