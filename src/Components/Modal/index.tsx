@@ -20,7 +20,7 @@ import CloseSvg from "../../Assets/svgs/CloseSvg/CloseSvg";
 import theme from "../../theme";
 
 const style = {
-  position: "absolute" as "absolute",
+  position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
@@ -31,7 +31,7 @@ const style = {
   borderRadius: "5px"
 };
 
-const useStyles: any = makeStyles({
+const useStyles = makeStyles({
   profileContent: {
     marginLeft: "6px !important",
     borderRadius: "3px!important",
