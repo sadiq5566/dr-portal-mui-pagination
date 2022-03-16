@@ -2,7 +2,6 @@ import React from "react";
 import { makeStyles } from "@mui/styles";
 import { Theme, Button as Buttons } from "@mui/material";
 import { useTheme } from "@emotion/react";
-import { useTheme } from "@emotion/react";
 
 const useStyles = makeStyles((theme: Theme) => ({
   primary: {
