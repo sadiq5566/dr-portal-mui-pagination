@@ -7,7 +7,7 @@ import CloseSvg from "../../Assets/svgs/CloseSvg/CloseSvg";
 import NumberFormatCustom from "../TextField/NumberFormatCustom";
 
 const style = {
-  position: "absolute" as "absolute",
+  position: "absolute",
   top: "50%",
   left: "52%",
   transform: "translate(-50%, -50%)",
