@@ -1,7 +1,6 @@
 import * as React from "react";
 import { createTheme, ThemeOptions } from "@mui/material/styles";
 import { TypographyOptions } from "@mui/material/styles/createTypography";
-
 declare module "@mui/material/Typography" {
   interface TypographyPropsVariantOverrides {
     subtitle4: true;
@@ -22,29 +21,40 @@ interface ExtendedTypographyOptions extends TypographyOptions {
   typo3?: React.CSSProperties;
   typo4?: React.CSSProperties;
 }
+declare module "@mui/material/styles" {
+  interface Palette {
+    neutral: Palette["primary"];
+    lightGray: Palette["primary"];
+  }
+  interface PaletteOptions {
+    neutral?: PaletteOptions["primary"];
+    lightGray?: PaletteOptions["primary"];
+  }
+}
 const blue = "#4362EA";
-const blackIcon = "#585F67";
-const yellow = "#F7CB68";
-const docbg = "#F6F6F7";
-const accept = "#F9FBFD";
-const complete = "#F1FFFA";
-const borderclr = "#F1FFFA";
-const commonBlack = "#000000";
-const back = "#17202C";
-const bluebg = "#4363EA";
-const newText = "#383747";
+const blackIcon = "#585F67 ";
+const yellow = "#F7CB68 ";
+const docbg = "#F6F6F7 ";
+const accept = "#F9FBFD ";
+const complete = "#F1FFFA ";
+const borderclr = "#F1FFFA ";
+const commonBlack = "#000000 ";
+const back = "#17202C ";
+const bluebg = "#4363EA ";
+const newText = "#383747 ";
 const searchIcon = "#24BD86";
 const purple = "#BF43EA";
 const orange = "#D75041";
 const borderColor = "#E7E7E9";
-const ButtonNumberText = "#D5D9DE";
+const ButtonNumberText = "#D5D9DE ";
 const white = "#FFFFFF";
-const textColor = "#fff";
-const chooseStatus = "#F2F1F6";
+const textColor = "#fff ";
+const chooseStatus = "#F2F1F6 ";
 const disablebg = "#E5E6E8";
-const secondaryDark = "#17202C";
-const secondaryMain = "#3C4046";
-
+const secondaryDark = "#17202C ";
+const secondaryMain = "#3C4046 ";
+const offWhite = "#E3E5E9";
+const lGray = "#E5E5E5";
 const theme = createTheme({
   palette: {
     primary: {
@@ -52,6 +62,12 @@ const theme = createTheme({
       main: `${blue}`,
       dark: `${blackIcon}`,
       contrastText: `${disablebg}`
+    },
+    neutral: {
+      main: `${offWhite}`
+    },
+    lightGray: {
+      light: `${lGray}`
     },
     common: {
       white: `${docbg}`,

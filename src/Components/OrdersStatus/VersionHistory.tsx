@@ -50,16 +50,15 @@ const useStyles = makeStyles({
     paddingRight: "13px ",
     color: theme.palette.primary.dark,
     "&:hover": {
-      backgroundColor: "#4363EA",
-      color: "#FFF ",
+      backgroundColor: theme.palette.primary.main,
       "& $userName": {
-        color: "#FFF "
+        color: theme.palette.common.white
       },
       "& $orderTime": {
-        color: " #E3E5E9"
+        color: theme.palette.neutral.main
       },
       "& $userOrderStatus": {
-        color: " #E3E5E9"
+        color: theme.palette.neutral.main
       }
     }
   },
@@ -97,9 +96,9 @@ const VersionHistory = () => {
           spacing={2}
           pt={1}
           sx={{
-            backgroundColor: "#F6F6F7",
+            backgroundColor: theme.palette.common.white,
             border: 1,
-            borderColor: "#E5E5E5"
+            borderColor: theme.palette.lightGray.light
           }}
         >
           <Box px={2}>
@@ -117,7 +116,7 @@ const VersionHistory = () => {
               <Typography variant="h4" mb={1}>
                 Version History
               </Typography>
-              <Typography variant="body4" color="#585F67">
+              <Typography variant="body4" color={theme.palette.primary.dark}>
                 Nov 11, 2021
               </Typography>
               {historyData?.map((historydata) => {
