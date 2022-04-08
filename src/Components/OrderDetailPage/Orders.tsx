@@ -77,8 +77,8 @@ const Orders: React.FC<IProps> = ({ order }) => {
           <Box>
             <Typography variant="body2" className={classes.order}>
               Order #: 124541
-              <Box className={classes.accepted} ml={2} px={1}></Box>
             </Typography>
+            <Box className={classes.accepted} ml={2} px={1}></Box>
           </Box>
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <>
