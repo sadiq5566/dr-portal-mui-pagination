@@ -2,7 +2,7 @@ import React from "react";
 import { Grid, Typography, Box } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import theme from "../../theme";
-
+import { useLocation, Link } from "react-router-dom";
 interface IProps {
   name: string;
   numbering: string;
@@ -33,12 +33,9 @@ const useStyles: any = makeStyles({
   bmvData: {
     display: "flex",
     justifyContent: "space-between",
-    height: "45px",
+    height: "40px",
     alignItems: "center",
     backgroundColor: theme.palette.success.light,
-    paddingTop: "4px",
-    paddingBottom: "4px",
-    marginBottom: "8px",
     color: theme.palette.primary.dark
   },
   active: {
@@ -65,28 +62,37 @@ const useStyles: any = makeStyles({
 });
 const BmvCard: React.FC<props> = ({ bmvdata, bmvStatus }: props) => {
   const classes = useStyles();
-  //   console.log(icon.icon, "icon is");
+  const location = useLocation();
+
   return (
     <>
       <Grid container>
         <Grid item xs={12}>
-          <Box
-            className={
-              bmvStatus
-                ? `${classes.bmvStatus} ${bmvdata?.status ? classes.active : ""}`
-                : classes.bmvData
-            }
-            px={2}
-            sx={{ border: 1, borderColor: "grey.300", borderRadius: "5px" }}
-          >
-            <Box className={classes.bmvStatusBox}>
-              <Typography variant="subtitle1">{bmvdata.name}</Typography>
-              {/* <Typography variant="body4">{bmvdata.location}</Typography> */}
+          <Link to={`/bmv/${bmvdata.name}`}>
+            <Box
+              className={
+                location.pathname.toLowerCase() !==
+                ("/bmv/owners" || "/bmv/managers" || "/bmv/employees" || "/bmv/locations")
+                  ? location.pathname.toLowerCase() ==
+                    `/bmv/${bmvdata.name}`.toLowerCase()
+                    ? `${classes.bmvStatus} ${classes.active}`
+                    : classes.bmvData
+                  : "/bmv/owners" && bmvStatus
+                  ? `${classes.bmvStatus} ${bmvdata?.status ? classes.active : ""}`
+                  : classes.bmvData
+              }
+              px={2}
+              sx={{ border: 1, borderColor: "grey.300", borderRadius: "5px" }}
+            >
+              <Box className={classes.bmvStatusBox}>
+                <Typography variant="subtitle1">{bmvdata.name}</Typography>
+                {/* <Typography variant="body4">{bmvdata.location}</Typography> */}
+              </Box>
+              <Box className={bmvdata.status ? classes.MiniTextColor : classes.MiniText}>
+                <Typography variant="body3">{bmvdata?.numbering}</Typography>
+              </Box>
             </Box>
-            <Box className={bmvdata.status ? classes.MiniTextColor : classes.MiniText}>
-              <Typography variant="body3">{bmvdata?.numbering}</Typography>
-            </Box>
-          </Box>
+          </Link>
         </Grid>
       </Grid>
     </>

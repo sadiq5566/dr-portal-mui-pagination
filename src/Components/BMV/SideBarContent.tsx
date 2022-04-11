@@ -36,6 +36,7 @@ const SideBarContent = () => {
           pt={1}
           sx={{
             backgroundColor: theme.palette.common.white,
+            height: "100vh",
             border: 1,
             borderColor: theme.palette.lightGray.light
           }}

@@ -10,7 +10,7 @@ import Modal from "../Modal/index";
 import { makeStyles } from "@mui/styles";
 import { styled } from "@mui/material/styles";
 
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, Link, useParams } from "react-router-dom";
 import Tooltip, { TooltipProps, tooltipClasses } from "@mui/material/Tooltip";
 
 const useStyles = makeStyles({
@@ -31,9 +31,11 @@ const BootstrapTooltip = styled(({ className, ...props }: TooltipProps) => (
 }));
 
 const SideBarIcon: React.FC = () => {
+  let params = useParams();
+  const { id = 1, name = "Owners" } = params;
   const classes = useStyles();
   const location = useLocation();
-  const values: string[] = ["/", "/orderdetails/1", "/bmv"];
+  const values: string[] = ["/", `/orderdetails/${id}`, `/bmv/${name}`];
 
   return (
     <Box>
@@ -78,7 +80,7 @@ const SideBarIcon: React.FC = () => {
           aria-label="History"
           component={Link}
           value={values[1]}
-          to="/orderdetails/1"
+          to={`/orderdetails/${id}`}
         />
 
         <Tab
@@ -90,7 +92,7 @@ const SideBarIcon: React.FC = () => {
           aria-label="Setting"
           value={values[2]}
           component={Link}
-          to="/bmv"
+          to={`/bmv/${name}`}
         />
       </Tabs>
       <Stack spacing={2} px={3} pt={4}>
