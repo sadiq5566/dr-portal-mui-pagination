@@ -1,6 +1,7 @@
 import React from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
-import { Typography, Box } from "@mui/material";
+import { makeStyles } from "@mui/styles";
+import { Typography, Box, Grid } from "@mui/material";
 import DataStatus from "./DataStatus";
 import { Link } from "react-router-dom";
 import BmvTableData from "../data/BmvTableData";
@@ -9,6 +10,12 @@ import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
 import { Bmv } from "../../Interfaces/bmvInterface";
 import Switch, { SwitchProps } from "@mui/material/Switch";
 import { styled } from "@mui/material/styles";
+const useStyles = makeStyles({
+  dataListing: {
+    padding: "5px 32px 0px 32px !important"
+  }
+});
+
 const IOSSwitch = styled((props: SwitchProps) => (
   <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
 ))(({ theme }) => ({
@@ -108,13 +115,15 @@ const BmvTable = () => {
   const customStyles = {
     rows: {
       style: {
-        minHeight: "90px"
+        minHeight: "80px"
       }
     }
   };
 
+  const classes = useStyles();
+
   return (
-    <div>
+    <Grid item xs={12} className={classes.dataListing}>
       <DataTable
         fixedHeaderScrollHeight="350px"
         fixedHeader
@@ -124,7 +133,7 @@ const BmvTable = () => {
         selectableRows
         pagination
       />
-    </div>
+    </Grid>
   );
 };
 
