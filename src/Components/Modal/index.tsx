@@ -9,7 +9,8 @@ import {
   ListItemIcon,
   IconButton,
   Tooltip,
-  Divider
+  Divider,
+  Backdrop
 } from "@mui/material";
 import Button from "../Button/index";
 import ProfileImg from "../../Assets/images/ProfileImg.png";
@@ -24,11 +25,12 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 590,
+  width: 480,
+  height: 400,
   bgcolor: "background.paper",
   boxShadow: 24,
   p: 2,
-  borderRadius: "5px"
+  borderRadius: "10px"
 };
 
 const useStyles = makeStyles({
@@ -177,12 +179,7 @@ export default function NestedModal() {
                 </Box>
               </Box>
 
-              <Button
-                variant="contained"
-                size="small"
-                color="profileButton"
-                text="Edit Name"
-              />
+              <Button variant="contained" size="small" color="AccLock" text="Edit Name" />
             </Box>
             <Divider />
           </Box>
@@ -204,7 +201,7 @@ export default function NestedModal() {
               <Button
                 variant="contained"
                 size="small"
-                color="profileButton"
+                color="AccLock"
                 text="Change Password"
               />
             </Box>
@@ -230,7 +227,7 @@ export default function NestedModal() {
               <Button
                 variant="contained"
                 size="small"
-                color="profileButton"
+                color="AccLock"
                 text="Request Change"
               />
             </Box>
