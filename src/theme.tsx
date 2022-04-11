@@ -56,6 +56,7 @@ const secondaryDark = "#17202C ";
 const secondaryMain = "#3C4046 ";
 const offWhite = "#E3E5E9";
 const lGray = "#E5E5E5";
+const error = "#d32f2f";
 const theme = createTheme({
   palette: {
     primary: {
@@ -97,6 +98,9 @@ const theme = createTheme({
       light: `${complete}`,
       contrastText: `${borderclr}`,
       dark: `${back}`
+    },
+    error: {
+      main: `${error}`
     }
   },
   typography: {
