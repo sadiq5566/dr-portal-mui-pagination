@@ -19,6 +19,7 @@ import ProfileSvg from "../../Assets/svgs/ProfileSvg/ProfileSvg";
 import LogoutSvg from "../../Assets/svgs/LogoutSvg/LogoutSvg";
 import CloseSvg from "../../Assets/svgs/CloseSvg/CloseSvg";
 import theme from "../../theme";
+import "./modal.css";
 
 const style = {
   position: "absolute",
@@ -28,9 +29,11 @@ const style = {
   width: 480,
   height: 400,
   bgcolor: "background.paper",
-  boxShadow: 24,
   p: 2,
-  borderRadius: "10px"
+  borderRadius: "10px",
+  // root: {
+  //   background: 'rgba(4, 5, 24, 0.85)'
+  // },
 };
 
 const useStyles = makeStyles({
@@ -40,7 +43,7 @@ const useStyles = makeStyles({
     marginRight: "6px !important"
   },
   profileBg: {
-    backgroundColor: theme.palette.warning.contrastText
+
   },
   profileTextColor: {
     color: theme.palette.success.light
@@ -116,7 +119,8 @@ export default function NestedModal() {
                 borderTop: `26px solid ${theme.palette.primary.dark}`,
                 top: "58px",
                 left: "11px",
-                padding: "0"
+                padding: "0",
+                boxShadow: 24,
               }
             }
           }}
