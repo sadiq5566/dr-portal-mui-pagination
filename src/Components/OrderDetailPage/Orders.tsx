@@ -3,7 +3,7 @@ import { Grid, Typography, Theme, Divider, Box } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import WestIcon from "@mui/icons-material/West";
 import Button from "../Button/index";
-import AttachmentDetils from "./AttachmentDetails";
+import AttachmentDetails from "./AttachmentDetails";
 import { Link } from "react-router-dom";
 import { Order } from "../../Interfaces/orderInterface";
 import CompleteOrder from "../Modal/CompleteOrder";
@@ -106,7 +106,7 @@ const Orders: React.FC<IProps> = ({ order }) => {
         </Box>
         <Divider />
         <Box mt={4}>
-          <AttachmentDetils order={order} />
+          <AttachmentDetails order={order} />
         </Box>
         {modal && <CompleteOrder setModal={setModal} />}
       </Box>
