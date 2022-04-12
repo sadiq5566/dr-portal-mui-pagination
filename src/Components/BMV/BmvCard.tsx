@@ -3,10 +3,13 @@ import { Grid, Typography, Box } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import theme from "../../theme";
 import { useLocation, Link } from "react-router-dom";
+import Icon from '@mui/material/Icon';
+
 interface IProps {
   name: string;
   numbering: string;
   status?: boolean;
+  icon?: any;
   id: string;
 }
 interface props {
@@ -57,7 +60,12 @@ const useStyles: any = makeStyles({
   },
   bmvStatusBox: {
     display: "flex",
-    flexDirection: "column"
+    flexDirection: "row",
+    alignItems: 'center',
+  },
+  bmvTitle: {
+    marginBottom: '-4px',
+    marginLeft: '10px',
   }
 });
 const BmvCard: React.FC<props> = ({ bmvdata, bmvStatus }: props) => {
@@ -85,7 +93,8 @@ const BmvCard: React.FC<props> = ({ bmvdata, bmvStatus }: props) => {
               sx={{ border: 1, borderColor: "grey.300", borderRadius: "5px" }}
             >
               <Box className={classes.bmvStatusBox}>
-                <Typography variant="subtitle1">{bmvdata.name}</Typography>
+                <Icon fontSize="inherit">{bmvdata?.icon}</Icon>
+                <Typography variant="subtitle1" className={classes.bmvTitle}>{bmvdata.name}</Typography>
                 {/* <Typography variant="body4">{bmvdata.location}</Typography> */}
               </Box>
               <Box className={bmvdata.status ? classes.MiniTextColor : classes.MiniText}>

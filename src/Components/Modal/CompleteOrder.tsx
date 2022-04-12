@@ -5,6 +5,7 @@ import Button from "../Button/index";
 import { Typography, Box, Stack, Theme, Divider } from "@mui/material";
 import CloseSvg from "../../Assets/svgs/CloseSvg/CloseSvg";
 import NumberFormatCustom from "../TextField/NumberFormatCustom";
+import "./modal.css";
 
 const style = {
   position: "absolute",
@@ -13,7 +14,6 @@ const style = {
   transform: "translate(-50%, -50%)",
   borderRadius: "8px",
   bgcolor: "background.paper",
-  boxShadow: 24,
   p: 4
 };
 
