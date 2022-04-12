@@ -95,13 +95,18 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderColor: `${theme.palette.success.contrastText}  !important`,
     height: "28px"
   },
+  Cancel: {
+    backgroundColor: `${theme.palette.primary.light} !important`,
+    color: `${theme.palette.warning.contrastText}  !important`,
+    borderRadius: "7px !important",
+    border: `${theme.palette.primary.contrastText} !important`,
+    borderColor: `${theme.palette.success.contrastText}  !important`
+  },
   ActiveReject: {
     backgroundColor: `${theme.palette.secondary.light} !important`,
     color: `${theme.palette.success.light}  !important`,
     borderRadius: "7px !important",
-    border: "1px solid !important",
-    borderColor: `${theme.palette.success.contrastText}  !important`,
-    height: "28px"
+    borderColor: `${theme.palette.success.contrastText}  !important`
   },
   profileButton: {
     background: "blue",
@@ -124,6 +129,7 @@ interface IProps {
     | "secondary"
     | "primary"
     | "info"
+    | "Cancel"
     | "success"
     | "danger"
     | "disable"

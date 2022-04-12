@@ -32,6 +32,7 @@ declare module "@mui/material/styles" {
   }
 }
 const blue = "#4362EA";
+const red = "#FFF8F8";
 const blackIcon = "#585F67 ";
 const yellow = "#F7CB68 ";
 const docbg = "#F6F6F7 ";
@@ -81,6 +82,9 @@ const theme = createTheme({
       dark: `${secondaryDark}`,
       light: `${orange}`,
       contrastText: `${borderColor}`
+    },
+    error: {
+      main: `${red}`
     },
     warning: {
       main: `${yellow}`,

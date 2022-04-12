@@ -7,6 +7,7 @@ import TableMockDataa from "../data/TableMockData";
 import Button from "../Button/index";
 import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
 import { Order } from "../../Interfaces/orderInterface";
+
 const OrdersListing = () => {
   const columns: TableColumn<Order>[] = [
     {
@@ -72,7 +73,7 @@ const OrdersListing = () => {
     },
     {
       selector: (TableMockData) => TableMockData.button,
-      cell: (TableMockData) => <DataStatus />
+      cell: (TableMockData) => <DataStatus order={TableMockData} />
     }
   ];
   const customStyles = {
