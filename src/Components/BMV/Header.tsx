@@ -6,6 +6,8 @@ import { makeStyles } from "@mui/styles";
 import SearchSvg from "../../Assets/svgs/SearchSvg/SearchSvg";
 import DropDownSvg from "../../Assets/svgs/DropDownSvg/DropDownSvg";
 import theme from "../../theme";
+import { useLocation } from "react-router-dom";
+
 const useStyles = makeStyles({
   mainHeading: {
     fontSize: "21px !important",
@@ -27,14 +29,21 @@ const useStyles = makeStyles({
     borderRadius: "5px"
   }
 });
+function capitalize(s: string): string {
+  return s[0].toUpperCase() + s.slice(1);
+}
 const Header = () => {
   const classes = useStyles();
+  const location = useLocation();
   const theme = useTheme();
+  const urlSplit = location.pathname.split("/", 3);
+  const title = capitalize(urlSplit[2]);
+
   return (
     <Grid container>
       <Grid item xs={12} pt={2} px={2}>
         <Typography className={classes.mainHeading} px={2}>
-          API Orders
+          BMV {title}
         </Typography>
         <Divider sx={{ marginTop: "22px" }} />
       </Grid>

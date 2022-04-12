@@ -12,9 +12,6 @@ const App = () => {
         <Route path="/orderdetails/:id" element={<Index />} />
         <Route path="/login" element={<Login />} />
         <Route path="/bmv/:name" element={<BMV />} />
-        {/* <Route path="/bmv/managers" element={<BMV />} /> */}
-        {/* <Route path="/bmv/employees" element={<BMV />} /> */}
-        {/* <Route path="/bmv/locations"  element={<BMV />} /> */}
       </Switch>
     </Router>
   );

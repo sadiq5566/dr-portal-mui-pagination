@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 import { makeStyles } from "@mui/styles";
 import { Typography, Box, Grid } from "@mui/material";
 import DataStatus from "./DataStatus";
-import { Link } from "react-router-dom";
-import BmvTableData from "../data/BmvTableData";
+import { useLocation, Link } from "react-router-dom";
+import object from "../data/BmvTableData";
 import Button from "../Button/index";
 import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
-import { Bmv } from "../../Interfaces/bmvInterface";
+import {
+  BmvOwner,
+  BmvEmployee,
+  BmvLocation,
+  BmvManager
+} from "../../Interfaces/bmvInterface";
 import Switch, { SwitchProps } from "@mui/material/Switch";
 import { styled } from "@mui/material/styles";
 const useStyles = makeStyles({
@@ -64,52 +69,68 @@ const IOSSwitch = styled((props: SwitchProps) => (
     })
   }
 }));
-
+function capitalize(s: string): string {
+  return s[0].toUpperCase() + s.slice(1);
+}
 const BmvTable = () => {
-  const columns: TableColumn<Bmv>[] = [
+  // const location = useLocation();
+  // const urlSplit = location.pathname.split("/", 3);
+  // const title = capitalize(urlSplit[2]);
+  // const [dataTable, setDataTable] = useState({});
+  // useEffect(() => {
+  //   console.log("here");
+  //   title === "Owners"
+  //     ? setDataTable(object.BmvOwnersData)
+  //     : title === "Managers"
+  //     ? setDataTable(object.BmvManagersData)
+  //     : title === "Employees"
+  //     ? setDataTable(object.BmvEmployeesData)
+  //     : title === "Locations"
+  //     ? setDataTable(object.BmvLocationsData)
+  //     : setDataTable(object.BmvOwnersData);
+  // }, [title]);
+
+  // const columns: TableColumn<BmvOwner | BmvEmployee | BmvManager | BmvLocation>[] = [
+  const columns: TableColumn<BmvOwner>[] = [
     {
       name: <Typography variant="typo1">Full Name</Typography>,
-      selector: (BmvTableData) => BmvTableData.name,
-      cell: (BmvTableData) => <Typography variant="typo2">{BmvTableData.name}</Typography>
+      selector: (dataTable) => dataTable.name,
+      cell: (dataTable) => <Typography variant="typo2">{dataTable.name}</Typography>
     },
     {
       name: <Typography variant="typo1">BMV</Typography>,
 
-      selector: (BmvTableData) => BmvTableData.BMV,
-      cell: (BmvTableData) => (
-        // <Link style={{ textDecoration: "none" }} to={`/orderdetails/${BmvTableData.id}`}>
-        <Typography variant="typo3">{BmvTableData.BMV}</Typography>
+      selector: (dataTable) => dataTable.BMV,
+      cell: (dataTable) => (
+        // <Link style={{ textDecoration: "none" }} to={`/orderdetails/${dataTable.id}`}>
+        <Typography variant="typo3">{dataTable.BMV}</Typography>
         // </Link>
       )
     },
     {
       name: <Typography variant="typo1">Phone Number</Typography>,
-      selector: (BmvTableData) => BmvTableData.phone,
-      cell: (BmvTableData) => (
-        <Typography variant="typo2">{BmvTableData.phone}</Typography>
-      )
+      selector: (dataTable) => dataTable.phone,
+      cell: (dataTable) => <Typography variant="typo2">{dataTable.phone}</Typography>
     },
     {
       name: <Typography variant="typo1">Email </Typography>,
-      selector: (BmvTableData) => BmvTableData.email,
-      cell: (BmvTableData) => (
-        <Typography variant="typo2">{BmvTableData.email}</Typography>
-      )
+      selector: (dataTable) => dataTable.email,
+      cell: (dataTable) => <Typography variant="typo2">{dataTable.email}</Typography>
     },
 
     {
       name: <Typography variant="typo1">Status</Typography>,
-      selector: (BmvTableData) => BmvTableData.status,
-      cell: (BmvTableData) => (
+      selector: (dataTable) => dataTable.status,
+      cell: (dataTable) => (
         <Box>
-          <Typography variant="typo2">{BmvTableData.status}</Typography>
+          <Typography variant="typo2">{dataTable.status}</Typography>
           <IOSSwitch sx={{ m: 1 }} defaultChecked />
         </Box>
       )
     },
     {
-      selector: (BmvTableData) => BmvTableData.button,
-      cell: (BmvTableData) => <DataStatus />
+      selector: (dataTable) => dataTable.button,
+      cell: (dataTable) => <DataStatus />
     }
   ];
   const customStyles = {
@@ -129,7 +150,7 @@ const BmvTable = () => {
         fixedHeader
         customStyles={customStyles}
         columns={columns}
-        data={BmvTableData}
+        data={object.BmvOwnersData}
         selectableRows
         pagination
       />
