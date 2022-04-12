@@ -76,7 +76,7 @@ interface IProps {
   readonly placeholder?: string;
   readonly value?: string | number;
   readonly label?: string;
-
+  readonly autoComplete?: string;
   readonly size?: "small" | "medium";
   readonly variant?: "filled" | "standard" | "outlined";
   readonly onChange?: (
@@ -91,6 +91,7 @@ const InputField: React.FC<IProps> = ({
   info,
   onChange,
   color,
+  autoComplete,
   placeholder,
   size,
   value,
@@ -108,6 +109,7 @@ const InputField: React.FC<IProps> = ({
             name={name}
             color={color}
             onChange={onChange}
+            autoComplete={autoComplete}
             value={value}
             id="outlined-basic"
             label={label}

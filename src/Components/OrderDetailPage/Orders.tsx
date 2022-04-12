@@ -7,6 +7,7 @@ import AttachmentDetils from "./AttachmentDetails";
 import { Link } from "react-router-dom";
 import { Order } from "../../Interfaces/orderInterface";
 import CompleteOrder from "../Modal/CompleteOrder";
+import RejectOrder from "../Modal/RejectOrder";
 
 interface IProps {
   order: Order;
@@ -52,6 +53,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 const Orders: React.FC<IProps> = ({ order }) => {
   const classes = useStyles();
   const [modal, setModal] = React.useState(false);
+  const [rejectModal, setRejectModal] = React.useState(false);
   return (
     <>
       <Box pl={3}>
@@ -100,7 +102,13 @@ const Orders: React.FC<IProps> = ({ order }) => {
               )}
             </>
             <Box>
-              <Button variant="contained" text="Reject" size="medium" color="warning" />
+              <Button
+                variant="contained"
+                text="Reject"
+                size="medium"
+                color="warning"
+                onClick={() => setRejectModal(true)}
+              />
             </Box>
           </Box>
         </Box>
@@ -109,6 +117,7 @@ const Orders: React.FC<IProps> = ({ order }) => {
           <AttachmentDetils order={order} />
         </Box>
         {modal && <CompleteOrder setModal={setModal} />}
+        {rejectModal && <RejectOrder setRejectModal={setRejectModal} />}
       </Box>
     </>
   );

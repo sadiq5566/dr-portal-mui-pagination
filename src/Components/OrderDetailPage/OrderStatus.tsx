@@ -79,6 +79,21 @@ const useStyles = makeStyles((theme: Theme) => ({
   icon: {
     color: theme.palette.primary.dark,
     marginRight: "0.2rem"
+  },
+  reject: {
+    background: theme.palette.error.main,
+    border: `1px solid ${theme.palette.secondary.light}`,
+    borderRadius: "6px",
+    marginTop: "1rem"
+  },
+  reason: {
+    fontSize: "12px !important",
+    color: theme.palette.secondary.light
+  },
+  comment: {
+    fontSize: "12px !important",
+    fontWeight: "bold !important",
+    color: theme.palette.secondary.light
   }
 }));
 
@@ -102,6 +117,13 @@ const OrderStatus: React.FC<IProps> = ({ order }) => {
                 <Box className={classes.lock}>
                   <StatusSvg status="complete" />
                   <Typography className={classes.accept}>Complete</Typography>
+                </Box>
+              </>
+            ) : order.Status === "reject" ? (
+              <>
+                <Box className={classes.lock}>
+                  <StatusSvg status="reject" />
+                  <Typography className={classes.accept}>Rejected</Typography>
                 </Box>
               </>
             ) : (
@@ -139,6 +161,24 @@ const OrderStatus: React.FC<IProps> = ({ order }) => {
               </Box>
             </Box>
           </Box>
+        ) : order.Status === "reject" ? (
+          <>
+            <Box className={classes.reject}>
+              <Box
+                sx={{
+                  px: 2,
+                  py: 1
+                }}
+              >
+                <Box>
+                  <Typography className={classes.reason}>Reason:</Typography>
+                  <Typography className={classes.comment}>
+                    Some reason rejection reason in one line
+                  </Typography>
+                </Box>
+              </Box>
+            </Box>
+          </>
         ) : (
           <Box className={classes.timeUntil}>
             <Box
@@ -162,20 +202,49 @@ const OrderStatus: React.FC<IProps> = ({ order }) => {
             </Box>
           </Box>
         )}
+        {order.Status === "complete" ? (
+          <Box mt={2}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between"
+              }}
+            >
+              <Typography variant="h5">Accepted By:</Typography>
 
-        <Box mt={2}>
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between"
-            }}
-          >
-            <Typography variant="h5">Accepted By:</Typography>
-
-            <Typography className={classes.person}>Person Name</Typography>
+              <Typography className={classes.person}>Persons Name</Typography>
+            </Box>
           </Box>
-        </Box>
+        ) : order.Status === "reject" ? (
+          <Box mt={2}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between"
+              }}
+            >
+              <Typography variant="h5">Rejected By:</Typography>
+
+              <Typography className={classes.person}>Persons Name</Typography>
+            </Box>
+          </Box>
+        ) : (
+          <Box mt={2}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between"
+              }}
+            >
+              <Typography variant="h5">Locked By:</Typography>
+
+              <Typography className={classes.person}>Person Name</Typography>
+            </Box>
+          </Box>
+        )}
       </Box>
       <Grid item mt={3}>
         <OrderSummary order={order} />
