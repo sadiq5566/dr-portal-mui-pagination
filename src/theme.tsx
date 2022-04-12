@@ -70,9 +70,6 @@ const theme = createTheme({
     lightGray: {
       light: `${lGray}`
     },
-    lightBlack: {
-      light: `${lGray}`
-    },
     common: {
       white: `${docbg}`,
       black: `${commonBlack}`
