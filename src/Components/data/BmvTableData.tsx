@@ -1,8 +1,296 @@
-const BmvTableData = [
+const BmvOwnersData = [
   {
     id: "1",
     name: "James Smith",
     BMV: "BMV Name Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button"
+  },
+  {
+    id: "2",
+    name: "Elizabeth David",
+    BMV: "BMV Name Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button"
+  },
+  {
+    id: "3",
+    name: "John Doe",
+    BMV: "BMV Name Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button"
+  },
+  {
+    id: "4",
+    name: "Maria Rodriguez",
+    BMV: "BMV Name Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button"
+  },
+  {
+    id: "5",
+    name: "Michael Smith",
+    BMV: "BMV Name Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button"
+  },
+  {
+    id: "6",
+    name: "Nancy Stuart",
+    BMV: "BMV Name Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button"
+  },
+  {
+    id: "7",
+    name: "jane Goldsmith",
+    BMV: "BMV Name Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button"
+  },
+  {
+    id: "8",
+    name: "Jane Wilson",
+    BMV: "BMV Name Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button"
+  },
+  {
+    id: "9",
+    name: "Don Hemsworth",
+    BMV: "BMV Name Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button"
+  },
+  {
+    id: "10",
+    name: "Ben Afleck",
+    BMV: "BMV Name Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button"
+  }
+];
+
+const BmvManagersData = [
+  {
+    id: "1",
+    name: "James Smith",
+    BMV: "BMV Name Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button"
+  },
+  {
+    id: "2",
+    name: "Elizabeth David",
+    BMV: "BMV Name Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button"
+  },
+  {
+    id: "3",
+    name: "John Doe",
+    BMV: "BMV Name Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button"
+  },
+  {
+    id: "4",
+    name: "Maria Rodriguez",
+    BMV: "BMV Name Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button"
+  },
+  {
+    id: "5",
+    name: "Michael Smith",
+    BMV: "BMV Name Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button"
+  },
+  {
+    id: "6",
+    name: "Nancy Stuart",
+    BMV: "BMV Name Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button"
+  },
+  {
+    id: "7",
+    name: "jane Goldsmith",
+    BMV: "BMV Name Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button"
+  },
+  {
+    id: "8",
+    name: "Jane Wilson",
+    BMV: "BMV Name Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button"
+  },
+  {
+    id: "9",
+    name: "Don Hemsworth",
+    BMV: "BMV Name Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button"
+  },
+  {
+    id: "10",
+    name: "Ben Afleck",
+    BMV: "BMV Name Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button"
+  }
+];
+
+const BmvEmployeesData = [
+  {
+    id: "1",
+    name: "James Smith",
+    BMV: "BMV Name Here",
+    Designation: "designation Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button"
+  },
+  {
+    id: "2",
+    name: "Elizabeth David",
+    BMV: "BMV Name Here",
+    Designation: "designation Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button"
+  },
+  {
+    id: "3",
+    name: "John Doe",
+    BMV: "BMV Name Here",
+    Designation: "designation Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button"
+  },
+  {
+    id: "4",
+    name: "Maria Rodriguez",
+    BMV: "BMV Name Here",
+    Designation: "designation Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button"
+  },
+  {
+    id: "5",
+    name: "Michael Smith",
+    BMV: "BMV Name Here",
+    Designation: "designation Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button"
+  },
+  {
+    id: "6",
+    name: "Nancy Stuart",
+    BMV: "BMV Name Here",
+    Designation: "designation Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button"
+  },
+  {
+    id: "7",
+    name: "jane Goldsmith",
+    BMV: "BMV Name Here",
+    Designation: "designation Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button"
+  },
+  {
+    id: "8",
+    name: "Jane Wilson",
+    BMV: "BMV Name Here",
+    Designation: "designation Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button"
+  },
+  {
+    id: "9",
+    name: "Don Hemsworth",
+    BMV: "BMV Name Here",
+    Designation: "designation Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button"
+  },
+  {
+    id: "10",
+    name: "Ben Afleck",
+    BMV: "BMV Name Here",
+    Designation: "designation Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button"
+  }
+];
+
+const BmvLocationsData = [
+  {
+    id: "1",
+    name: "James Smith",
     phone: "(844) 6446268",
     email: "contact@someemail.com",
     status: "Active",
@@ -13,7 +301,6 @@ const BmvTableData = [
   {
     id: "2",
     name: "Elizabeth David",
-    BMV: "BMV Name Here",
     phone: "(844) 6446268",
     email: "contact@someemail.com",
     status: "Active",
@@ -24,7 +311,6 @@ const BmvTableData = [
   {
     id: "3",
     name: "John Doe",
-    BMV: "BMV Name Here",
     phone: "(844) 6446268",
     email: "contact@someemail.com",
     status: "Active",
@@ -35,7 +321,6 @@ const BmvTableData = [
   {
     id: "4",
     name: "Maria Rodriguez",
-    BMV: "BMV Name Here",
     phone: "(844) 6446268",
     email: "contact@someemail.com",
     status: "Active",
@@ -46,7 +331,6 @@ const BmvTableData = [
   {
     id: "5",
     name: "Michael Smith",
-    BMV: "BMV Name Here",
     phone: "(844) 6446268",
     email: "contact@someemail.com",
     status: "Active",
@@ -57,7 +341,6 @@ const BmvTableData = [
   {
     id: "6",
     name: "Nancy Stuart",
-    BMV: "BMV Name Here",
     phone: "(844) 6446268",
     email: "contact@someemail.com",
     status: "Active",
@@ -68,7 +351,6 @@ const BmvTableData = [
   {
     id: "7",
     name: "jane Goldsmith",
-    BMV: "BMV Name Here",
     phone: "(844) 6446268",
     email: "contact@someemail.com",
     status: "Active",
@@ -79,7 +361,6 @@ const BmvTableData = [
   {
     id: "8",
     name: "Jane Wilson",
-    BMV: "BMV Name Here",
     phone: "(844) 6446268",
     email: "contact@someemail.com",
     status: "Active",
@@ -90,7 +371,6 @@ const BmvTableData = [
   {
     id: "9",
     name: "Don Hemsworth",
-    BMV: "BMV Name Here",
     phone: "(844) 6446268",
     email: "contact@someemail.com",
     status: "Active",
@@ -101,7 +381,6 @@ const BmvTableData = [
   {
     id: "10",
     name: "Ben Afleck",
-    BMV: "BMV Name Here",
     phone: "(844) 6446268",
     email: "contact@someemail.com",
     status: "Active",
@@ -110,4 +389,4 @@ const BmvTableData = [
     button: "button"
   }
 ];
-export default BmvTableData;
+export default { BmvOwnersData, BmvManagersData, BmvEmployeesData, BmvLocationsData };
