@@ -7,7 +7,7 @@ import TableMockDataa from "../data/TableMockData";
 import Button from "../Button/index";
 import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
 import { Order } from "../../Interfaces/orderInterface";
-import './OrdersListing.css';
+import "./OrdersListing.css";
 
 const OrdersListing = () => {
   const columns: TableColumn<Order>[] = [
@@ -88,7 +88,6 @@ const OrdersListing = () => {
   return (
     <div>
       <DataTable
-        // direction={"ltr"}
         fixedHeaderScrollHeight="350px"
         fixedHeader
         customStyles={customStyles}
