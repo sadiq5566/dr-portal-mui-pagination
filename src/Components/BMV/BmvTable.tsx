@@ -4,15 +4,21 @@ import { makeStyles } from "@mui/styles";
 import { Typography, Box, Grid, Avatar } from "@mui/material";
 import DataStatus from "./DataStatus";
 import { useLocation, Link } from "react-router-dom";
-import object from "../data/BmvTableData";
+// import { BmvTableData } from "../data/BmvTableData";
+import {
+  BmvOwnersData,
+  BmvManagersData,
+  BmvEmployeesData,
+  BmvLocationsData
+} from "../data/BmvTableData";
 import Button from "../Button/index";
 import AvatarImage from '../../Assets/images/avatar.png';
 import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
 import {
   BmvOwner,
   BmvEmployee,
-  BmvLocation,
-  BmvManager
+  BmvManager,
+  BmvLocation
 } from "../../Interfaces/bmvInterface";
 import Switch, { SwitchProps } from "@mui/material/Switch";
 import { styled } from "@mui/material/styles";
@@ -73,26 +79,27 @@ const IOSSwitch = styled((props: SwitchProps) => (
 function capitalize(s: string): string {
   return s[0].toUpperCase() + s.slice(1);
 }
-const BmvTable = () => {
-  // const location = useLocation();
-  // const urlSplit = location.pathname.split("/", 3);
-  // const title = capitalize(urlSplit[2]);
-  // const [dataTable, setDataTable] = useState({});
-  // useEffect(() => {
-  //   console.log("here");
-  //   title === "Owners"
-  //     ? setDataTable(object.BmvOwnersData)
-  //     : title === "Managers"
-  //     ? setDataTable(object.BmvManagersData)
-  //     : title === "Employees"
-  //     ? setDataTable(object.BmvEmployeesData)
-  //     : title === "Locations"
-  //     ? setDataTable(object.BmvLocationsData)
-  //     : setDataTable(object.BmvOwnersData);
-  // }, [title]);
+type BmvArrType = BmvOwner | BmvEmployee | BmvManager | BmvLocation;
+const BmvTable: React.FC = () => {
+  const location = useLocation();
+  const urlSplit = location.pathname.split("/", 3);
+  const title = capitalize(urlSplit[2]);
+  const [dataTables, setDataTables] = useState<BmvArrType[]>(BmvOwnersData);
+  useEffect(() => {
+    console.log("here");
+    title === "Owners"
+      ? setDataTables(BmvOwnersData)
+      : title === "Managers"
+      ? setDataTables(BmvManagersData)
+      : title === "Employees"
+      ? setDataTables(BmvEmployeesData)
+      : title === "Locations"
+      ? setDataTables(BmvLocationsData)
+      : setDataTables(BmvOwnersData);
+  }, [title]);
 
   // const columns: TableColumn<BmvOwner | BmvEmployee | BmvManager | BmvLocation>[] = [
-  const columns: TableColumn<BmvOwner>[] = [
+  const columns: TableColumn<BmvArrType>[] = [
     {
       name: "",
       selector: (dataTable) => dataTable.name,
@@ -112,13 +119,10 @@ const BmvTable = () => {
     {
       name: <Typography variant="typo1">BMV</Typography>,
 
-      selector: (dataTable) => dataTable.BMV,
-      cell: (dataTable) => (
-        // <Link style={{ textDecoration: "none" }} to={`/orderdetails/${dataTable.id}`}>
-        <Typography variant="typo3">{dataTable.BMV}</Typography>
-        // </Link>
-      )
+      selector: (dataTable) => dataTable.name,
+      cell: (dataTable) => <Typography variant="typo3">{dataTable.BMV}</Typography>
     },
+
     {
       name: <Typography variant="typo1">Phone Number</Typography>,
       selector: (dataTable) => dataTable.phone,
@@ -154,7 +158,11 @@ const BmvTable = () => {
   };
 
   const classes = useStyles();
+<<<<<<< HEAD
 console.log("object", object);
+=======
+  console.log("data", dataTables);
+>>>>>>> 99b54e8273b297181d5079d5545f60e14de6b9df
   return (
     <Grid item xs={12} className={classes.dataListing}>
       <DataTable
@@ -162,7 +170,7 @@ console.log("object", object);
         fixedHeader
         customStyles={customStyles}
         columns={columns}
-        data={object.BmvOwnersData}
+        data={dataTables}
         selectableRows
         pagination
       />
