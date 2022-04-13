@@ -4,29 +4,9 @@ import Location from "../OrdersStatus/Location";
 import { useTheme } from "@mui/material/styles";
 import BmvCard from "./BmvCard";
 import Divider from "@mui/material/Divider";
-import OrderData from "../data/OrderData";
 import BmvSettingsMockData from "../data/BmvSettingsMockData";
-import * as icons from "@material-ui/icons";
-// import Icon from "@material-ui/core/Icon";
-
-import { Scrollbars } from "react-custom-scrollbars-2";
-import PersonIcon from "@mui/icons-material/Person";
-import GroupIcon from "@mui/icons-material/Group";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import GroupsIcon from "@mui/icons-material/Groups";
-// interface Icoons {
-//   icon: keyof typeof icons;
-// }
 
 const SideBarContent = () => {
-  // const iconsArr: Icoons[] = [
-  //   { icon: "Home" },
-  //   { icon: "AccountCircle" },
-  //   { icon: "Settings" },
-
-  //   { icon: "Home" }
-  // ];
-
   const theme = useTheme();
   return (
     <Grid container>

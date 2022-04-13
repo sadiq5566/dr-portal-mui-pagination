@@ -3,16 +3,13 @@ import DataTable, { TableColumn } from "react-data-table-component";
 import { makeStyles } from "@mui/styles";
 import { Typography, Box, Grid } from "@mui/material";
 import DataStatus from "./DataStatus";
-import { useLocation, Link } from "react-router-dom";
-// import { BmvTableData } from "../data/BmvTableData";
+import { useLocation } from "react-router-dom";
 import {
   BmvOwnersData,
   BmvManagersData,
   BmvEmployeesData,
   BmvLocationsData
 } from "../data/BmvTableData";
-import Button from "../Button/index";
-import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
 import {
   BmvOwner,
   BmvEmployee,
@@ -97,34 +94,64 @@ const BmvTable: React.FC = () => {
       : setDataTables(BmvOwnersData);
   }, [title]);
 
-  // const columns: TableColumn<BmvOwner | BmvEmployee | BmvManager | BmvLocation>[] = [
   const columns: TableColumn<BmvArrType>[] = [
     {
       name: <Typography variant="typo1">Full Name</Typography>,
-      selector: (dataTable) => dataTable.name,
       cell: (dataTable) => <Typography variant="typo2">{dataTable.name}</Typography>
     },
-    {
-      name: <Typography variant="typo1">BMV</Typography>,
-
-      selector: (dataTable) => dataTable.name,
-      cell: (dataTable) => <Typography variant="typo3">{dataTable.BMV}</Typography>
-    },
+    ...(title !== "Locations"
+      ? [
+          {
+            name: <Typography variant="typo1">BMV</Typography>,
+            cell: (dataTable: any) => (
+              <Typography variant="typo3">{dataTable.BMV}</Typography>
+            )
+          }
+        ]
+      : []),
+    ...(title === "Employees"
+      ? [
+          {
+            name: <Typography variant="typo1">Designation</Typography>,
+            cell: (dataTable: any) => (
+              <Typography variant="typo2">{dataTable.Designation}</Typography>
+            )
+          }
+        ]
+      : []),
 
     {
       name: <Typography variant="typo1">Phone Number</Typography>,
-      selector: (dataTable) => dataTable.phone,
+
       cell: (dataTable) => <Typography variant="typo2">{dataTable.phone}</Typography>
     },
     {
       name: <Typography variant="typo1">Email </Typography>,
-      selector: (dataTable) => dataTable.email,
+
       cell: (dataTable) => <Typography variant="typo2">{dataTable.email}</Typography>
     },
-
+    ...(title === "Locations"
+      ? [
+          {
+            name: <Typography variant="typo1">Stripe Account</Typography>,
+            cell: (dataTable: any) => (
+              <Typography variant="typo3">{dataTable.StripeAccount}</Typography>
+            )
+          }
+        ]
+      : []),
+    ...(title === "Locations"
+      ? [
+          {
+            name: <Typography variant="typo1">Physical Address</Typography>,
+            cell: (dataTable: any) => (
+              <Typography variant="typo3">{dataTable.PhysicalAddress}</Typography>
+            )
+          }
+        ]
+      : []),
     {
       name: <Typography variant="typo1">Status</Typography>,
-      selector: (dataTable) => dataTable.status,
       cell: (dataTable) => (
         <Box>
           <Typography variant="typo2">{dataTable.status}</Typography>
@@ -133,20 +160,19 @@ const BmvTable: React.FC = () => {
       )
     },
     {
-      selector: (dataTable) => dataTable.button,
       cell: (dataTable) => <DataStatus />
     }
   ];
   const customStyles = {
     rows: {
       style: {
-        minHeight: "80px"
+        minHeight: "80px",
+        minWidth: "80vw"
       }
     }
   };
 
   const classes = useStyles();
-  console.log("data", dataTables);
   return (
     <Grid item xs={12} className={classes.dataListing}>
       <DataTable
