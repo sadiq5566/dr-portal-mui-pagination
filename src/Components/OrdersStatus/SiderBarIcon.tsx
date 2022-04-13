@@ -5,12 +5,16 @@ import StarIcon from "../../Assets/svgs/StarIcon";
 import WorldIcon from "../../Assets/svgs/WorldIcon";
 import HistoryIcon from "../../Assets/svgs/HistoryIcon";
 import SettingIcon from "../../Assets/svgs/SettingIcon";
-import Modal from "../Modal/index";
+import ProfileModal from "../Modal/ProfileModal";
 import { makeStyles } from "@mui/styles";
 import { Link } from "react-router-dom";
 const useStyles = makeStyles({
   mainBox: {
     cursor: "pointer"
+  },
+  starSvg: {
+    cursor: "pointer",
+    marginRight: "6px"
   }
 });
 const SideBarIcon = () => {
@@ -22,7 +26,7 @@ const SideBarIcon = () => {
           <LogoSvg />
         </Box>
         <Link to="/">
-          <Box className={classes.mainBox}>
+          <Box className={classes.starSvg}>
             <StarIcon />
           </Box>
         </Link>
@@ -38,7 +42,7 @@ const SideBarIcon = () => {
           <SettingIcon />
         </Box>
         <Box pt={33}>
-          <Modal />
+          <ProfileModal />
         </Box>
       </Stack>
     </Box>

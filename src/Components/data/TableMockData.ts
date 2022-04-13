@@ -1,4 +1,4 @@
-const TableMockDataa = [
+const TableMockData = [
   {
     id: "1",
     name: "MG0Vd5",
@@ -475,4 +475,4 @@ const TableMockDataa = [
     }
   }
 ];
-export default TableMockDataa;
+export default TableMockData;

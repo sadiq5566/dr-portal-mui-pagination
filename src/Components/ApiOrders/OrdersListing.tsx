@@ -3,7 +3,7 @@ import DataTable, { TableColumn } from "react-data-table-component";
 import { Typography } from "@mui/material";
 import DataStatus from "./DataStatus";
 import { Link } from "react-router-dom";
-import TableMockDataa from "../data/TableMockData";
+import TableMockData from "../data/TableMockData";
 import Button from "../Button/index";
 import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
 import { Order } from "../../Interfaces/orderInterface";
@@ -73,7 +73,7 @@ const OrdersListing = () => {
     },
     {
       selector: (TableMockData) => TableMockData.button,
-      cell: (TableMockData) => <DataStatus order={TableMockData} />
+      cell: (TableMockData) => <DataStatus />
     }
   ];
   const customStyles = {
@@ -91,7 +91,7 @@ const OrdersListing = () => {
         fixedHeader
         customStyles={customStyles}
         columns={columns}
-        data={TableMockDataa}
+        data={TableMockData}
         selectableRows
         pagination
       />

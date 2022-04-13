@@ -134,9 +134,9 @@ const OrdersListingStatus = () => {
                   activeClass.complete ||
                   activeClass.reject
                     ? "Lock Orders"
-                    : "Accept & Lock"
+                    : "Batch Order"
                 }
-                color="AccLock"
+                color="Batchorder"
               />
             </Box>
           </Box>

@@ -7,7 +7,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     background: theme.palette.primary.main,
     width: "100%",
     height: "100%",
-
     padding: "0.7rem !important",
     color: theme.palette.primary.light,
     fontWeight: "bold !important"
@@ -48,8 +47,14 @@ const useStyles = makeStyles((theme: Theme) => ({
     background: `${theme.palette.primary.light} !important`,
     marginRight: "1rem !important"
   },
-  AccLock: {
+  Batchorder: {
     whiteSpace: "nowrap"
+  },
+  View: {
+    minWidth: "70px",
+    height: "31px",
+    border: 1,
+    borderColor: "#E5E6E8 !important"
   },
   chooseStatus: {
     borderRadius: "7px !important",
@@ -105,7 +110,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: `${theme.palette.secondary.light} !important`,
     color: `${theme.palette.success.light}  !important`,
     borderRadius: "7px !important",
-    borderColor: `${theme.palette.success.contrastText}  !important`
+    borderColor: `${theme.palette.success.contrastText}  !important`,
+    height: "28px"
   },
   profileButton: {
     background: "blue",
@@ -133,7 +139,8 @@ interface IProps {
     | "danger"
     | "disable"
     | "warning"
-    | "AccLock"
+    | "Batchorder"
+    | "View"
     | "chooseStatus"
     | "ActiveButtonStatus"
     | "ActiveAccept"
