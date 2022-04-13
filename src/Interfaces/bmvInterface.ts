@@ -4,6 +4,7 @@ export interface BmvOwner {
   BMV: string;
   email: string;
   phone: string;
+  image?: string;
   status: string;
   button: string;
 }
@@ -13,6 +14,7 @@ export interface BmvManager {
   name: string;
   BMV: string;
   email: string;
+  image?: string;
   phone: string;
   status: string;
   button: string;
@@ -22,6 +24,7 @@ export interface BmvEmployee {
   name: string;
   BMV: string;
   email: string;
+  image?: string;
   phone: string;
   Designation: string;
   status: string;
@@ -32,6 +35,7 @@ export interface BmvLocation {
   name: string;
   email: string;
   phone: string;
+  image?: string;
   BMV?: string;
   StripeAccount: string;
   PhysicalAddress: string;
@@ -39,18 +43,18 @@ export interface BmvLocation {
   button: string;
 }
 
-export interface BMV {
-  id: string;
-  name: string;
-  email: string;
-  phone: string;
-  status: string;
-  button: string;
-  BMV: string;
-  // Designation?: string;
-  // StripeAccount?: string;
-  // PhysicalAddress?: string;
-  ManagerData?: BmvManager;
-  EmployeeData?: BmvEmployee;
-  LocationData?: BmvLocation;
-}
+// export interface BMV {
+//   id: string;
+//   name: string;
+//   email: string;
+//   phone: string;
+//   status: string;
+//   button: string;
+//   BMV: string;
+//   // Designation?: string;
+//   // StripeAccount?: string;
+//   // PhysicalAddress?: string;
+//   ManagerData?: BmvManager;
+//   EmployeeData?: BmvEmployee;
+//   LocationData?: BmvLocation;
+// }

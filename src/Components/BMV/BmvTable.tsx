@@ -10,12 +10,6 @@ import {
   BmvEmployeesData,
   BmvLocationsData
 } from "../data/BmvTableData";
-<<<<<<< HEAD
-import Button from "../Button/index";
-import AvatarImage from '../../Assets/images/avatar.png';
-import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
-=======
->>>>>>> e222b1a3a2a4e98e5ce302b66af6b1e182c43197
 import {
   BmvOwner,
   BmvEmployee,
@@ -29,12 +23,18 @@ const useStyles = makeStyles({
     padding: "5px 32px 0px 32px !important"
   }
 });
+const switchBox = {
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  width: "105px"
+};
 
 const IOSSwitch = styled((props: SwitchProps) => (
   <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
 ))(({ theme }) => ({
-  width: 38,
-  height: 22,
+  width: 35,
+  height: 20,
   padding: 0,
   "& .MuiSwitch-switchBase": {
     padding: 0,
@@ -66,8 +66,8 @@ const IOSSwitch = styled((props: SwitchProps) => (
   },
   "& .MuiSwitch-thumb": {
     boxSizing: "border-box",
-    width: 18,
-    height: 18
+    width: 16,
+    height: 17
   },
   "& .MuiSwitch-track": {
     borderRadius: 26 / 2,
@@ -88,7 +88,6 @@ const BmvTable: React.FC = () => {
   const title = capitalize(urlSplit[2]);
   const [dataTables, setDataTables] = useState<BmvArrType[]>(BmvOwnersData);
   useEffect(() => {
-    console.log("here");
     title === "Owners"
       ? setDataTables(BmvOwnersData)
       : title === "Managers"
@@ -103,13 +102,14 @@ const BmvTable: React.FC = () => {
   const columns: TableColumn<BmvArrType>[] = [
     {
       name: "",
-      selector: (dataTable) => dataTable.name,
-      cell: (dataTable) => <Avatar
-        alt="Remy Sharp"
-        variant="square"
-        src={AvatarImage}
-        sx={{ width: 30, height: 28 }}
-      />,
+      cell: (dataTable) => (
+        <Avatar
+          alt="Remy Sharp"
+          variant="square"
+          src={dataTable.image}
+          sx={{ width: 30, height: 32, borderRadius: 1 }}
+        />
+      ),
       width: "40px"
     },
     {
@@ -170,9 +170,12 @@ const BmvTable: React.FC = () => {
     {
       name: <Typography variant="typo1">Status</Typography>,
       cell: (dataTable) => (
-        <Box>
+        <Box sx={switchBox}>
           <Typography variant="typo2">{dataTable.status}</Typography>
-          <IOSSwitch sx={{ m: 1 }} defaultChecked />
+          <IOSSwitch
+            sx={{ m: 1 }}
+            checked={dataTable.status === "Active" ? true : false}
+          />
         </Box>
       )
     },
@@ -190,14 +193,7 @@ const BmvTable: React.FC = () => {
   };
 
   const classes = useStyles();
-<<<<<<< HEAD
-<<<<<<< HEAD
-console.log("object", object);
-=======
-  console.log("data", dataTables);
->>>>>>> 99b54e8273b297181d5079d5545f60e14de6b9df
-=======
->>>>>>> e222b1a3a2a4e98e5ce302b66af6b1e182c43197
+
   return (
     <Grid item xs={12} className={classes.dataListing}>
       <DataTable
@@ -206,7 +202,6 @@ console.log("object", object);
         customStyles={customStyles}
         columns={columns}
         data={dataTables}
-        selectableRows
         pagination
       />
     </Grid>

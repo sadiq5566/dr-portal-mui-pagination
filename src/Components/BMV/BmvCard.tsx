@@ -9,7 +9,7 @@ interface IProps {
   name: string;
   numbering: string;
   status?: boolean;
-  icon?: any;
+  icon?: string;
   id: string;
 }
 interface props {
@@ -64,13 +64,8 @@ const useStyles: any = makeStyles({
     alignItems: "center"
   },
   bmvTitle: {
-<<<<<<< HEAD
-    marginBottom: '-4px',
-    marginLeft: '20px',
-=======
     marginBottom: "-4px",
     marginLeft: "10px"
->>>>>>> e222b1a3a2a4e98e5ce302b66af6b1e182c43197
   }
 });
 const BmvCard: React.FC<props> = ({ bmvdata, bmvStatus }: props) => {
@@ -102,7 +97,6 @@ const BmvCard: React.FC<props> = ({ bmvdata, bmvStatus }: props) => {
                 <Typography variant="subtitle1" className={classes.bmvTitle}>
                   {bmvdata.name}
                 </Typography>
-                {/* <Typography variant="body4">{bmvdata.location}</Typography> */}
               </Box>
               <Box className={bmvdata.status ? classes.MiniTextColor : classes.MiniText}>
                 <Typography variant="body3">{bmvdata?.numbering}</Typography>
