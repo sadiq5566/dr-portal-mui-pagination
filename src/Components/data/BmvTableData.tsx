@@ -1,4 +1,4 @@
-const BmvOwnersData = [
+export const BmvOwnersData = [
   {
     id: "1",
     name: "James Smith",
@@ -91,7 +91,7 @@ const BmvOwnersData = [
   }
 ];
 
-const BmvManagersData = [
+export const BmvManagersData = [
   {
     id: "1",
     name: "James Smith",
@@ -184,7 +184,7 @@ const BmvManagersData = [
   }
 ];
 
-const BmvEmployeesData = [
+export const BmvEmployeesData = [
   {
     id: "1",
     name: "James Smith",
@@ -287,7 +287,7 @@ const BmvEmployeesData = [
   }
 ];
 
-const BmvLocationsData = [
+export const BmvLocationsData = [
   {
     id: "1",
     name: "James Smith",
@@ -389,4 +389,43 @@ const BmvLocationsData = [
     button: "button"
   }
 ];
-export default { BmvOwnersData, BmvManagersData, BmvEmployeesData, BmvLocationsData };
+export const BmvTableData = [
+  {
+    id: "1",
+    name: "James Smith",
+    BMV: "BMV Name Here",
+    phone: "(844) 6446268",
+    email: "contact@someemail.com",
+    status: "Active",
+    button: "button",
+    ManagerData: {
+      id: "1",
+      name: "James Smith",
+      BMV: "BMV Name Here",
+      phone: "(844) 6446268",
+      email: "contact@someemail.com",
+      status: "Active",
+      button: "button"
+    },
+    EmployeeData: {
+      id: "1",
+      name: "James Smith",
+      BMV: "BMV Name Here",
+      Designation: "designation Here",
+      phone: "(844) 6446268",
+      email: "contact@someemail.com",
+      status: "Active",
+      button: "button"
+    },
+    LocationData: {
+      id: "1",
+      name: "James Smith",
+      phone: "(844) 6446268",
+      email: "contact@someemail.com",
+      status: "Active",
+      StripeAccount: "contact@someemail.com",
+      PhysicalAddress: "1970 West Broad St. Columbus, Ohio 43223",
+      button: "button"
+    }
+  }
+];
