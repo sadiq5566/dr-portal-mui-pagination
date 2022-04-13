@@ -9,7 +9,7 @@ interface IProps {
   name: string;
   numbering: string;
   status?: boolean;
-  icon?: any;
+  icon?: string;
   id: string;
 }
 interface props {
@@ -97,7 +97,6 @@ const BmvCard: React.FC<props> = ({ bmvdata, bmvStatus }: props) => {
                 <Typography variant="subtitle1" className={classes.bmvTitle}>
                   {bmvdata.name}
                 </Typography>
-                {/* <Typography variant="body4">{bmvdata.location}</Typography> */}
               </Box>
               <Box className={bmvdata.status ? classes.MiniTextColor : classes.MiniText}>
                 <Typography variant="body3">{bmvdata?.numbering}</Typography>

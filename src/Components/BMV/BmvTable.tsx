@@ -181,7 +181,6 @@ const BmvTable: React.FC = () => {
         customStyles={customStyles}
         columns={columns}
         data={dataTables}
-        selectableRows
         pagination
       />
     </Grid>
