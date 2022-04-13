@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 import { makeStyles } from "@mui/styles";
-import { Typography, Box, Grid } from "@mui/material";
+import { Typography, Box, Grid, Avatar } from "@mui/material";
 import DataStatus from "./DataStatus";
 import { useLocation, Link } from "react-router-dom";
 import object from "../data/BmvTableData";
 import Button from "../Button/index";
+import AvatarImage from '../../Assets/images/avatar.png';
 import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
 import {
   BmvOwner,
@@ -93,6 +94,17 @@ const BmvTable = () => {
   // const columns: TableColumn<BmvOwner | BmvEmployee | BmvManager | BmvLocation>[] = [
   const columns: TableColumn<BmvOwner>[] = [
     {
+      name: "",
+      selector: (dataTable) => dataTable.name,
+      cell: (dataTable) => <Avatar
+        alt="Remy Sharp"
+        variant="square"
+        src={AvatarImage}
+        sx={{ width: 30, height: 28 }}
+      />,
+      width: "40px"
+    },
+    {
       name: <Typography variant="typo1">Full Name</Typography>,
       selector: (dataTable) => dataTable.name,
       cell: (dataTable) => <Typography variant="typo2">{dataTable.name}</Typography>
@@ -142,7 +154,7 @@ const BmvTable = () => {
   };
 
   const classes = useStyles();
-
+console.log("object", object);
   return (
     <Grid item xs={12} className={classes.dataListing}>
       <DataTable

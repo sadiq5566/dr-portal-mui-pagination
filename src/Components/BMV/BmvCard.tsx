@@ -65,7 +65,7 @@ const useStyles: any = makeStyles({
   },
   bmvTitle: {
     marginBottom: '-4px',
-    marginLeft: '10px',
+    marginLeft: '20px',
   }
 });
 const BmvCard: React.FC<props> = ({ bmvdata, bmvStatus }: props) => {
