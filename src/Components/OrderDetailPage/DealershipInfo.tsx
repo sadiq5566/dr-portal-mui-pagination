@@ -46,7 +46,14 @@ const DealershipInfo: React.FC<IProps> = ({ order }) => {
         <Grid container justifyContent="flex-end">
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <Box>
-              {order?.Status === "complete" ? (
+              {order?.Status === "new" ? (
+                <Button
+                  text="Mark as Pending"
+                  variant="contained"
+                  color="new"
+                  size="large"
+                />
+              ) : order?.Status === "complete" ? (
                 <Button
                   text="Complete Order"
                   variant="contained"

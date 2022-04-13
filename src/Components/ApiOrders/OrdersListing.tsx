@@ -73,7 +73,13 @@ const OrdersListing = () => {
     },
     {
       selector: (TableMockData) => TableMockData.button,
-      cell: (TableMockData) => <DataStatus order={TableMockData} />
+      cell: (TableMockData) => (
+        <>
+          <div>
+            <DataStatus order={TableMockData} />
+          </div>
+        </>
+      )
     }
   ];
   const customStyles = {

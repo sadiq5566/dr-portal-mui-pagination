@@ -32,9 +32,9 @@ const AttachmentDetails: React.FC<IProps> = ({ order }) => {
             <Typography variant="h5">Name: FileQGYYOG.pdf</Typography>
           </Stack>
           <Box pl={2}>
-            <Button text="Print Attachments" size="large" color="info" />
+            <Button text="Print Attachments" size="large" color="success" />
 
-            <Button text="Print Summary" size="large" color="info" />
+            <Button text="Print Summary" size="large" color="print" />
           </Box>
         </Box>
         <Box mt={4}>

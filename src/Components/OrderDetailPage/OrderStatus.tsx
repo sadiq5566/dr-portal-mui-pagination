@@ -112,7 +112,14 @@ const OrderStatus: React.FC<IProps> = ({ order }) => {
           <Box className={classes.status}>Status</Box>
 
           <Box className={classes.accepted} px={1}>
-            {order.Status === "complete" ? (
+            {order.Status === "new" ? (
+              <>
+                <Box className={classes.lock}>
+                  <StatusSvg status="new" />
+                  <Typography className={classes.accept}>New</Typography>
+                </Box>
+              </>
+            ) : order.Status === "complete" ? (
               <>
                 <Box className={classes.lock}>
                   <StatusSvg status="complete" />
@@ -202,7 +209,21 @@ const OrderStatus: React.FC<IProps> = ({ order }) => {
             </Box>
           </Box>
         )}
-        {order.Status === "complete" ? (
+        {order.Status === "new" ? (
+          <Box mt={2}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between"
+              }}
+            >
+              <Typography variant="h5">Locked By:</Typography>
+
+              <Typography className={classes.person}>Persons Name</Typography>
+            </Box>
+          </Box>
+        ) : order.Status === "complete" ? (
           <Box mt={2}>
             <Box
               sx={{

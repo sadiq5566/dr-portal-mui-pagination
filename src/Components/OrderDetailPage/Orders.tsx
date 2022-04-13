@@ -84,7 +84,14 @@ const Orders: React.FC<IProps> = ({ order }) => {
           </Box>
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <>
-              {order?.Status === "complete" ? (
+              {order?.Status === "new" ? (
+                <Button
+                  text="Mark as Pending"
+                  variant="contained"
+                  color="new"
+                  size="large"
+                />
+              ) : order?.Status === "complete" ? (
                 <Button
                   text="Complete Order"
                   variant="contained"

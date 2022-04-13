@@ -29,7 +29,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     color: theme.palette.primary.dark
   },
   textArea: {
-    borderColor: theme.palette.primary.contrastText
+    borderColor: theme.palette.primary.contrastText,
+    "&$focused": {
+      borderColor: "red"
+    }
   }
 }));
 

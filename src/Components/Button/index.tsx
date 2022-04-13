@@ -5,32 +5,53 @@ import { useTheme } from "@emotion/react";
 
 const useStyles = makeStyles((theme: Theme) => ({
   primary: {
-    background: theme.palette.primary.main,
+    background: `${theme.palette.primary.main} !important`,
+    color: `${theme.palette.primary.light} !important`,
     width: "100%",
     height: "100%",
-
     padding: "0.7rem !important",
-    color: theme.palette.primary.light,
     fontWeight: "bold !important"
+  },
+  new: {
+    background: `${theme.palette.primary.main} !important`,
+    color: `${theme.palette.primary.light} !important`,
+    borderRadius: "5px",
+    marginRight: "0.6rem !important",
+    height: "34px !important",
+    fontSize: "12px !important"
   },
   secondary: {
     background: `${theme.palette.warning.light} !important`,
     color: `${theme.palette.primary.light} !important`,
     borderRadius: "5px",
     fontWeight: 500,
-    marginLeft: "0.5rem"
+    height: "34px !important",
+    fontSize: "12px !important",
+    marginRight: "0.6rem !important"
   },
   warning: {
     color: `${theme.palette.secondary.light} !important`,
     background: `${theme.palette.primary.light} !important`,
+    fontSize: "12px !important",
+    height: "34px !important",
     border: `1px solid ${theme.palette.secondary.contrastText} !important`,
-    borderRadius: "5px",
-    marginLeft: "1rem !important"
+    borderRadius: "5px"
   },
   success: {
     background: `${theme.palette.success.main} !important`,
     color: `${theme.palette.primary.light} !important`,
-    borderRadius: "5px"
+    borderRadius: "5px",
+    fontSize: "12px !important",
+    height: "34px !important",
+    marginRight: "0.6rem !important"
+  },
+  print: {
+    background: `${theme.palette.primary.light} !important`,
+    color: `${theme.palette.success.main} !important`,
+    borderRadius: "5px",
+    fontSize: "12px !important",
+    height: "34px !important",
+    border: `1px solid ${theme.palette.success.main} !important`
   },
   disable: {
     background: theme.palette.primary.contrastText,
@@ -41,7 +62,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     color: theme.palette.primary.light,
     borderRadius: "5px",
     background: theme.palette.secondary.light,
-    marginRight: "1rem"
+    marginRight: "1rem !important"
   },
   info: {
     color: theme.palette.primary.main,
@@ -128,6 +149,8 @@ interface IProps {
   readonly color?:
     | "secondary"
     | "primary"
+    | "new"
+    | "print"
     | "info"
     | "Cancel"
     | "success"
