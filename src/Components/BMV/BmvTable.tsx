@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 import { makeStyles } from "@mui/styles";
-import { Typography, Box, Grid } from "@mui/material";
+import { Typography, Box, Grid, Avatar } from "@mui/material";
 import DataStatus from "./DataStatus";
 import { useLocation } from "react-router-dom";
 import {
@@ -10,6 +10,12 @@ import {
   BmvEmployeesData,
   BmvLocationsData
 } from "../data/BmvTableData";
+<<<<<<< HEAD
+import Button from "../Button/index";
+import AvatarImage from '../../Assets/images/avatar.png';
+import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
+=======
+>>>>>>> e222b1a3a2a4e98e5ce302b66af6b1e182c43197
 import {
   BmvOwner,
   BmvEmployee,
@@ -96,6 +102,17 @@ const BmvTable: React.FC = () => {
 
   const columns: TableColumn<BmvArrType>[] = [
     {
+      name: "",
+      selector: (dataTable) => dataTable.name,
+      cell: (dataTable) => <Avatar
+        alt="Remy Sharp"
+        variant="square"
+        src={AvatarImage}
+        sx={{ width: 30, height: 28 }}
+      />,
+      width: "40px"
+    },
+    {
       name: <Typography variant="typo1">Full Name</Typography>,
       cell: (dataTable) => <Typography variant="typo2">{dataTable.name}</Typography>
     },
@@ -173,6 +190,14 @@ const BmvTable: React.FC = () => {
   };
 
   const classes = useStyles();
+<<<<<<< HEAD
+<<<<<<< HEAD
+console.log("object", object);
+=======
+  console.log("data", dataTables);
+>>>>>>> 99b54e8273b297181d5079d5545f60e14de6b9df
+=======
+>>>>>>> e222b1a3a2a4e98e5ce302b66af6b1e182c43197
   return (
     <Grid item xs={12} className={classes.dataListing}>
       <DataTable

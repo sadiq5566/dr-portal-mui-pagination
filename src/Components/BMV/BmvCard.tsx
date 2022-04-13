@@ -64,8 +64,13 @@ const useStyles: any = makeStyles({
     alignItems: "center"
   },
   bmvTitle: {
+<<<<<<< HEAD
+    marginBottom: '-4px',
+    marginLeft: '20px',
+=======
     marginBottom: "-4px",
     marginLeft: "10px"
+>>>>>>> e222b1a3a2a4e98e5ce302b66af6b1e182c43197
   }
 });
 const BmvCard: React.FC<props> = ({ bmvdata, bmvStatus }: props) => {
