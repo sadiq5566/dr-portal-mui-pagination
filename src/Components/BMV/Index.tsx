@@ -1,21 +1,26 @@
 import React from "react";
-import { Box, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import Button from "../Button";
 import Layout from "../Layout/index";
-import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
 import Header from "./Header";
 import SideBarContent from "./SideBarContent";
 import BmvTable from "./BmvTable";
 
+const useStyles = makeStyles({
+  bmvList: {
+    padding: "5px 32px 0px 32px !important"
+  }
+});
 const Index = () => {
+  const classes = useStyles();
+
   return (
     <Layout sideContent={<SideBarContent />}>
       <Grid container spacing={2}>
         <Header />
-      </Grid>
-      <Grid item xs={12}>
-        <BmvTable />
+        <Grid item xs={12} className={classes.bmvList}>
+          <BmvTable />
+        </Grid>
       </Grid>
     </Layout>
   );

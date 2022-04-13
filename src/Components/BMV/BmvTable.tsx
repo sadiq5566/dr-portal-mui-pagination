@@ -3,17 +3,19 @@ import DataTable, { TableColumn } from "react-data-table-component";
 import { makeStyles } from "@mui/styles";
 import { Typography, Box, Grid, Avatar } from "@mui/material";
 import DataStatus from "./DataStatus";
-import { useLocation, Link } from "react-router-dom";
-// import { BmvTableData } from "../data/BmvTableData";
+import { useLocation } from "react-router-dom";
 import {
   BmvOwnersData,
   BmvManagersData,
   BmvEmployeesData,
   BmvLocationsData
 } from "../data/BmvTableData";
+<<<<<<< HEAD
 import Button from "../Button/index";
 import AvatarImage from '../../Assets/images/avatar.png';
 import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
+=======
+>>>>>>> e222b1a3a2a4e98e5ce302b66af6b1e182c43197
 import {
   BmvOwner,
   BmvEmployee,
@@ -98,7 +100,6 @@ const BmvTable: React.FC = () => {
       : setDataTables(BmvOwnersData);
   }, [title]);
 
-  // const columns: TableColumn<BmvOwner | BmvEmployee | BmvManager | BmvLocation>[] = [
   const columns: TableColumn<BmvArrType>[] = [
     {
       name: "",
@@ -113,30 +114,61 @@ const BmvTable: React.FC = () => {
     },
     {
       name: <Typography variant="typo1">Full Name</Typography>,
-      selector: (dataTable) => dataTable.name,
       cell: (dataTable) => <Typography variant="typo2">{dataTable.name}</Typography>
     },
-    {
-      name: <Typography variant="typo1">BMV</Typography>,
-
-      selector: (dataTable) => dataTable.name,
-      cell: (dataTable) => <Typography variant="typo3">{dataTable.BMV}</Typography>
-    },
+    ...(title !== "Locations"
+      ? [
+          {
+            name: <Typography variant="typo1">BMV</Typography>,
+            cell: (dataTable: any) => (
+              <Typography variant="typo3">{dataTable.BMV}</Typography>
+            )
+          }
+        ]
+      : []),
+    ...(title === "Employees"
+      ? [
+          {
+            name: <Typography variant="typo1">Designation</Typography>,
+            cell: (dataTable: any) => (
+              <Typography variant="typo2">{dataTable.Designation}</Typography>
+            )
+          }
+        ]
+      : []),
 
     {
       name: <Typography variant="typo1">Phone Number</Typography>,
-      selector: (dataTable) => dataTable.phone,
+
       cell: (dataTable) => <Typography variant="typo2">{dataTable.phone}</Typography>
     },
     {
       name: <Typography variant="typo1">Email </Typography>,
-      selector: (dataTable) => dataTable.email,
+
       cell: (dataTable) => <Typography variant="typo2">{dataTable.email}</Typography>
     },
-
+    ...(title === "Locations"
+      ? [
+          {
+            name: <Typography variant="typo1">Stripe Account</Typography>,
+            cell: (dataTable: any) => (
+              <Typography variant="typo3">{dataTable.StripeAccount}</Typography>
+            )
+          }
+        ]
+      : []),
+    ...(title === "Locations"
+      ? [
+          {
+            name: <Typography variant="typo1">Physical Address</Typography>,
+            cell: (dataTable: any) => (
+              <Typography variant="typo3">{dataTable.PhysicalAddress}</Typography>
+            )
+          }
+        ]
+      : []),
     {
       name: <Typography variant="typo1">Status</Typography>,
-      selector: (dataTable) => dataTable.status,
       cell: (dataTable) => (
         <Box>
           <Typography variant="typo2">{dataTable.status}</Typography>
@@ -145,24 +177,27 @@ const BmvTable: React.FC = () => {
       )
     },
     {
-      selector: (dataTable) => dataTable.button,
       cell: (dataTable) => <DataStatus />
     }
   ];
   const customStyles = {
     rows: {
       style: {
-        minHeight: "80px"
+        minHeight: "80px",
+        minWidth: "80vw"
       }
     }
   };
 
   const classes = useStyles();
 <<<<<<< HEAD
+<<<<<<< HEAD
 console.log("object", object);
 =======
   console.log("data", dataTables);
 >>>>>>> 99b54e8273b297181d5079d5545f60e14de6b9df
+=======
+>>>>>>> e222b1a3a2a4e98e5ce302b66af6b1e182c43197
   return (
     <Grid item xs={12} className={classes.dataListing}>
       <DataTable

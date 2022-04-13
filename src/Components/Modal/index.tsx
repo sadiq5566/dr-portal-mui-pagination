@@ -9,8 +9,7 @@ import {
   ListItemIcon,
   IconButton,
   Tooltip,
-  Divider,
-  Backdrop
+  Divider
 } from "@mui/material";
 import Button from "../Button/index";
 import ProfileImg from "../../Assets/images/ProfileImg.png";
@@ -30,7 +29,7 @@ const style = {
   height: 400,
   bgcolor: "background.paper",
   p: 2,
-  borderRadius: "10px",
+  borderRadius: "10px"
   // root: {
   //   background: 'rgba(4, 5, 24, 0.85)'
   // },
@@ -42,9 +41,7 @@ const useStyles = makeStyles({
     borderRadius: "3px!important",
     marginRight: "6px !important"
   },
-  profileBg: {
-
-  },
+  profileBg: {},
   profileTextColor: {
     color: theme.palette.success.light
   },
@@ -120,7 +117,7 @@ export default function NestedModal() {
                 top: "58px",
                 left: "11px",
                 padding: "0",
-                boxShadow: 24,
+                boxShadow: 24
               }
             }
           }}
