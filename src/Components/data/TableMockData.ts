@@ -103,7 +103,7 @@ const TableMockData = [
     dealership: "Dealership Name Here",
     dealershipText: "Something",
     registrationType: "Commercial",
-    Status: "accept",
+    Status: "pending",
     button: "button",
     ownerInfo: {
       first_name: "First Name:",
@@ -198,7 +198,7 @@ const TableMockData = [
     dealership: "Dealership Name Here",
     dealershipText: "Something",
     registrationType: "Commercial",
-    Status: "locked",
+    Status: "pending",
     button: "button",
     ownerInfo: {
       first_name: "First Name:",
