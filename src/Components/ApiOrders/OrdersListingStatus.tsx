@@ -8,6 +8,8 @@ import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
 import Header from "./Header";
 import SideBarContent from "../OrdersStatus/SideBarContent";
 import TableMockData from "../data/TableMockData";
+import TableMockData from "../data/TableMockData";
+
 const useStyles = makeStyles({
   mainBox: {
     display: "flex",
