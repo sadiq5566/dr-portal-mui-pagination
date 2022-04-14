@@ -39,7 +39,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: theme.palette.info.main,
     color: theme.palette.warning.dark,
     textTransform: "none",
-
     borderRadius: "7px",
     border: `1px solid ${theme.palette.success.contrastText}`,
     display: "flex",

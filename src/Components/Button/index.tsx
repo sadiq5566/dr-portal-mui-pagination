@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderColor: `${theme.palette.success.contrastText}  !important`,
     color: `${theme.palette.success.light}  !important`
   },
-  ActiveAccept: {
+  ActivePending: {
     backgroundColor: `${theme.palette.primary.main} !important`,
     color: `${theme.palette.success.light}  !important`,
     borderRadius: "7px !important",
@@ -143,7 +143,7 @@ interface IProps {
     | "View"
     | "chooseStatus"
     | "ActiveButtonStatus"
-    | "ActiveAccept"
+    | "ActivePending"
     | "ActiveLock"
     | "ActiveComp"
     | "ActiveReject"
