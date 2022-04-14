@@ -32,6 +32,7 @@ declare module "@mui/material/styles" {
   }
 }
 const blue = "#4362EA";
+const blueHover = "#173ee8";
 const red = "#FFF8F8";
 const blackIcon = "#585F67 ";
 const yellow = "#F7CB68 ";
@@ -44,8 +45,10 @@ const back = "#17202C ";
 const bluebg = "#4363EA ";
 const newText = "#383747 ";
 const searchIcon = "#24BD86";
+const hover = "#179668";
 const purple = "#BF43EA";
 const orange = "#D75041";
+const hoverEffect = "#d92f1c";
 const borderColor = "#E7E7E9";
 const ButtonNumberText = "#D5D9DE ";
 const white = "#FFFFFF";
@@ -81,7 +84,10 @@ const theme = createTheme({
       contrastText: `${borderColor}`
     },
     error: {
-      main: `${red}`
+      main: `${red}`,
+      dark: `${hover}`,
+      contrastText: `${hoverEffect}`,
+      light: `${blueHover}`
     },
     warning: {
       main: `${yellow}`,

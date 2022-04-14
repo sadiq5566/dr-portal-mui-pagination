@@ -25,9 +25,10 @@ const useStyles = makeStyles((theme: Theme) => ({
   accepted: {
     backgroundColor: theme.palette.info.main,
     color: theme.palette.warning.dark,
+    height: "22px !important",
     textTransform: "none",
     borderRadius: "7px",
-    border: theme.palette.success.contrastText,
+    border: `1px solid ${theme.palette.success.contrastText} !important`,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -36,14 +37,15 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontSize: "10px"
   },
   accept: {
+    marginTop: "2px !important",
+    fontSize: "10px !important",
     paddingLeft: "8px",
     fontWeight: "bold !important"
   },
   lock: {
     display: "flex",
     alignItems: "center",
-    background: theme.palette.info.main,
-    border: `1px solid ${theme.palette.success.contrastText}`
+    background: theme.palette.info.main
   },
   timeUntil: {
     borderRadius: "6px",

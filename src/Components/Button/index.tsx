@@ -7,10 +7,14 @@ const useStyles = makeStyles((theme: Theme) => ({
   primary: {
     background: `${theme.palette.primary.main} !important`,
     color: `${theme.palette.primary.light} !important`,
+    fontSize: "14px !important",
     width: "100%",
     height: "100%",
     padding: "0.7rem !important",
-    fontWeight: "bold !important"
+    fontWeight: "bold !important",
+    "&:hover": {
+      background: `${theme.palette.error.light} !important`
+    }
   },
   new: {
     background: `${theme.palette.primary.main} !important`,
@@ -43,7 +47,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderRadius: "5px",
     fontSize: "12px !important",
     height: "34px !important",
-    marginRight: "0.6rem !important"
+    marginRight: "0.6rem !important",
+    "&:hover": {
+      background: `${theme.palette.error.dark} !important`
+    }
   },
   print: {
     background: `${theme.palette.primary.light} !important`,
@@ -51,7 +58,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderRadius: "5px",
     fontSize: "12px !important",
     height: "34px !important",
-    border: `1px solid ${theme.palette.success.main} !important`
+    border: `1px solid ${theme.palette.success.main} !important`,
+    "&:hover": {
+      background: `${theme.palette.error.dark} !important`,
+      color: `${theme.palette.primary.light} !important`,
+      border: `1px solid ${theme.palette.primary.light} !important`
+    }
   },
   disable: {
     background: theme.palette.primary.contrastText,
@@ -127,7 +139,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: `${theme.palette.secondary.light} !important`,
     color: `${theme.palette.success.light}  !important`,
     borderRadius: "7px !important",
-    borderColor: `${theme.palette.success.contrastText}  !important`
+    borderColor: `${theme.palette.success.contrastText}  !important`,
+    "&:hover": {
+      background: `${theme.palette.error.contrastText} !important`,
+      color: `${theme.palette.primary.light} !important`
+    }
   },
   profileButton: {
     background: "blue",
