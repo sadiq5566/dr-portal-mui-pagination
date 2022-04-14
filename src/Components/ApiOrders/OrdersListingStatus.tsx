@@ -7,6 +7,7 @@ import Layout from "../Layout/index";
 import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
 import Header from "./Header";
 import SideBarContent from "../OrdersStatus/SideBarContent";
+import TableMockData from "../data/TableMockData";
 const useStyles = makeStyles({
   mainBox: {
     display: "flex",
@@ -30,6 +31,7 @@ const OrdersListingStatus = () => {
     complete: false,
     reject: false
   });
+  const [orders, setOrders] = React.useState(TableMockData);
   const classes = useStyles();
   return (
     <Layout sideContent={<SideBarContent />}>
@@ -126,7 +128,7 @@ const OrdersListingStatus = () => {
           </Box>
         </Grid>
         <Grid item xs={12} className={classes.orderListing}>
-          <OrdersListing />
+          <OrdersListing data={orders} />
         </Grid>
       </Grid>
     </Layout>
