@@ -4,7 +4,12 @@ import theme from "../../theme";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
-const DataStatus = () => {
+
+interface Ipops {
+  setDeleteModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setEditModal: React.Dispatch<React.SetStateAction<boolean>>;
+}
+const DataStatus: React.FC<Ipops> = ({ setDeleteModal, setEditModal }) => {
   return (
     <Box sx={{ display: "flex", marginRight: "100px" }}>
       <Box
@@ -17,10 +22,10 @@ const DataStatus = () => {
           alignItems: "center"
         }}
       >
-        <IconButton>
+        <IconButton onClick={() => setEditModal(true)}>
           <EditIcon />
         </IconButton>
-        <IconButton>
+        <IconButton onClick={() => setDeleteModal(true)}>
           <DeleteIcon sx={{ color: theme.palette.error.main }} />
         </IconButton>
       </Box>

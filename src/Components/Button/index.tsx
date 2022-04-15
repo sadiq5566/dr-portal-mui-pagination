@@ -42,6 +42,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     background: theme.palette.secondary.light,
     marginRight: "1rem"
   },
+  delete: {
+    color: theme.palette.primary.light,
+    borderRadius: "5px",
+    background: `${theme.palette.error.main} !important`,
+    marginRight: "1rem"
+  },
   info: {
     color: theme.palette.primary.main,
     borderRadius: "5px",
@@ -126,6 +132,7 @@ interface IProps {
     | "success"
     | "danger"
     | "disable"
+    | "delete"
     | "warning"
     | "AccLock"
     | "chooseStatus"
