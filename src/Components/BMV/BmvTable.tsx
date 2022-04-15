@@ -18,6 +18,11 @@ import {
 } from "../../Interfaces/bmvInterface";
 import Switch, { SwitchProps } from "@mui/material/Switch";
 import { styled } from "@mui/material/styles";
+import DeleteBmv from "../Modal/DeleteBmv";
+import DetailBmv from "../Modal/DetailBmv";
+import DisableBmv from "../Modal/DisableBmv";
+import EditBmv from "../Modal/EditBmv";
+
 const useStyles = makeStyles({
   dataListing: {
     padding: "5px 32px 0px 32px !important"
@@ -87,6 +92,11 @@ const BmvTable: React.FC = () => {
   const urlSplit = location.pathname.split("/", 3);
   const title = capitalize(urlSplit[2]);
   const [dataTables, setDataTables] = useState<BmvArrType[]>(BmvOwnersData);
+  const [detailModal, setDetailModal] = React.useState<boolean>(false);
+  const [deleteModal, setDeleteModal] = React.useState<boolean>(false);
+  const [editModal, setEditModal] = React.useState<boolean>(false);
+  const [disableModal, setDisableModal] = React.useState<boolean>(false);
+
   useEffect(() => {
     title === "Owners"
       ? setDataTables(BmvOwnersData)
@@ -107,7 +117,8 @@ const BmvTable: React.FC = () => {
           alt="Remy Sharp"
           variant="square"
           src={dataTable.image}
-          sx={{ width: 30, height: 32, borderRadius: 1 }}
+          sx={{ width: 30, height: 32, borderRadius: 1, cursor: "pointer" }}
+          onClick={() => setDetailModal(true)}
         />
       ),
       width: "40px"
@@ -175,12 +186,15 @@ const BmvTable: React.FC = () => {
           <IOSSwitch
             sx={{ m: 1 }}
             checked={dataTable.status === "Active" ? true : false}
+            onClick={() => setDisableModal(true)}
           />
         </Box>
       )
     },
     {
-      cell: (dataTable) => <DataStatus />
+      cell: (dataTable) => (
+        <DataStatus setEditModal={setEditModal} setDeleteModal={setDeleteModal} />
+      )
     }
   ];
   const customStyles = {
@@ -204,6 +218,10 @@ const BmvTable: React.FC = () => {
         data={dataTables}
         pagination
       />
+      {detailModal && <DetailBmv setModal={setDetailModal} />}
+      {deleteModal && <DeleteBmv setModal={setDeleteModal} />}
+      {disableModal && <DisableBmv setModal={setDisableModal} />}
+      {editModal && <EditBmv setModal={setEditModal} />}
     </Grid>
   );
 };

@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const Orders: React.FC<IProps> = ({ order }) => {
   const classes = useStyles();
-  const [modal, setModal] = React.useState(false);
+  const [modal, setModal] = React.useState<boolean>(false);
   return (
     <>
       <Box pl={3}>
