@@ -7,7 +7,7 @@ import OwnerInfo from "./OwnerInfo";
 import VehicleInfo from "./VehicleInfo";
 import DealershipInfo from "./DealershipInfo";
 import { Order } from "../../Interfaces/orderInterface";
-
+import OrderStatus from "./OrderStatus";
 interface IProps {
   order: Order;
 }
@@ -54,9 +54,19 @@ const AttachmentDetails: React.FC<IProps> = ({ order }) => {
           </Grid>
         </Box>
       </Grid>
-      <Grid item xs={3}>
-        <OrderSummary order={order} />
-      </Grid>
+      {order?.Status === "complete" ? (
+        <Grid item xs={3}>
+          <OrderStatus order={order} />
+        </Grid>
+      ) : order?.Status === "reject" ? (
+        <Grid item xs={3}>
+          <OrderStatus order={order} />
+        </Grid>
+      ) : (
+        <Grid item xs={3}>
+          <OrderSummary order={order} />
+        </Grid>
+      )}
     </Grid>
   );
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Grid, Typography, Theme, Divider, Box } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import WestIcon from "@mui/icons-material/West";
@@ -65,6 +65,7 @@ const Orders: React.FC<IProps> = ({ order }) => {
   const classes = useStyles();
   const [modal, setModal] = React.useState(false);
   const [rejectModal, setRejectModal] = React.useState(false);
+  const [statusBtn, setStatusButton] = useState(false);
   return (
     <>
       <Box pl={3}>
@@ -86,64 +87,130 @@ const Orders: React.FC<IProps> = ({ order }) => {
         <Divider />
       </Box>
       <Box px={3}>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-          <Box>
-            <Typography variant="body2" className={classes.order}>
-              Order #: 124541
-              {order.Status === "new" ? (
-                <>
-                  <Button size="small" text="New" color="New" startIcon={<TickSvg />} />
-                </>
-              ) : order.Status === "pending" ? (
-                <>
+        <Box>
+          {order?.Status === "new" ? (
+            <>
+              <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+                <Box sx={{ display: "flex" }}>
+                  <Typography variant="body2" className={classes.order}>
+                    Order #: 124541
+                  </Typography>
+                  <Box mt={4}>
+                    {statusBtn ? (
+                      <Button
+                        size="small"
+                        text="Pending"
+                        color="pending"
+                        startIcon={<TickSvg />}
+                      />
+                    ) : (
+                      <Button
+                        size="small"
+                        text="New"
+                        color="New"
+                        startIcon={<TickSvg />}
+                      />
+                    )}
+                  </Box>
+                </Box>
+                <Box mt={4}>
+                  {statusBtn ? (
+                    <Button
+                      variant="contained"
+                      text="Complete Order"
+                      size="medium"
+                      color="success"
+                      onClick={() => setModal(true)}
+                    />
+                  ) : (
+                    <Button
+                      text="Mark as Pending"
+                      variant="contained"
+                      color="new"
+                      size="large"
+                      onClick={() => setStatusButton(!statusBtn)}
+                    />
+                  )}
+
+                  <Button
+                    variant="contained"
+                    text="Reject"
+                    size="medium"
+                    color="warning"
+                    onClick={() => setRejectModal(true)}
+                  />
+                </Box>
+              </Box>
+            </>
+          ) : order?.Status === "pending" ? (
+            <>
+              <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+                <Box sx={{ display: "flex" }}>
+                  <Typography variant="body2" className={classes.order}>
+                    Order #: 124541
+                  </Typography>
+                  <Box mt={4}>
+                    <Button
+                      size="small"
+                      text="Pending"
+                      color="pending"
+                      startIcon={<TickSvg />}
+                    />
+                  </Box>
+                </Box>
+                <Box mt={4}>
+                  <Button
+                    variant="contained"
+                    text="Complete Order"
+                    size="medium"
+                    color="success"
+                    onClick={() => setModal(true)}
+                  />
+                  <Button
+                    variant="contained"
+                    text="Reject"
+                    size="medium"
+                    color="warning"
+                    onClick={() => setRejectModal(true)}
+                  />
+                </Box>
+              </Box>
+            </>
+          ) : order.Status === "reject" ? (
+            <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+              <Box sx={{ display: "flex" }}>
+                <Typography variant="body2" className={classes.order}>
+                  Order #: 124541
+                </Typography>
+                <Box mt={4}>
                   <Button
                     size="small"
-                    text="Pending"
-                    color="pending"
+                    text="Rejected"
+                    color="ActReject"
                     startIcon={<TickSvg />}
                   />
-                </>
-              ) : (
-                ""
-              )}
-            </Typography>
-          </Box>
-          <Box sx={{ display: "flex", alignItems: "center" }}>
-            <>
-              {order?.Status === "new" ? (
-                <Button
-                  text="Mark as Pending"
-                  variant="contained"
-                  color="new"
-                  size="large"
-                />
-              ) : order?.Status === "complete" ? (
-                <Button
-                  text="Complete Order"
-                  variant="contained"
-                  color="success"
-                  size="large"
-                  onClick={() => setModal(true)}
-                />
-              ) : (
-                <Button
-                  text="Lock Order"
-                  variant="contained"
-                  color="secondary"
-                  size="large"
-                />
-              )}
-            </>
-            <Box>
-              <Button
-                variant="contained"
-                text="Reject"
-                size="medium"
-                color="warning"
-                onClick={() => setRejectModal(true)}
-              />
+                </Box>
+              </Box>
             </Box>
-          </Box>
+          ) : order.Status === "complete" ? (
+            <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+              <Box sx={{ display: "flex" }}>
+                <Typography variant="body2" className={classes.order}>
+                  Order #: 124541
+                </Typography>
+                <Box mt={4}>
+                  <Button
+                    size="small"
+                    text="Complete"
+                    color="actAccept"
+                    startIcon={<TickSvg />}
+                  />
+                </Box>
+              </Box>
+            </Box>
+          ) : (
+            ""
+          )}
         </Box>
         <Divider />
         <Box mt={4}>

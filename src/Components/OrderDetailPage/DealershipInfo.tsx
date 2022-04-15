@@ -47,30 +47,56 @@ const DealershipInfo: React.FC<IProps> = ({ order }) => {
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <Box>
               {order?.Status === "new" ? (
-                <Button
-                  text="Mark as Pending"
-                  variant="contained"
-                  color="new"
-                  size="large"
-                />
-              ) : order?.Status === "complete" ? (
-                <Button
-                  text="Complete Order"
-                  variant="contained"
-                  color="success"
-                  size="large"
-                />
+                <>
+                  <Button
+                    text="Mark as Pending"
+                    variant="contained"
+                    color="new"
+                    size="large"
+                  />
+
+                  <Button
+                    variant="contained"
+                    text="Reject"
+                    size="medium"
+                    color="warning"
+                  />
+                </>
+              ) : order?.Status === "pending" ? (
+                <>
+                  <Button
+                    text="Complete Order"
+                    variant="contained"
+                    color="success"
+                    size="large"
+                  />
+
+                  <Button
+                    variant="contained"
+                    text="Reject"
+                    size="medium"
+                    color="warning"
+                  />
+                </>
+              ) : order?.Status === "pending" ? (
+                <>
+                  <Button
+                    text="Lock Order"
+                    variant="contained"
+                    color="secondary"
+                    size="large"
+                  />
+
+                  <Button
+                    variant="contained"
+                    text="Reject"
+                    size="medium"
+                    color="warning"
+                  />
+                </>
               ) : (
-                <Button
-                  text="Lock Order"
-                  variant="contained"
-                  color="secondary"
-                  size="large"
-                />
+                ""
               )}
-            </Box>
-            <Box>
-              <Button variant="contained" text="Reject" size="medium" color="warning" />
             </Box>
           </Box>
         </Grid>

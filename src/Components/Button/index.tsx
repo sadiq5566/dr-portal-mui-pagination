@@ -26,19 +26,32 @@ const useStyles = makeStyles((theme: Theme) => ({
   New: {
     background: `${theme.palette.warning.contrastText} !important`,
     color: `${theme.palette.primary.light} !important`,
-    border: `1px solid ${theme.palette.warning.contrastText} !important`,
-    borderRadius: "6px",
+    borderRadius: "6px !important",
+    border: "1px solid !important",
+    fontSize: "12px !important",
+    borderColor: `${theme.palette.success.contrastText}  !important`,
     marginLeft: "0.6rem !important",
-    height: "22px !important",
-    fontSize: "12px !important"
+    height: "28px"
   },
   pending: {
-    background: `${theme.palette.warning.main} !important`,
-    color: `${theme.palette.primary.light} !important`,
-    borderRadius: "6px",
+    backgroundColor: `${theme.palette.warning.main} !important`,
+    color: `${theme.palette.success.light}  !important`,
+    borderRadius: "6px !important",
+    border: "1px solid !important",
+    fontSize: "12px !important",
+    borderColor: `${theme.palette.success.contrastText}  !important`,
     marginLeft: "0.6rem !important",
-    height: "22px !important",
-    fontSize: "12px !important"
+    height: "28px"
+  },
+  actAccept: {
+    backgroundColor: `${theme.palette.success.main} !important`,
+    color: `${theme.palette.success.light}  !important`,
+    borderRadius: "6px !important",
+    border: "1px solid !important",
+    fontSize: "12px !important",
+    borderColor: `${theme.palette.success.contrastText}  !important`,
+    marginLeft: "0.6rem !important",
+    height: "28px"
   },
   secondary: {
     background: `${theme.palette.warning.light} !important`,
@@ -104,7 +117,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: "28px"
   },
   ActiveButtonStatus: {
-    backgroundColor: `${theme.palette.warning.main} !important`,
+    backgroundColor: `${theme.palette.warning.contrastText} !important`,
     whiteSpace: "nowrap",
     height: "28px",
     borderRadius: "7px !important",
@@ -114,7 +127,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     color: `${theme.palette.success.light}  !important`
   },
   ActivePending: {
-    backgroundColor: `${theme.palette.primary.main} !important`,
+    backgroundColor: `${theme.palette.warning.main} !important`,
     color: `${theme.palette.success.light}  !important`,
     borderRadius: "7px !important",
     border: "1px solid !important",
@@ -147,12 +160,23 @@ const useStyles = makeStyles((theme: Theme) => ({
   ActiveReject: {
     backgroundColor: `${theme.palette.secondary.light} !important`,
     color: `${theme.palette.success.light}  !important`,
+    height: "28px",
     borderRadius: "7px !important",
     borderColor: `${theme.palette.success.contrastText}  !important`,
     "&:hover": {
       background: `${theme.palette.error.contrastText} !important`,
       color: `${theme.palette.primary.light} !important`
     }
+  },
+  ActReject: {
+    backgroundColor: `${theme.palette.secondary.light} !important`,
+    color: `${theme.palette.success.light}  !important`,
+    borderRadius: "6px !important",
+    border: "1px solid !important",
+    fontSize: "12px !important",
+    borderColor: `${theme.palette.success.contrastText}  !important`,
+    marginLeft: "0.6rem !important",
+    height: "28px"
   },
   profileButton: {
     background: "blue",
@@ -176,6 +200,8 @@ interface IProps {
     | "primary"
     | "new"
     | "pending"
+    | "actAccept"
+    | "ActReject"
     | "New"
     | "info"
     | "Cancel"
