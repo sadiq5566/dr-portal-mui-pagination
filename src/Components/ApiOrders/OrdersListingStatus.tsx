@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Grid } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import OrdersListing from "./OrdersListing";
@@ -25,14 +25,37 @@ interface Iprops {
   complete?: boolean;
   reject?: boolean;
 }
+
 const OrdersListingStatus = () => {
-  const [activeClass, setActiveClass] = React.useState<Iprops>({
+  const [activeClass, setActiveClass] = useState<Iprops>({
     new: false,
     pending: false,
     complete: false,
     reject: false
   });
-  const [orders] = React.useState(TableMockData);
+  const [orders, setOrders] = useState(TableMockData);
+
+  useEffect(() => {
+    const filterStatus = activeClass.new
+      ? "new"
+      : activeClass.pending
+      ? "pending"
+      : activeClass.complete
+      ? "complete"
+      : activeClass.reject
+      ? "reject"
+      : null;
+    const filterItem = (categItem) => {
+      const updateItems = TableMockData.filter((curElem) => {
+        return curElem.Status === categItem;
+      });
+      setOrders(updateItems);
+      if (!filterStatus) {
+        setOrders(TableMockData);
+      }
+    };
+    filterItem(filterStatus);
+  }, [activeClass]);
   const classes = useStyles();
   return (
     <Layout sideContent={<SideBarContent />}>
@@ -46,9 +69,9 @@ const OrdersListingStatus = () => {
                 variant="outlined"
                 text="New"
                 color={activeClass.new ? "ActiveButtonStatus" : "chooseStatus"}
-                onClick={() =>
-                  setActiveClass((current) => ({ ...current, new: !activeClass.new }))
-                }
+                onClick={() => {
+                  setActiveClass((current) => ({ ...current, new: !activeClass.new }));
+                }}
                 startIcon={<StatusSvg status="new" activeClass={activeClass.new} />}
               />
               <Box px={1}>
