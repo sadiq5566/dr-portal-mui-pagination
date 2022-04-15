@@ -11,7 +11,7 @@ const DataStatus: React.FC<IProps> = ({ TableMockData }) => {
   return (
     <Box sx={{ display: "flex", marginRight: "100px" }}>
       <Box>
-        <Link to={`/orderdetails/${TableMockData.id}`}>
+        <Link to={`/orderdetails/${TableMockData?.id}`}>
           <Button size="medium" variant="outlined" text="View" color="View" />
         </Link>
       </Box>
