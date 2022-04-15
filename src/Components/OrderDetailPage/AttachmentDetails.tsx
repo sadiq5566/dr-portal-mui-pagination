@@ -2,7 +2,7 @@ import React from "react";
 import { Grid, Typography, Theme, Stack, Divider, Box } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import Button from "../Button/index";
-import OrderStatus from "./OrderStatus";
+import OrderSummary from "./OrderSummary";
 import OwnerInfo from "./OwnerInfo";
 import VehicleInfo from "./VehicleInfo";
 import DealershipInfo from "./DealershipInfo";
@@ -33,8 +33,6 @@ const AttachmentDetails: React.FC<IProps> = ({ order }) => {
           </Stack>
           <Box pl={2}>
             <Button text="Print Attachments" size="large" color="success" />
-
-            <Button text="Print Summary" size="large" color="print" />
           </Box>
         </Box>
         <Box mt={4}>
@@ -56,9 +54,8 @@ const AttachmentDetails: React.FC<IProps> = ({ order }) => {
           </Grid>
         </Box>
       </Grid>
-
       <Grid item xs={3}>
-        <OrderStatus order={order} />
+        <OrderSummary order={order} />
       </Grid>
     </Grid>
   );

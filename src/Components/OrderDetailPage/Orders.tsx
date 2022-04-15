@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { Order } from "../../Interfaces/orderInterface";
 import CompleteOrder from "../Modal/CompleteOrder";
 import RejectOrder from "../Modal/RejectOrder";
+import TickSvg from "../../Assets/svgs/TickSvg";
 
 interface IProps {
   order: Order;
@@ -47,6 +48,17 @@ const useStyles = makeStyles((theme: Theme) => ({
     alignItems: "center",
     textAlign: "center",
     fontSize: "10px"
+  },
+  accept: {
+    marginTop: "2px !important",
+    fontSize: "10px !important",
+    paddingLeft: "8px",
+    fontWeight: "bold !important"
+  },
+  lock: {
+    display: "flex",
+    alignItems: "center",
+    background: theme.palette.warning.contrastText
   }
 }));
 
@@ -79,7 +91,22 @@ const Orders: React.FC<IProps> = ({ order }) => {
           <Box>
             <Typography variant="body2" className={classes.order}>
               Order #: 124541
-              <Box className={classes.accepted} ml={2} px={1}></Box>
+              {order.Status === "new" ? (
+                <>
+                  <Button size="small" text="New" color="New" startIcon={<TickSvg />} />
+                </>
+              ) : order.Status === "pending" ? (
+                <>
+                  <Button
+                    size="small"
+                    text="Pending"
+                    color="pending"
+                    startIcon={<TickSvg />}
+                  />
+                </>
+              ) : (
+                ""
+              )}
             </Typography>
           </Box>
           <Box sx={{ display: "flex", alignItems: "center" }}>

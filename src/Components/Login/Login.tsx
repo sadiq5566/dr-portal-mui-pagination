@@ -1,5 +1,5 @@
 import { Grid, Theme, Typography, Box } from "@mui/material";
-import loginone from "../../Assets/images/loginone.png";
+import login from "../../Assets/images/login.png";
 import { makeStyles } from "@mui/styles";
 import Logo from "../../Assets/svgs/DrSvg/Logo";
 import Button from "../Button";
@@ -31,7 +31,7 @@ const Login = () => {
     <Grid container justifyContent="center">
       <Grid item lg={6}>
         <Box>
-          <img src={loginone} alt="loginone" className={classes.img} />
+          <img src={login} alt="login" className={classes.img} />
         </Box>
       </Grid>
       <Grid item lg={6}>

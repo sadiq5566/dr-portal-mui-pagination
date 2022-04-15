@@ -11,8 +11,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   rightDiv: {
     borderRadius: "8px",
     background: theme.palette.primary.light,
-    border: `1px solid ${theme.palette.secondary.contrastText}`,
-    marginTop: "1.7rem"
+    border: `1px solid ${theme.palette.secondary.contrastText}`
   },
   summary: {
     color: theme.palette.text.primary,

@@ -17,11 +17,28 @@ const useStyles = makeStyles((theme: Theme) => ({
     }
   },
   new: {
-    background: `${theme.palette.primary.main} !important`,
+    background: `${theme.palette.warning.main} !important`,
     color: `${theme.palette.primary.light} !important`,
     borderRadius: "5px",
     marginRight: "0.6rem !important",
     height: "34px !important",
+    fontSize: "12px !important"
+  },
+  New: {
+    background: `${theme.palette.warning.contrastText} !important`,
+    color: `${theme.palette.primary.light} !important`,
+    border: `1px solid ${theme.palette.warning.contrastText} !important`,
+    borderRadius: "6px",
+    marginLeft: "0.6rem !important",
+    height: "22px !important",
+    fontSize: "12px !important"
+  },
+  pending: {
+    background: `${theme.palette.warning.main} !important`,
+    color: `${theme.palette.primary.light} !important`,
+    borderRadius: "6px",
+    marginLeft: "0.6rem !important",
+    height: "22px !important",
     fontSize: "12px !important"
   },
   secondary: {
@@ -50,19 +67,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginRight: "0.6rem !important",
     "&:hover": {
       background: `${theme.palette.error.dark} !important`
-    }
-  },
-  print: {
-    background: `${theme.palette.primary.light} !important`,
-    color: `${theme.palette.success.main} !important`,
-    borderRadius: "5px",
-    fontSize: "12px !important",
-    height: "34px !important",
-    border: `1px solid ${theme.palette.success.main} !important`,
-    "&:hover": {
-      background: `${theme.palette.error.dark} !important`,
-      color: `${theme.palette.primary.light} !important`,
-      border: `1px solid ${theme.palette.primary.light} !important`
     }
   },
   disable: {
@@ -166,7 +170,8 @@ interface IProps {
     | "secondary"
     | "primary"
     | "new"
-    | "print"
+    | "pending"
+    | "New"
     | "info"
     | "Cancel"
     | "success"
