@@ -5,8 +5,8 @@ interface Props {
   stroke?: boolean;
 }
 const colors = {
-  new: "#F7CB68",
-  pending: "#4362EA",
+  new: "#4362EA",
+  pending: "#F7CB68",
   complete: "#24BD86",
   reject: "#D75041"
 };
