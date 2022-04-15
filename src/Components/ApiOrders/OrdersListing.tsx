@@ -2,7 +2,6 @@ import React from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 import { Typography } from "@mui/material";
 import DataStatus from "./DataStatus";
-import { Link } from "react-router-dom";
 import Button from "../Button/index";
 import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
 import { Order } from "../../Interfaces/orderInterface";
@@ -25,9 +24,7 @@ const OrdersListing: React.FC<IProps> = ({ data }) => {
 
       selector: (TableMockData) => TableMockData.VIN,
       cell: (TableMockData) => (
-        <Link style={{ textDecoration: "none" }} to={`/orderdetails/${TableMockData.id}`}>
-          <Typography variant="typo3">{TableMockData.VIN}</Typography>
-        </Link>
+        <Typography variant="typo3">{TableMockData.VIN}</Typography>
       )
     },
     {
@@ -76,7 +73,7 @@ const OrdersListing: React.FC<IProps> = ({ data }) => {
     },
     {
       selector: (TableMockData) => TableMockData.button,
-      cell: (TableMockData) => <DataStatus />
+      cell: (TableMockData) => <DataStatus TableMockData={TableMockData} />
     }
   ];
   const customStyles = {

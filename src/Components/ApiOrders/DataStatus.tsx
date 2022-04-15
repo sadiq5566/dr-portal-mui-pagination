@@ -2,12 +2,18 @@ import { Box, Button as Buttons } from "@mui/material";
 import React from "react";
 import Button from "../Button/index";
 import theme from "../../theme";
+import { Link } from "react-router-dom";
 
-const DataStatus = () => {
+interface IProps {
+  TableMockData: any;
+}
+const DataStatus: React.FC<IProps> = ({ TableMockData }) => {
   return (
     <Box sx={{ display: "flex", marginRight: "100px" }}>
       <Box>
-        <Button size="medium" variant="outlined" text="View" color="View" />
+        <Link to={`/orderdetails/${TableMockData.id}`}>
+          <Button size="medium" variant="outlined" text="View" color="View" />
+        </Link>
       </Box>
       <Buttons
         sx={{
