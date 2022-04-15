@@ -3,12 +3,15 @@ import DataTable, { TableColumn } from "react-data-table-component";
 import { Typography } from "@mui/material";
 import DataStatus from "./DataStatus";
 import { Link } from "react-router-dom";
-import TableMockDataa from "../data/TableMockData";
 import Button from "../Button/index";
 import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
 import { Order } from "../../Interfaces/orderInterface";
 
-const OrdersListing = () => {
+interface IProps {
+  data: any;
+}
+
+const OrdersListing: React.FC<IProps> = ({ data }) => {
   const columns: TableColumn<Order>[] = [
     {
       name: <Typography variant="typo1">Order Number</Typography>,
@@ -91,7 +94,7 @@ const OrdersListing = () => {
         fixedHeader
         customStyles={customStyles}
         columns={columns}
-        data={TableMockDataa}
+        data={data}
         selectableRows
         pagination
       />

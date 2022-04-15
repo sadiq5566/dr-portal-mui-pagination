@@ -6,8 +6,7 @@ interface Props {
 }
 const colors = {
   new: "#F7CB68",
-  accept: "#4362EA",
-  locked: "#BF43EA",
+  pending: "#4362EA",
   complete: "#24BD86",
   reject: "#D75041"
 };
@@ -43,10 +42,8 @@ const StatusSvg: React.FC<Props> = ({ status, activeClass, stroke }) => {
             fill={
               status === "new"
                 ? colors.new
-                : status === "accept"
-                ? colors.accept
-                : status === "locked"
-                ? colors.locked
+                : status === "pending"
+                ? colors.pending
                 : status === "complete"
                 ? colors.complete
                 : status === "reject"

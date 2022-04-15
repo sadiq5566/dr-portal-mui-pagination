@@ -7,6 +7,8 @@ import Layout from "../Layout/index";
 import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
 import Header from "./Header";
 import SideBarContent from "../OrdersStatus/SideBarContent";
+import TableMockData from "../data/TableMockData";
+
 const useStyles = makeStyles({
   mainBox: {
     display: "flex",
@@ -19,19 +21,18 @@ const useStyles = makeStyles({
 });
 interface Iprops {
   new?: boolean;
-  accept?: boolean;
-  lock?: boolean;
+  pending?: boolean;
   complete?: boolean;
   reject?: boolean;
 }
 const OrdersListingStatus = () => {
   const [activeClass, setActiveClass] = React.useState<Iprops>({
     new: false,
-    accept: false,
-    lock: false,
+    pending: false,
     complete: false,
     reject: false
   });
+  const [orders] = React.useState(TableMockData);
   const classes = useStyles();
   return (
     <Layout sideContent={<SideBarContent />}>
@@ -54,34 +55,21 @@ const OrdersListingStatus = () => {
                 <Button
                   size="small"
                   variant="outlined"
-                  text="Accepted"
+                  text="Pending"
                   color={
-                    activeClass.accept
-                      ? "ActiveButtonStatus" && "ActiveAccept"
+                    activeClass.pending
+                      ? "ActiveButtonStatus" && "ActivePending"
                       : "chooseStatus"
                   }
                   onClick={() =>
-                    setActiveClass((current) => ({ ...current, accept: !current.accept }))
+                    setActiveClass((current) => ({
+                      ...current,
+                      pending: !current.pending
+                    }))
                   }
                   startIcon={
-                    <StatusSvg status="accept" activeClass={activeClass.accept} />
+                    <StatusSvg status="pending" activeClass={activeClass.pending} />
                   }
-                />
-              </Box>
-              <Box pr={1}>
-                <Button
-                  size="small"
-                  variant="outlined"
-                  text="Locked"
-                  color={
-                    activeClass.lock
-                      ? "ActiveButtonStatus" && "ActiveLock"
-                      : "chooseStatus"
-                  }
-                  onClick={() =>
-                    setActiveClass((current) => ({ ...current, lock: !activeClass.lock }))
-                  }
-                  startIcon={<StatusSvg status="locked" activeClass={activeClass.lock} />}
                 />
               </Box>
               <Box pr={1}>
@@ -129,20 +117,19 @@ const OrdersListingStatus = () => {
                 variant="outlined"
                 text={
                   activeClass.new ||
-                  activeClass.accept ||
-                  activeClass.lock ||
+                  activeClass.pending ||
                   activeClass.complete ||
                   activeClass.reject
                     ? "Lock Orders"
-                    : "Accept & Lock"
+                    : "Batch Order"
                 }
-                color="AccLock"
+                color="Batchorder"
               />
             </Box>
           </Box>
         </Grid>
         <Grid item xs={12} className={classes.orderListing}>
-          <OrdersListing />
+          <OrdersListing data={orders} />
         </Grid>
       </Grid>
     </Layout>

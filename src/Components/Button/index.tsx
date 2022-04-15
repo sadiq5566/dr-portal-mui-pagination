@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
 import { Theme, Button as Buttons } from "@mui/material";
-import { useTheme } from "@emotion/react";
 
 const useStyles = makeStyles((theme: Theme) => ({
   primary: {
@@ -86,8 +85,14 @@ const useStyles = makeStyles((theme: Theme) => ({
     background: `${theme.palette.primary.light} !important`,
     marginRight: "1rem !important"
   },
-  AccLock: {
+  Batchorder: {
     whiteSpace: "nowrap"
+  },
+  View: {
+    minWidth: "70px",
+    height: "31px",
+    border: 1,
+    borderColor: "#E5E6E8 !important"
   },
   chooseStatus: {
     borderRadius: "7px !important",
@@ -108,7 +113,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderColor: `${theme.palette.success.contrastText}  !important`,
     color: `${theme.palette.success.light}  !important`
   },
-  ActiveAccept: {
+  ActivePending: {
     backgroundColor: `${theme.palette.primary.main} !important`,
     color: `${theme.palette.success.light}  !important`,
     borderRadius: "7px !important",
@@ -178,10 +183,11 @@ interface IProps {
     | "danger"
     | "disable"
     | "warning"
-    | "AccLock"
+    | "Batchorder"
+    | "View"
     | "chooseStatus"
     | "ActiveButtonStatus"
-    | "ActiveAccept"
+    | "ActivePending"
     | "ActiveLock"
     | "ActiveComp"
     | "ActiveReject"
@@ -203,8 +209,6 @@ const Button: React.FC<IProps> = ({
   onClick
 }) => {
   const classes = useStyles();
-  const theme = useTheme();
-  console.log(theme);
   return (
     <Buttons
       className={color ? classes[color] : ""}

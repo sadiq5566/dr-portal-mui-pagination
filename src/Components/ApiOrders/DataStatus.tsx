@@ -3,16 +3,16 @@ import React from "react";
 import Button from "../Button/index";
 import theme from "../../theme";
 
-const DataStatus: React.FC = () => {
+const DataStatus = () => {
   return (
     <Box sx={{ display: "flex", marginRight: "100px" }}>
       <Box>
-        <Button size="medium" variant="contained" text="Accept" color="AccLock" />
+        <Button size="medium" variant="outlined" text="View" color="View" />
       </Box>
-
       <Buttons
         sx={{
-          minWidth: "39px",
+          height: "30px",
+          minWidth: "30px",
           border: 1,
           borderColor: "grey.300",
           borderRadius: "5px",

@@ -25,40 +25,41 @@ const SideBarContent = () => {
             <Location />
           </Box>
           <Divider />
-          <Box px={2}>
-            <Stack spacing={1}>
-              <Typography variant="subtitle1" color={theme.palette.primary.dark}>
-                General Queues
-              </Typography>
-              {OrderStatusMockData.map((orderstatusMockData, i) => {
-                return (
-                  <OrderCard
-                    key={i}
-                    ordersdata={orderstatusMockData}
-                    orderStatus={true}
-                  />
-                );
-              })}
-            </Stack>
-            <Stack spacing={1} pt={3}>
-              <Typography variant="subtitle1" color={theme.palette.primary.dark}>
-                Dealership Location Queues
-              </Typography>
-              <Scrollbars
-                style={{
-                  width: "100%",
-                  height: 250
-                }}
-                autoHide
-              >
+          <Scrollbars
+            style={{
+              width: "100%",
+              height: 550
+            }}
+            autoHide
+          >
+            <Box px={2}>
+              <Stack spacing={1}>
+                <Typography variant="subtitle1" color={theme.palette.primary.dark}>
+                  General Queues
+                </Typography>
+                {OrderStatusMockData.map((orderstatusMockData, i) => {
+                  return (
+                    <OrderCard
+                      key={i}
+                      ordersdata={orderstatusMockData}
+                      orderStatus={true}
+                    />
+                  );
+                })}
+              </Stack>
+              <Stack spacing={1} pt={3}>
+                <Typography variant="subtitle1" color={theme.palette.primary.dark}>
+                  Dealership Location Queues
+                </Typography>
+
                 <Box>
                   {OrderData.map((orderData, i) => {
                     return <OrderCard key={i} ordersdata={orderData} />;
                   })}
                 </Box>
-              </Scrollbars>
-            </Stack>
-          </Box>
+              </Stack>
+            </Box>
+          </Scrollbars>
         </Stack>
       </Grid>
     </Grid>

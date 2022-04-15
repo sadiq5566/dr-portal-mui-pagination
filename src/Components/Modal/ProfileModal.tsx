@@ -38,10 +38,10 @@ const useStyles = makeStyles({
     marginRight: "6px !important"
   },
   profileBg: {
-    backgroundColor: theme.palette.warning.contrastText
+    backgroundColor: `${theme.palette.warning.contrastText} !important`
   },
   profileTextColor: {
-    color: theme.palette.success.light
+    color: `${theme.palette.success.light} !important`
   },
   profileHeading: {
     fontSize: "18px !important",
@@ -61,7 +61,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function NestedModal() {
+const ProfileModal = () => {
   const [open, setOpen] = React.useState(false);
   const [tinyModal, setTinyModal] = React.useState(false);
   const handleOpen = () => {
@@ -239,4 +239,5 @@ export default function NestedModal() {
       </Modal>
     </React.Fragment>
   );
-}
+};
+export default ProfileModal;

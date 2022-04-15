@@ -1,4 +1,4 @@
-const TableMockDataa = [
+const TableMockData = [
   {
     id: "1",
     name: "MG0Vd5",
@@ -103,7 +103,7 @@ const TableMockDataa = [
     dealership: "Dealership Name Here",
     dealershipText: "Something",
     registrationType: "Commercial",
-    Status: "accept",
+    Status: "pending",
     button: "button",
     ownerInfo: {
       first_name: "First Name:",
@@ -198,7 +198,7 @@ const TableMockDataa = [
     dealership: "Dealership Name Here",
     dealershipText: "Something",
     registrationType: "Commercial",
-    Status: "locked",
+    Status: "pending",
     button: "button",
     ownerInfo: {
       first_name: "First Name:",
@@ -475,4 +475,4 @@ const TableMockDataa = [
     }
   }
 ];
-export default TableMockDataa;
+export default TableMockData;
