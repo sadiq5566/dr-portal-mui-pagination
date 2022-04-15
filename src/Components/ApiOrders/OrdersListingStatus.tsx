@@ -45,7 +45,7 @@ const OrdersListingStatus = () => {
       : activeClass.reject
       ? "reject"
       : null;
-    const filterItem = (categItem: any) => {
+    const filterItem = (categItem) => {
       const updateItems = TableMockData.filter((curElem) => {
         return curElem.Status === categItem;
       });
