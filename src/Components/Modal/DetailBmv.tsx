@@ -14,7 +14,6 @@ const style = {
   transform: "translate(-50%, -50%)",
   borderRadius: "8px",
   bgcolor: "background.paper",
-  boxShadow: 24,
   p: 4
 };
 
@@ -29,7 +28,7 @@ interface IProps {
   readonly setModal: Dispatch<SetStateAction<boolean>>;
 }
 
-const CompleteOrder: React.FC<IProps> = ({ setModal }) => {
+const DetailBmv: React.FC<IProps> = ({ setModal }) => {
   const classes = useStyles();
   const [user, setUser] = useState({
     reciept_number: "",
@@ -177,4 +176,4 @@ const CompleteOrder: React.FC<IProps> = ({ setModal }) => {
   );
 };
 
-export default CompleteOrder;
+export default DetailBmv;

@@ -46,9 +46,9 @@ const bluebg = "#4363EA ";
 const newText = "#383747 ";
 const searchIcon = "#24BD86";
 const hover = "#179A6B";
+const hoverEffect = "#d92f1c";
 const purple = "#BF43EA";
 const orange = "#D75041";
-const hoverEffect = "#d92f1c";
 const borderColor = "#E7E7E9";
 const ButtonNumberText = "#D5D9DE ";
 const white = "#FFFFFF";
@@ -59,6 +59,7 @@ const secondaryDark = "#17202C ";
 const secondaryMain = "#3C4046 ";
 const offWhite = "#E3E5E9";
 const lGray = "#E5E5E5";
+
 const theme = createTheme({
   palette: {
     primary: {
