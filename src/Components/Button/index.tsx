@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
 import { Theme, Button as Buttons } from "@mui/material";
-
 const useStyles = makeStyles((theme: Theme) => ({
   primary: {
     background: `${theme.palette.primary.main} !important`,
@@ -42,6 +41,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderColor: `${theme.palette.success.contrastText}  !important`,
     marginLeft: "0.6rem !important",
     height: "28px"
+  },
+  delete: {
+    color: theme.palette.primary.light,
+    borderRadius: "5px",
+    background: `${theme.palette.error.main} !important`,
+    marginRight: "1rem"
   },
   actAccept: {
     backgroundColor: `${theme.palette.success.main} !important`,
@@ -90,13 +95,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     color: theme.palette.primary.light,
     borderRadius: "5px",
     background: theme.palette.secondary.light,
-    marginRight: "1rem"
-  },
-  delete: {
-    color: theme.palette.primary.light,
-    borderRadius: "5px",
-    background: `${theme.palette.error.main} !important`,
-    marginRight: "1rem"
+    marginRight: "1rem !important"
   },
   info: {
     color: theme.palette.primary.main,
@@ -166,7 +165,17 @@ const useStyles = makeStyles((theme: Theme) => ({
   ActiveReject: {
     backgroundColor: `${theme.palette.secondary.light} !important`,
     color: `${theme.palette.success.light}  !important`,
-    height: "28px",
+    height: "28px !important",
+    borderRadius: "7px !important",
+    borderColor: `${theme.palette.success.contrastText}  !important`,
+    "&:hover": {
+      background: `${theme.palette.error.contrastText} !important`,
+      color: `${theme.palette.primary.light} !important`
+    }
+  },
+  confirm: {
+    backgroundColor: `${theme.palette.secondary.light} !important`,
+    color: `${theme.palette.success.light}  !important`,
     borderRadius: "7px !important",
     borderColor: `${theme.palette.success.contrastText}  !important`,
     "&:hover": {
@@ -209,6 +218,7 @@ interface IProps {
     | "actAccept"
     | "ActReject"
     | "New"
+    | "confirm"
     | "info"
     | "Cancel"
     | "success"

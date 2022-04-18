@@ -1,21 +1,28 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import { Grid, Typography, Divider, Theme, Box } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import Button from "../Button/index";
 import { Order } from "../../Interfaces/orderInterface";
-
 interface IProps {
   order: Order;
+  statusBtn: boolean;
+  setStatusButton: Dispatch<SetStateAction<boolean>>;
+  setModal: Dispatch<SetStateAction<boolean>>;
+  setRejectModal: Dispatch<SetStateAction<boolean>>;
 }
-
 const useStyles = makeStyles((theme: Theme) => ({
   btn: {
     paddingBottom: "2rem",
     marginTop: "2rem"
   }
 }));
-
-const DealershipInfo: React.FC<IProps> = ({ order }) => {
+const DealershipInfo: React.FC<IProps> = ({
+  order,
+  statusBtn,
+  setStatusButton,
+  setModal,
+  setRejectModal
+}) => {
   const classes = useStyles();
   return (
     <>
@@ -41,25 +48,35 @@ const DealershipInfo: React.FC<IProps> = ({ order }) => {
       <Box mt={4}>
         <Divider />
       </Box>
-
       <Box className={classes.btn}>
         <Grid container justifyContent="flex-end">
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <Box>
               {order?.Status === "new" ? (
                 <>
-                  <Button
-                    text="Mark as Pending"
-                    variant="contained"
-                    color="new"
-                    size="large"
-                  />
-
+                  {statusBtn ? (
+                    <Button
+                      variant="contained"
+                      text="Complete Order"
+                      size="medium"
+                      color="success"
+                      onClick={() => setModal(true)}
+                    />
+                  ) : (
+                    <Button
+                      text="Mark as Pending"
+                      variant="contained"
+                      color="new"
+                      size="large"
+                      onClick={() => setStatusButton(!statusBtn)}
+                    />
+                  )}
                   <Button
                     variant="contained"
                     text="Reject"
                     size="medium"
                     color="warning"
+                    onClick={() => setRejectModal(true)}
                   />
                 </>
               ) : order?.Status === "pending" ? (
@@ -69,13 +86,14 @@ const DealershipInfo: React.FC<IProps> = ({ order }) => {
                     variant="contained"
                     color="success"
                     size="large"
+                    onClick={() => setModal(true)}
                   />
-
                   <Button
                     variant="contained"
                     text="Reject"
                     size="medium"
                     color="warning"
+                    onClick={() => setRejectModal(true)}
                   />
                 </>
               ) : order?.Status === "pending" ? (
@@ -86,7 +104,6 @@ const DealershipInfo: React.FC<IProps> = ({ order }) => {
                     color="secondary"
                     size="large"
                   />
-
                   <Button
                     variant="contained"
                     text="Reject"
@@ -104,5 +121,4 @@ const DealershipInfo: React.FC<IProps> = ({ order }) => {
     </>
   );
 };
-
 export default DealershipInfo;

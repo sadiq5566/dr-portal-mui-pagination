@@ -9,11 +9,9 @@ import { Order } from "../../Interfaces/orderInterface";
 import CompleteOrder from "../Modal/CompleteOrder";
 import RejectOrder from "../Modal/RejectOrder";
 import TickSvg from "../../Assets/svgs/TickSvg";
-
 interface IProps {
   order: Order;
 }
-
 const useStyles = makeStyles((theme: Theme) => ({
   arrow: {
     display: "flex",
@@ -60,7 +58,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     background: theme.palette.warning.contrastText
   }
 }));
-
 const Orders: React.FC<IProps> = ({ order }) => {
   const classes = useStyles();
   const [modal, setModal] = React.useState(false);
@@ -131,7 +128,6 @@ const Orders: React.FC<IProps> = ({ order }) => {
                       onClick={() => setStatusButton(!statusBtn)}
                     />
                   )}
-
                   <Button
                     variant="contained"
                     text="Reject"
@@ -214,7 +210,13 @@ const Orders: React.FC<IProps> = ({ order }) => {
         </Box>
         <Divider />
         <Box mt={4}>
-          <AttachmentDetils order={order} />
+          <AttachmentDetils
+            order={order}
+            statusBtn={statusBtn}
+            setStatusButton={setStatusButton}
+            setModal={setModal}
+            setRejectModal={setRejectModal}
+          />
         </Box>
         {modal && <CompleteOrder setModal={setModal} />}
         {rejectModal && <RejectOrder setRejectModal={setRejectModal} />}
@@ -222,5 +224,4 @@ const Orders: React.FC<IProps> = ({ order }) => {
     </>
   );
 };
-
 export default Orders;

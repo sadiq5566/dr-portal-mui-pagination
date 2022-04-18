@@ -89,7 +89,7 @@ const RejectOrder: React.FC<IProps> = ({ setRejectModal }) => {
             <Button
               variant="contained"
               text="confirm"
-              color="ActiveReject"
+              color="confirm"
               onClick={confirmReject}
             />
           </Box>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import { Grid, Typography, Theme, Stack, Divider, Box } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import Button from "../Button/index";
@@ -10,8 +10,11 @@ import { Order } from "../../Interfaces/orderInterface";
 import OrderStatus from "./OrderStatus";
 interface IProps {
   order: Order;
+  statusBtn: boolean;
+  setStatusButton: Dispatch<SetStateAction<boolean>>;
+  setModal: Dispatch<SetStateAction<boolean>>;
+  setRejectModal: Dispatch<SetStateAction<boolean>>;
 }
-
 const useStyles = makeStyles((theme: Theme) => ({
   documents: {
     background: theme.palette.common.white,
@@ -20,8 +23,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     paddingLeft: "0.7rem"
   }
 }));
-
-const AttachmentDetails: React.FC<IProps> = ({ order }) => {
+const AttachmentDetails: React.FC<IProps> = ({
+  order,
+  statusBtn,
+  setStatusButton,
+  setModal,
+  setRejectModal
+}) => {
   const classes = useStyles();
   return (
     <Grid container spacing={3}>
@@ -50,7 +58,13 @@ const AttachmentDetails: React.FC<IProps> = ({ order }) => {
         </Box>
         <Box mt={4}>
           <Grid item>
-            <DealershipInfo order={order} />
+            <DealershipInfo
+              order={order}
+              statusBtn={statusBtn}
+              setStatusButton={setStatusButton}
+              setModal={setModal}
+              setRejectModal={setRejectModal}
+            />
           </Grid>
         </Box>
       </Grid>
@@ -70,5 +84,4 @@ const AttachmentDetails: React.FC<IProps> = ({ order }) => {
     </Grid>
   );
 };
-
 export default AttachmentDetails;
