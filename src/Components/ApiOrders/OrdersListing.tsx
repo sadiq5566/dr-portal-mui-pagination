@@ -1,37 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 import { Typography } from "@mui/material";
 import DataStatus from "./DataStatus";
 import Button from "../Button/index";
 import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
 import { Order } from "../../Interfaces/orderInterface";
+import axios, { AxiosRequestConfig } from "axios";
 
 interface IProps {
   data: any;
 }
 
-const OrdersListing: React.FC<IProps> = ({ data }) => {
-  const columns: TableColumn<Order>[] = [
+const OrdersListing = ({ data }) => {
+  const columns = [
     {
       name: <Typography variant="typo1">Order Number</Typography>,
-      selector: (TableMockData) => TableMockData.name,
-      cell: (TableMockData) => (
-        <Typography variant="typo2">{TableMockData.name}</Typography>
-      )
+      selector: (orderCell) => orderCell.id,
+      cell: (orderCell) => <Typography variant="typo2">{orderCell.id}</Typography>
     },
     {
       name: <Typography variant="typo1">VIN</Typography>,
 
       selector: (TableMockData) => TableMockData.VIN,
       cell: (TableMockData) => (
-        <Typography variant="typo3">{TableMockData.VIN}</Typography>
+        <Typography variant="typo3"> {TableMockData.attributes.vehicle.vin}</Typography>
       )
     },
     {
       name: <Typography variant="typo1">Date Created</Typography>,
-      selector: (TableMockData) => TableMockData.dateCreated,
+      selector: (TableMockData) => TableMockData.attributes.date_created,
       cell: (TableMockData) => (
-        <Typography variant="typo2">{TableMockData.dateCreated}</Typography>
+        <Typography variant="typo2">{TableMockData.attributes.date_created}</Typography>
       )
     },
     {
@@ -53,9 +52,11 @@ const OrdersListing: React.FC<IProps> = ({ data }) => {
     },
     {
       name: <Typography variant="typo1">Registration Type</Typography>,
-      selector: (TableMockData) => TableMockData.registrationType,
+      // selector: (TableMockData) => TableMockData.attributes.registration_type,
       cell: (TableMockData) => (
-        <Typography variant="typo2">{TableMockData.registrationType}</Typography>
+        <Typography variant="typo2">
+          {TableMockData.attributes.registration_type}
+        </Typography>
       )
     },
     {

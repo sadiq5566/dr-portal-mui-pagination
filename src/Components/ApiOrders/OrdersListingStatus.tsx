@@ -8,7 +8,7 @@ import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
 import Header from "./Header";
 import SideBarContent from "../OrdersStatus/SideBarContent";
 import TableMockData from "../data/TableMockData";
-
+import { getAllOrders } from "../../Hooks/orders/orders";
 const useStyles = makeStyles({
   mainBox: {
     display: "flex",
@@ -25,6 +25,9 @@ interface Iprops {
   complete?: boolean;
   reject?: boolean;
 }
+interface Ibody {
+  Authorization?: string;
+}
 
 const OrdersListingStatus = () => {
   const [activeClass, setActiveClass] = useState<Iprops>({
@@ -33,7 +36,8 @@ const OrdersListingStatus = () => {
     complete: false,
     reject: false
   });
-  const [orders, setOrders] = useState(TableMockData);
+
+  const [orders, setOrders] = useState<any[]>([]);
 
   useEffect(() => {
     const filterStatus = activeClass.new
@@ -46,17 +50,31 @@ const OrdersListingStatus = () => {
       ? "reject"
       : null;
     const filterItem = (categItem) => {
-      const updateItems = TableMockData.filter((curElem) => {
+      const updateItems = orders.filter((curElem) => {
         return curElem.Status === categItem;
       });
       setOrders(updateItems);
       if (!filterStatus) {
-        setOrders(TableMockData);
+        setOrders(orders);
       }
     };
     filterItem(filterStatus);
   }, [activeClass]);
   const classes = useStyles();
+
+  useEffect(() => {
+    getOrderData();
+  }, []);
+
+  const getOrderData = async () => {
+    try {
+      const response = await getAllOrders();
+      console.log(response?.data);
+      setOrders(response?.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <Layout sideContent={<SideBarContent />}>
       <Grid container spacing={2}>
