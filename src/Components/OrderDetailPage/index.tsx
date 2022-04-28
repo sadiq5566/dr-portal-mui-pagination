@@ -10,10 +10,6 @@ import { getOrderByID } from "../../Hooks/orders/orders";
 const Index = () => {
   const { id } = useParams();
   const [order, setOrders] = useState<Order | null>(null);
-  // useEffect(() => {
-  //   const product = TableMockData.find((orders) => orders.id === id);
-  //   if (product) setOrders(product);
-  // }, [id]);
 
   useEffect(() => {
     getOrderData();
@@ -22,9 +18,7 @@ const Index = () => {
   const getOrderData = async () => {
     try {
       const response = await getOrderByID(id);
-      // const product = response?.data.find((orders) => orders.id === id);
-      console.log(response?.data);
-      // if (product) setOrders(product);
+
       setOrders(response?.data);
     } catch (error) {
       // console.log(error);
