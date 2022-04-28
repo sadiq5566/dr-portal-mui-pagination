@@ -1,17 +1,12 @@
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import { ThemeProvider } from "@mui/material/styles";
-import theme from "../src/theme";
-import { providerConfig } from "./Config/Auth0 Authentication/Auth0Provider";
-import { Auth0Provider } from "@auth0/auth0-react";
-// import { BrowserRouter as Router, Route, Routes as Switch } from "react-router-dom";
+
+import Wrapper from "./Wrapper";
 
 ReactDOM.render(
-  <ThemeProvider theme={theme}>
-    <Auth0Provider {...providerConfig}>
-      <App />
-    </Auth0Provider>
-  </ThemeProvider>,
+  <Wrapper>
+    <App />
+  </Wrapper>,
   document.getElementById("root")
 );

@@ -6,16 +6,22 @@ import BMV from "./Components/BMV/Index";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Navigate } from "react-router-dom";
 import PrivateRoute from "./routes/PrivateRoute";
+import { useOrders } from "./Hooks/orders/orders";
 import { BrowserRouter as Router, Route, Routes as Switch } from "react-router-dom";
+
+import { useQuery } from "react-query";
+
 const App = () => {
+  const [isAuth, setIsAuth] = useState<Boolean>();
   const { loginWithRedirect, isAuthenticated, isLoading, getAccessTokenSilently } =
     useAuth0();
 
-  const [isAuth, setIsAuth] = useState<Boolean>();
+  const { isError, data, error } = useQuery("orders", useOrders);
+  console.log(data);
 
   const loginRequest = useCallback(async () => {
     const token = await getAccessTokenSilently();
-    console.log(token);
+    // console.log(token);
   }, [isAuthenticated]);
 
   useEffect(() => {
