@@ -13,16 +13,14 @@ const App = () => {
 
   const [isAuth, setIsAuth] = useState<Boolean>();
 
-  // const loginRequest = useCallback(async () => {
-  //   const datas = await getAccessTokenSilently();
-  //   const daa = await isAuthenticated;
-  //   setIsAuth(isAuthenticated);
-  //   console.log(datas);
-  // }, [isAuthenticated]);
+  const loginRequest = useCallback(async () => {
+    const token = await getAccessTokenSilently();
+    console.log(token);
+  }, [isAuthenticated]);
 
-  // useEffect(() => {
-  //   loginRequest();
-  // }, [loginRequest]);
+  useEffect(() => {
+    loginRequest();
+  }, [loginRequest]);
 
   useEffect(() => {
     setIsAuth(isAuthenticated);
