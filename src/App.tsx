@@ -10,18 +10,16 @@ import { useOrders } from "./Hooks/orders/orders";
 import { BrowserRouter as Router, Route, Routes as Switch } from "react-router-dom";
 
 import { useQuery } from "react-query";
+import { getToken } from "./Hooks/ApiConfig";
 
 const App = () => {
   const [isAuth, setIsAuth] = useState<Boolean>();
+  const [tokens, setToken] = useState<string>("");
   const { loginWithRedirect, isAuthenticated, isLoading, getAccessTokenSilently } =
     useAuth0();
 
-  const { isError, data, error } = useQuery("orders", useOrders);
-  console.log(data);
-
   const loginRequest = useCallback(async () => {
     const token = await getAccessTokenSilently();
-    // console.log(token);
   }, [isAuthenticated]);
 
   useEffect(() => {
@@ -30,11 +28,14 @@ const App = () => {
 
   useEffect(() => {
     setIsAuth(isAuthenticated);
+    getToken(getAccessTokenSilently);
   }, [isAuthenticated]);
   useEffect(() => {
     // console.log(isAuth);
   }, [isAuth]);
 
+  const { isError, data, error } = useQuery("orders", useOrders);
+  console.log(data);
   return (
     <Router>
       <Switch>

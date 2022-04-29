@@ -66,9 +66,9 @@ const OrdersListing = ({ data }) => {
         <Button
           size="small"
           variant="outlined"
-          text={TableMockData.Status}
+          text={TableMockData?.attributes?.status}
           color="chooseStatus"
-          startIcon={<StatusSvg status={TableMockData.Status} />}
+          startIcon={<StatusSvg status={TableMockData?.attributes?.status} />}
         />
       )
     },

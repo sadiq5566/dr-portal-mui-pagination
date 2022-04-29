@@ -8,22 +8,27 @@ import { OrderResponse } from "../../Interfaces/orderInterface";
 import { API_URL } from "../../Config/constant/contant";
 
 export const useOrders = async () => {
-  const { getAccessTokenSilently } = useAuth0();
-  const token = await getAccessTokenSilently();
+  // const { getAccessTokenSilently } = useAuth0();
+  // const token = await getAccessTokenSilently();
 
   return useQuery<OrderResponse, Error>(["orders"], async () => {
-    const response = await fetch(`${API_URL}/order`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    });
-    if (!response.ok) {
+    console.log("working");
+
+    // const response = await fetch(`${API_URL}/order`, {
+    //   method: "GET",
+    //   headers: {
+    //     Authorization: `Bearer ${token}`
+    //   }
+    // });
+    const config = await axiosBody("GET", "/api/v2/order");
+    console.log(config);
+    const response = await axios(config);
+    if (!response) {
       console.log("error", response);
-      throw new Error(response.statusText);
+      throw new Error(response);
     }
     console.log("sucess", response);
-    return response.json();
+    return response.data;
   });
 };
 

@@ -37,7 +37,6 @@ const Login = () => {
 
   const loginRequest = useCallback(async () => {
     const datas = await getAccessTokenSilently();
-
     console.log(datas);
   }, [isAuthenticated]);
 
