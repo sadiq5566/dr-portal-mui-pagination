@@ -1,9 +1,11 @@
+import React, { useCallback, useContext, useEffect } from "react";
 import { Grid, Theme, Typography, Box } from "@mui/material";
 import login from "../../Assets/images/login.png";
 import { makeStyles } from "@mui/styles";
 import Logo from "../../Assets/svgs/DrSvg/Logo";
 import Button from "../Button";
 import InputField from "../TextField";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const useStyles = makeStyles((theme: Theme) => ({
   img: {
@@ -26,6 +28,27 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const Login = () => {
   const classes = useStyles();
+
+  const { loginWithRedirect, isAuthenticated, isLoading, getAccessTokenSilently } =
+    useAuth0();
+  // const context = useContext(AuthContext);
+
+  const loginRequest = useCallback(async () => {
+    const datas = await getAccessTokenSilently();
+    console.log(datas);
+  }, [isAuthenticated]);
+
+  useEffect(() => {
+    loginRequest();
+  }, [loginRequest]);
+
+  if (isAuthenticated) {
+    // return <Redirect to="/new-orders" />;
+  }
+
+  if (isLoading) {
+    // return <LoadingComponent />;
+  }
 
   return (
     <Grid container justifyContent="center">
@@ -71,7 +94,13 @@ const Login = () => {
         <Grid container justifyContent="center">
           <Grid item lg={6}>
             <Box className={classes.loginbtn}>
-              <Button size="small" variant="contained" text="Log in" color="primary" />
+              <Button
+                size="small"
+                onClick={() => loginWithRedirect()}
+                variant="contained"
+                text="Log in"
+                color="primary"
+              />
             </Box>
           </Grid>
         </Grid>

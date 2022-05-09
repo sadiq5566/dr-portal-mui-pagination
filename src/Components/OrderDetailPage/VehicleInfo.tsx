@@ -3,10 +3,10 @@ import { Grid, Typography, Divider, Box } from "@mui/material";
 import { Order } from "../../Interfaces/orderInterface";
 
 interface IProps {
-  order: Order | undefined;
+  order?: Order | undefined;
 }
 
-const VehicleInfo: React.FC<IProps> = ({ order }) => {
+const VehicleInfo = ({ order }) => {
   return (
     <Box mt={3}>
       <Grid container>
@@ -17,15 +17,17 @@ const VehicleInfo: React.FC<IProps> = ({ order }) => {
       <Box mt={3}>
         <Grid container>
           <Grid item xs={4} sm={4} md={4} lg={4}>
-            <Typography variant="h5">{order?.vehicleInfo?.vin}</Typography>
+            <Typography variant="h5">{order?.attributes?.vehicle?.vin}</Typography>
             <Typography variant="h3">{order?.vehicleInfo?.wqn}</Typography>
           </Grid>
           <Grid item xs={4} sm={4} md={4} lg={4}>
-            <Typography variant="h5">{order?.vehicleInfo?.year}</Typography>
-            <Typography variant="h3">{order?.vehicleInfo?.date}</Typography>
+            <Typography variant="h5">{order?.attributes?.vehicle?.year}</Typography>
+            <Typography variant="h3">
+              {order?.attributes?.vehicle?.emissions_check_expiration_date}
+            </Typography>
           </Grid>
           <Grid item xs={4} sm={4} md={4} lg={4}>
-            <Typography variant="h5">{order?.vehicleInfo?.make}</Typography>
+            <Typography variant="h5">{order?.attributes?.vehicle?.make}</Typography>
             <Typography variant="h3">Six</Typography>
           </Grid>
         </Grid>
@@ -34,11 +36,11 @@ const VehicleInfo: React.FC<IProps> = ({ order }) => {
         <Grid container>
           <Grid item xs={4} sm={4} md={4} lg={4}>
             <Typography variant="h5">{order?.vehicleInfo?.bmw}</Typography>
-            <Typography variant="h3">{order?.vehicleInfo?.model}</Typography>
+            <Typography variant="h3">{order?.attributes?.vehicle?.model}</Typography>
           </Grid>
           <Grid item xs={4} sm={4} md={4} lg={4}>
             <Typography variant="h5">{order?.vehicleInfo?.accent}</Typography>
-            <Typography variant="h3">{order?.vehicleInfo?.body}</Typography>
+            <Typography variant="h3">{order?.attributes?.vehicle?.body}</Typography>
           </Grid>
           <Grid item xs={4} sm={4} md={4} lg={4}>
             <Typography variant="h5">{order?.vehicleInfo?.sedan}</Typography>
@@ -50,10 +52,14 @@ const VehicleInfo: React.FC<IProps> = ({ order }) => {
         <Grid container>
           <Grid item xs={4} sm={4} md={4} lg={4}>
             <Typography variant="h5">{order?.vehicleInfo?.good}</Typography>
-            <Typography variant="h3">{order?.vehicleInfo?.status}</Typography>
+            <Typography variant="h3">
+              {order?.attributes?.vehicle?.odometer_status}
+            </Typography>
           </Grid>
           <Grid item xs={4} sm={4} md={4} lg={4}>
-            <Typography variant="h5">{order?.vehicleInfo?.odometer}</Typography>
+            <Typography variant="h5">
+              {order?.attributes?.vehicle?.odometer_mileage}
+            </Typography>
             <Typography variant="h3">{order?.vehicleInfo?.odoNum}</Typography>
           </Grid>
         </Grid>

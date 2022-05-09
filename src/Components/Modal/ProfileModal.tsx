@@ -18,7 +18,8 @@ import ProfileSvg from "../../Assets/svgs/ProfileSvg/ProfileSvg";
 import LogoutSvg from "../../Assets/svgs/LogoutSvg/LogoutSvg";
 import CloseSvg from "../../Assets/svgs/CloseSvg/CloseSvg";
 import theme from "../../theme";
-
+import { useAuth0 } from "@auth0/auth0-react";
+import { useNavigate } from "react-router-dom";
 const style = {
   position: "absolute",
   top: "50%",
@@ -64,6 +65,7 @@ const useStyles = makeStyles({
 const ProfileModal = () => {
   const [open, setOpen] = React.useState(false);
   const [tinyModal, setTinyModal] = React.useState(false);
+  let navigate = useNavigate();
   const handleOpen = () => {
     setOpen(true);
   };
@@ -77,6 +79,14 @@ const ProfileModal = () => {
     setTinyModal(false);
   };
   const classes = useStyles();
+  const { logout } = useAuth0();
+
+  const logOut = () => {
+    logout();
+    navigate(`/login`);
+    console.log("loooogOut");
+  };
+
   return (
     <React.Fragment>
       <div>
@@ -131,7 +141,10 @@ const ProfileModal = () => {
             <Typography variant="body4">Profile Settings</Typography>
           </MenuItem>
 
-          <MenuItem className={`${classes.profileTextColor} ${classes.profileContent}`}>
+          <MenuItem
+            onClick={logOut}
+            className={`${classes.profileTextColor} ${classes.profileContent}`}
+          >
             <ListItemIcon>
               <LogoutSvg />
             </ListItemIcon>

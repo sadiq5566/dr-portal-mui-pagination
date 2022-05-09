@@ -1,13 +1,12 @@
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import { ThemeProvider } from "@mui/material/styles";
-import theme from "../src/theme";
-import React from "react";
+
+import Wrapper from "./Wrapper";
 
 ReactDOM.render(
-  <ThemeProvider theme={theme}>
+  <Wrapper>
     <App />
-  </ThemeProvider>,
+  </Wrapper>,
   document.getElementById("root")
 );

@@ -47,11 +47,6 @@ const SideBarIcon: React.FC = () => {
         value={location.pathname !== "/" ? location.pathname : "/"}
         aria-label="icon tabs example"
         orientation="vertical"
-        TabIndicatorProps={{
-          style: {
-            display: "none"
-          }
-        }}
       >
         <Tab
           label={
