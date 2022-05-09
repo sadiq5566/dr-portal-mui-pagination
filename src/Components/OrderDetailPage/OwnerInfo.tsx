@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Grid, Typography, Box } from "@mui/material";
 import { Order } from "../../Interfaces/orderInterface";
 
@@ -6,7 +6,7 @@ interface IProps {
   order: Order;
 }
 
-const OwnerInfo: React.FC<IProps> = ({ order }) => {
+const OwnerInfo: React.FC<IProps> = ({ order }: IProps) => {
   return (
     <>
       <Typography variant="h4">Owner Info</Typography>

@@ -2,33 +2,32 @@
 
 import axios from "axios";
 import { axiosBody } from "../ApiConfig";
-import { useAuth0 } from "@auth0/auth0-react";
 import { useQuery } from "react-query";
-import { OrderResponse } from "../../Interfaces/orderInterface";
-import { API_URL } from "../../Config/constant/contant";
+import { OrderResponse, OrdersQueryFilters } from "../../Interfaces/orderInterface";
+import { BASE_URL } from "../../Config/constant/contant";
 
-export const useOrders = async () => {
-  // const { getAccessTokenSilently } = useAuth0();
-  // const token = await getAccessTokenSilently();
+let fetchToken;
 
+export const getTokens = async (getAccessTokenSilently) => {
+  fetchToken = await getAccessTokenSilently();
+  return fetchToken;
+};
+
+export const useOrders = (debouncedFilters?: OrdersQueryFilters) => {
   return useQuery<OrderResponse, Error>(["orders"], async () => {
-    console.log("working");
-
-    // const response = await fetch(`${API_URL}/order`, {
-    //   method: "GET",
-    //   headers: {
-    //     Authorization: `Bearer ${token}`
-    //   }
-    // });
-    const config = await axiosBody("GET", "/api/v2/order");
-    console.log(config);
-    const response = await axios(config);
-    if (!response) {
-      console.log("error", response);
-      throw new Error(response);
+    console.log("token", fetchToken);
+    const response = await fetch(`${BASE_URL}/order`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${fetchToken}`,
+        "Content-Type": "application/json"
+      }
+    });
+    if (!response.ok) {
+      throw new Error(response.statusText);
     }
-    console.log("sucess", response);
-    return response.data;
+    const { data } = await response.json();
+    return data;
   });
 };
 

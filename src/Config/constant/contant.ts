@@ -1,1 +1,1 @@
-export const API_URL = "https://dev.api.deputyregistrar.net/api/v2";
+export const BASE_URL = "https://dev.api.deputyregistrar.net/api/v2";

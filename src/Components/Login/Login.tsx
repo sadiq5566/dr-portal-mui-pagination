@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect } from "react";
+import React from "react";
 import { Grid, Theme, Typography, Box } from "@mui/material";
 import login from "../../Assets/images/login.png";
 import { makeStyles } from "@mui/styles";
@@ -6,6 +6,7 @@ import Logo from "../../Assets/svgs/DrSvg/Logo";
 import Button from "../Button";
 import InputField from "../TextField";
 import { useAuth0 } from "@auth0/auth0-react";
+import { Navigate } from "react-router-dom";
 
 const useStyles = makeStyles((theme: Theme) => ({
   img: {
@@ -28,26 +29,12 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const Login = () => {
   const classes = useStyles();
+  const { loginWithRedirect, isAuthenticated, isLoading } = useAuth0();
 
-  const { loginWithRedirect, isAuthenticated, isLoading, getAccessTokenSilently } =
-    useAuth0();
-  // const context = useContext(AuthContext);
-
-  const loginRequest = useCallback(async () => {
-    const datas = await getAccessTokenSilently();
-    console.log(datas);
-  }, [isAuthenticated]);
-
-  useEffect(() => {
-    loginRequest();
-  }, [loginRequest]);
-
-  if (isAuthenticated) {
-    // return <Redirect to="/new-orders" />;
-  }
+  if (isAuthenticated && !isLoading) return <Navigate to="/" replace />;
 
   if (isLoading) {
-    // return <LoadingComponent />;
+    return <div>Loading...</div>;
   }
 
   return (
@@ -109,4 +96,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default React.memo(Login);

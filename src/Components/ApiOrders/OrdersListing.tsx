@@ -1,80 +1,76 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 import { Typography } from "@mui/material";
 import DataStatus from "./DataStatus";
 import Button from "../Button/index";
 import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
-import { Order } from "../../Interfaces/orderInterface";
-import axios, { AxiosRequestConfig } from "axios";
+import { OrderResponse } from "../../Interfaces/orderInterface";
 
 interface IProps {
-  data: any;
+  orders: OrderResponse | undefined | any;
 }
 
-const OrdersListing = ({ data }) => {
-  const columns = [
+const OrdersListing: React.FC<IProps> = ({ orders }: IProps) => {
+  const columns: TableColumn<OrderResponse>[] = [
     {
       name: <Typography variant="typo1">Order Number</Typography>,
-      selector: (orderCell) => orderCell.id,
-      cell: (orderCell) => <Typography variant="typo2">{orderCell.id}</Typography>
+      selector: (order) => order?.id,
+      cell: (order) => <Typography variant="typo2">{order?.id}</Typography>
     },
     {
       name: <Typography variant="typo1">VIN</Typography>,
 
-      selector: (TableMockData) => TableMockData.VIN,
-      cell: (TableMockData) => (
-        <Typography variant="typo3"> {TableMockData.attributes.vehicle.vin}</Typography>
+      selector: (order) => order?.attributes.vehicle.vin,
+      cell: (order) => (
+        <Typography variant="typo3"> {order?.attributes.vehicle.vin}</Typography>
       )
     },
     {
       name: <Typography variant="typo1">Date Created</Typography>,
-      selector: (TableMockData) => TableMockData.attributes.date_created,
-      cell: (TableMockData) => (
-        <Typography variant="typo2">{TableMockData.attributes.date_created}</Typography>
+      selector: (order) => order?.attributes.date_created,
+      cell: (order) => (
+        <Typography variant="typo2">{order?.attributes.date_created}</Typography>
       )
     },
     {
       name: <Typography variant="typo1">Customer Name</Typography>,
-      selector: (TableMockData) => TableMockData.customerName,
-      cell: (TableMockData) => (
-        <Typography variant="typo2">{TableMockData.customerName}</Typography>
+      selector: (order) => order?.attributes.submitter.name,
+      cell: (order) => (
+        <Typography variant="typo2">{order?.attributes.submitter.name}</Typography>
       )
     },
     {
       name: <Typography variant="typo1">Dealership</Typography>,
-      selector: (TableMockData) => TableMockData.dealership,
-      cell: (TableMockData) => (
+      selector: (order) => "Dealership",
+      cell: (order) => (
         <Typography variant="typo2">
-          {TableMockData.dealership}
-          <Typography variant="body3">{TableMockData.dealershipText}</Typography>
+          {"Dealership"}
+          <Typography variant="body3">{"Dealership"}</Typography>
         </Typography>
       )
     },
     {
       name: <Typography variant="typo1">Registration Type</Typography>,
-      // selector: (TableMockData) => TableMockData.attributes.registration_type,
-      cell: (TableMockData) => (
-        <Typography variant="typo2">
-          {TableMockData.attributes.registration_type}
-        </Typography>
+      selector: (order) => order?.attributes.registration_type,
+      cell: (order) => (
+        <Typography variant="typo2">{order?.attributes.registration_type}</Typography>
       )
     },
     {
       name: <Typography variant="typo1">Status</Typography>,
-      selector: (TableMockData) => TableMockData.Status,
-      cell: (TableMockData) => (
+      selector: (order) => order?.status,
+      cell: (order) => (
         <Button
           size="small"
           variant="outlined"
-          text={TableMockData?.attributes?.status}
+          text={order?.attributes?.status}
           color="chooseStatus"
-          startIcon={<StatusSvg status={TableMockData?.attributes?.status} />}
+          startIcon={<StatusSvg status={order?.attributes?.status} />}
         />
       )
     },
     {
-      selector: (TableMockData) => TableMockData.button,
-      cell: (TableMockData) => <DataStatus TableMockData={TableMockData} />
+      cell: (order) => <DataStatus order={order} />
     }
   ];
   const customStyles = {
@@ -92,7 +88,8 @@ const OrdersListing = ({ data }) => {
         fixedHeader
         customStyles={customStyles}
         columns={columns}
-        data={data}
+        sortIcon={<StatusSvg status="sort" />}
+        data={orders}
         selectableRows
         pagination
       />

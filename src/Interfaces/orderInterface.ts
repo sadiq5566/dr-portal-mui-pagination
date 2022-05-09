@@ -3,7 +3,14 @@ export interface OrderResponse {
   type: string;
   attributes: Attributes;
   relationships: Relationships;
+  status: string;
+  external_id: string;
+  receipt_date: string;
+  receipt_number: string;
+  receipt_total: string;
+  remark: string;
 }
+
 export interface Attributes {
   date_created: string;
   date_modified: string;
@@ -258,3 +265,20 @@ export interface Order {
   dealersInfo: DealersInfo;
   summaryInfo: SummaryInfo;
 }
+
+export interface QueryPagination {
+  page: string;
+  pages: string;
+  rowsPerPage: string;
+  total: string;
+  count: string;
+}
+
+export interface OrdersPageFilters {
+  number: string;
+  sku: string;
+  company__number: string;
+  sorting: string;
+}
+
+export type OrdersQueryFilters = Partial<OrdersPageFilters & QueryPagination>;

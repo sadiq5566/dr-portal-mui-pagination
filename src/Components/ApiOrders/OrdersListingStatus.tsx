@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Box, Grid } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import OrdersListing from "./OrdersListing";
@@ -7,7 +7,9 @@ import Layout from "../Layout/index";
 import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
 import Header from "./Header";
 import SideBarContent from "../OrdersStatus/SideBarContent";
-import { getAllOrders } from "../../Hooks/orders/orders";
+import { getAllOrders, useOrders } from "../../Hooks/orders/orders";
+import { useDebounce } from "../../Hooks/useDebounce";
+import { OrderResponse, OrdersQueryFilters } from "../../Interfaces/orderInterface";
 const useStyles = makeStyles({
   mainBox: {
     display: "flex",
@@ -24,11 +26,13 @@ interface Iprops {
   complete?: boolean;
   reject?: boolean;
 }
-interface Ibody {
-  Authorization?: string;
-}
 
 const OrdersListingStatus = () => {
+  const [queryFilters] = React.useState<OrdersQueryFilters>({});
+
+  const debouncedFilters = useDebounce(queryFilters, 800);
+  const { data } = useOrders(debouncedFilters);
+  console.log("data", data);
   const [activeClass, setActiveClass] = useState<Iprops>({
     new: false,
     pending: false,
@@ -36,7 +40,7 @@ const OrdersListingStatus = () => {
     reject: false
   });
 
-  const [orders, setOrders] = useState<any[]>([]);
+  const [orders, setOrders] = useState<OrderResponse[]>();
 
   useEffect(() => {
     const filterStatus = activeClass.new
@@ -49,8 +53,8 @@ const OrdersListingStatus = () => {
       ? "reject"
       : null;
     const filterItem = (categItem) => {
-      const updateItems = orders.filter((curElem) => {
-        return curElem.Status === categItem;
+      const updateItems = orders?.filter((curElem) => {
+        return curElem.status === categItem;
       });
       setOrders(updateItems);
       if (!filterStatus) {
@@ -58,22 +62,22 @@ const OrdersListingStatus = () => {
       }
     };
     filterItem(filterStatus);
-  }, [activeClass]);
+  }, [activeClass, orders]);
+
   const classes = useStyles();
 
-  useEffect(() => {
-    getOrderData();
-  }, []);
-
-  const getOrderData = async () => {
+  const getOrderData = useCallback(async () => {
     try {
       const response = await getAllOrders();
-      console.log(response?.data);
       setOrders(response?.data);
     } catch (error) {
       console.log(error);
     }
-  };
+  }, []);
+  useEffect(() => {
+    getOrderData();
+  }, [getOrderData]);
+
   return (
     <Layout sideContent={<SideBarContent />}>
       <Grid container spacing={2}>
@@ -169,10 +173,10 @@ const OrdersListingStatus = () => {
           </Box>
         </Grid>
         <Grid item xs={12} className={classes.orderListing}>
-          <OrdersListing data={orders} />
+          <OrdersListing orders={data} />
         </Grid>
       </Grid>
     </Layout>
   );
 };
-export default OrdersListingStatus;
+export default React.memo(OrdersListingStatus);

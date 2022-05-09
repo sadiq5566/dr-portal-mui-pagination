@@ -5,13 +5,13 @@ import theme from "../../theme";
 import { Link } from "react-router-dom";
 
 interface IProps {
-  TableMockData: any;
+  order: any;
 }
-const DataStatus: React.FC<IProps> = ({ TableMockData }) => {
+const DataStatus: React.FC<IProps> = ({ order }) => {
   return (
     <Box sx={{ display: "flex", marginRight: "100px" }}>
       <Box>
-        <Link to={`/orderdetails/${TableMockData?.id}`}>
+        <Link to={`/orderdetails/${order?.id}`}>
           <Button size="medium" variant="outlined" text="View" color="View" />
         </Link>
       </Box>
