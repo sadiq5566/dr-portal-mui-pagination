@@ -40,7 +40,6 @@ export const getAllOrders = async () => {
       return response?.data;
     }
   } catch (err) {
-    // new Error(err?.message || "Something went wrong");
     return err ? err : "Something wen wrong";
   }
 };

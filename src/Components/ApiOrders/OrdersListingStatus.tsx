@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React from "react";
 import { Box, Grid } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import OrdersListing from "./OrdersListing";
@@ -7,9 +7,10 @@ import Layout from "../Layout/index";
 import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
 import Header from "./Header";
 import SideBarContent from "../OrdersStatus/SideBarContent";
-import { getAllOrders, useOrders } from "../../Hooks/orders/orders";
+import { useOrders } from "../../Hooks/orders/orders";
 import { useDebounce } from "../../Hooks/useDebounce";
-import { OrderResponse, OrdersQueryFilters } from "../../Interfaces/orderInterface";
+import { OrdersQueryFilters } from "../../Interfaces/orderInterface";
+
 const useStyles = makeStyles({
   mainBox: {
     display: "flex",
@@ -29,54 +30,15 @@ interface Iprops {
 
 const OrdersListingStatus = () => {
   const [queryFilters] = React.useState<OrdersQueryFilters>({});
-
+  const classes = useStyles();
   const debouncedFilters = useDebounce(queryFilters, 800);
   const { data } = useOrders(debouncedFilters);
-  console.log("data", data);
-  const [activeClass, setActiveClass] = useState<Iprops>({
+  const [activeClass, setActiveClass] = React.useState<Iprops>({
     new: false,
     pending: false,
     complete: false,
     reject: false
   });
-
-  const [orders, setOrders] = useState<OrderResponse[]>();
-
-  useEffect(() => {
-    const filterStatus = activeClass.new
-      ? "new"
-      : activeClass.pending
-      ? "pending"
-      : activeClass.complete
-      ? "complete"
-      : activeClass.reject
-      ? "reject"
-      : null;
-    const filterItem = (categItem) => {
-      const updateItems = orders?.filter((curElem) => {
-        return curElem.status === categItem;
-      });
-      setOrders(updateItems);
-      if (!filterStatus) {
-        setOrders(orders);
-      }
-    };
-    filterItem(filterStatus);
-  }, [activeClass, orders]);
-
-  const classes = useStyles();
-
-  const getOrderData = useCallback(async () => {
-    try {
-      const response = await getAllOrders();
-      setOrders(response?.data);
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
-  useEffect(() => {
-    getOrderData();
-  }, [getOrderData]);
 
   return (
     <Layout sideContent={<SideBarContent />}>

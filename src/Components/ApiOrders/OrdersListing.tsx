@@ -5,6 +5,7 @@ import DataStatus from "./DataStatus";
 import Button from "../Button/index";
 import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
 import { OrderResponse } from "../../Interfaces/orderInterface";
+import { dateFormat } from "../../Config/constant/contant";
 
 interface IProps {
   orders: OrderResponse | undefined | any;
@@ -19,18 +20,13 @@ const OrdersListing: React.FC<IProps> = ({ orders }: IProps) => {
     },
     {
       name: <Typography variant="typo1">VIN</Typography>,
-
-      selector: (order) => order?.attributes.vehicle.vin,
       cell: (order) => (
         <Typography variant="typo3"> {order?.attributes.vehicle.vin}</Typography>
       )
     },
     {
       name: <Typography variant="typo1">Date Created</Typography>,
-      selector: (order) => order?.attributes.date_created,
-      cell: (order) => (
-        <Typography variant="typo2">{order?.attributes.date_created}</Typography>
-      )
+      selector: (order) => dateFormat(order?.attributes.date_created)
     },
     {
       name: <Typography variant="typo1">Customer Name</Typography>,
@@ -41,13 +37,8 @@ const OrdersListing: React.FC<IProps> = ({ orders }: IProps) => {
     },
     {
       name: <Typography variant="typo1">Dealership</Typography>,
-      selector: (order) => "Dealership",
-      cell: (order) => (
-        <Typography variant="typo2">
-          {"Dealership"}
-          <Typography variant="body3">{"Dealership"}</Typography>
-        </Typography>
-      )
+      // selector: (order) => "Dealership",
+      cell: (order) => <Typography variant="typo2">{"Dealership"}</Typography>
     },
     {
       name: <Typography variant="typo1">Registration Type</Typography>,
@@ -84,7 +75,7 @@ const OrdersListing: React.FC<IProps> = ({ orders }: IProps) => {
   return (
     <div>
       <DataTable
-        fixedHeaderScrollHeight="350px"
+        fixedHeaderScrollHeight="50vh"
         fixedHeader
         customStyles={customStyles}
         columns={columns}

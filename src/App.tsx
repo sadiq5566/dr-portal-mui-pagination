@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Index from "./Components/OrderDetailPage";
 import BMV from "./Components/BMV/Index";
 import { useAuth0 } from "@auth0/auth0-react";
-import PrivateRoute, { PrivateWrapper } from "./routes/PrivateRoute";
+import ProtectedRoute from "./routes/PrivateRoute";
 import { BrowserRouter as Router, Route, Routes as Switch } from "react-router-dom";
 import { getTokens } from "./Hooks/orders/orders";
 
@@ -28,25 +28,25 @@ const App = () => {
           <Route
             path="/"
             element={
-              <PrivateWrapper>
+              <ProtectedRoute>
                 <OrdersListing />
-              </PrivateWrapper>
+              </ProtectedRoute>
             }
           />
           <Route
             path="/orderdetails/:id"
             element={
-              <PrivateWrapper>
+              <ProtectedRoute>
                 <Index />
-              </PrivateWrapper>
+              </ProtectedRoute>
             }
           />
           <Route
             path="/bmv/:name"
             element={
-              <PrivateRoute redirectTo="/bmv/:name">
+              <ProtectedRoute>
                 <BMV />
-              </PrivateRoute>
+              </ProtectedRoute>
             }
           />
         </Switch>
