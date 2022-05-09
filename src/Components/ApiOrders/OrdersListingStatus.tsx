@@ -7,7 +7,6 @@ import Layout from "../Layout/index";
 import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
 import Header from "./Header";
 import SideBarContent from "../OrdersStatus/SideBarContent";
-import TableMockData from "../data/TableMockData";
 import { getAllOrders } from "../../Hooks/orders/orders";
 const useStyles = makeStyles({
   mainBox: {
