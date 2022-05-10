@@ -4,6 +4,7 @@ interface ProviderConfigInterface {
   audience: string;
   redirectUri: string;
   privatecookieStorage?: string;
+  CacheLocation?: string | undefined;
 }
 
 export const providerConfig: ProviderConfigInterface = {
@@ -11,5 +12,6 @@ export const providerConfig: ProviderConfigInterface = {
   clientId: `${process.env.REACT_APP_CLIENT_ID}`,
   audience: `${process.env.REACT_APP_AUDIENCE}`,
   redirectUri: window.location.origin,
-  privatecookieStorage: 'ClientStorage',
+  CacheLocation: "sessionStorage"
+  // privatecookieStorage: "localStorage"
 };

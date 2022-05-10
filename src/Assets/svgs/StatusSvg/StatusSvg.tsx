@@ -1,6 +1,6 @@
 import React from "react";
 interface Props {
-  status: string;
+  status: string | undefined;
   activeClass?: boolean;
   stroke?: boolean;
 }

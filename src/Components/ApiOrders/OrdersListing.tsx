@@ -5,9 +5,11 @@ import DataStatus from "./DataStatus";
 import Button from "../Button/index";
 import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
 import { makeStyles } from "@mui/styles";
+import { OrderResponse } from "../../Interfaces/orderInterface";
+import { dateFormat } from "../../Config/constant/contant";
 
 interface IProps {
-  data: any;
+  orders: OrderResponse | undefined | any;
 }
 
 const useStyles = makeStyles({
@@ -15,7 +17,7 @@ const useStyles = makeStyles({
     fontFamily: "regular-400 !important"
   }
 });
-const OrdersListing = ({ data }) => {
+const OrdersListing: React.FC<IProps> = ({ orders }: IProps) => {
   const classes = useStyles();
   const columns = [
     {
@@ -51,10 +53,10 @@ const OrdersListing = ({ data }) => {
           Date Created
         </Typography>
       ),
-      selector: (TableMockData) => TableMockData.attributes.date_created,
-      cell: (TableMockData) => (
+      selector: (order) => dateFormat(order.attributes.date_created),
+      cell: (order) => (
         <Typography variant="typo2" className={classes.RegularFont}>
-          {TableMockData.attributes.date_created}
+          {order.attributes.date_created}
         </Typography>
       )
     },
@@ -101,19 +103,18 @@ const OrdersListing = ({ data }) => {
           Status
         </Typography>
       ),
-      selector: (TableMockData) => TableMockData.Status,
-      cell: (TableMockData) => (
+      selector: (order) => order.Status,
+      cell: (order) => (
         <Button
           variant="outlined"
-          text={TableMockData?.attributes?.status}
+          text={order.status}
           color="chooseStatus"
-          startIcon={<StatusSvg status={TableMockData?.attributes?.status} />}
+          startIcon={<StatusSvg status={order.status} />}
         />
       )
     },
     {
-      selector: (TableMockData) => TableMockData.button,
-      cell: (TableMockData) => <DataStatus TableMockData={TableMockData} />
+      cell: (order) => <DataStatus order={order} />
     }
   ];
   const customStyles = {
@@ -126,11 +127,12 @@ const OrdersListing = ({ data }) => {
   return (
     <div>
       <DataTable
-        fixedHeaderScrollHeight="350px"
+        fixedHeaderScrollHeight="50vh"
         fixedHeader
         customStyles={customStyles}
         columns={columns}
-        data={data}
+        sortIcon={<StatusSvg status="sort" />}
+        data={orders}
         selectableRows
         pagination
       />

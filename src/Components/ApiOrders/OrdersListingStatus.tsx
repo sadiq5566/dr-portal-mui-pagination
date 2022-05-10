@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Box, Grid } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import OrdersListing from "./OrdersListing";
@@ -7,7 +7,10 @@ import Layout from "../Layout/index";
 import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
 import Header from "./Header";
 import SideBarContent from "../OrdersStatus/SideBarContent";
-import { getAllOrders } from "../../Hooks/orders/orders";
+import { useOrders } from "../../Hooks/orders/orders";
+import { useDebounce } from "../../Hooks/useDebounce";
+import { OrdersQueryFilters } from "../../Interfaces/orderInterface";
+
 const useStyles = makeStyles({
   mainBox: {
     display: "flex",
@@ -24,56 +27,19 @@ interface Iprops {
   complete?: boolean;
   reject?: boolean;
 }
-interface Ibody {
-  Authorization?: string;
-}
 
 const OrdersListingStatus = () => {
-  const [activeClass, setActiveClass] = useState<Iprops>({
+  const [queryFilters] = React.useState<OrdersQueryFilters>({});
+  const classes = useStyles();
+  const debouncedFilters = useDebounce(queryFilters, 800);
+  const { data } = useOrders(debouncedFilters);
+  const [activeClass, setActiveClass] = React.useState<Iprops>({
     new: false,
     pending: false,
     complete: false,
     reject: false
   });
 
-  const [orders, setOrders] = useState<any[]>([]);
-
-  useEffect(() => {
-    const filterStatus = activeClass.new
-      ? "new"
-      : activeClass.pending
-      ? "pending"
-      : activeClass.complete
-      ? "complete"
-      : activeClass.reject
-      ? "reject"
-      : null;
-    const filterItem = (categItem) => {
-      const updateItems = orders.filter((curElem) => {
-        return curElem.Status === categItem;
-      });
-      setOrders(updateItems);
-      if (!filterStatus) {
-        setOrders(orders);
-      }
-    };
-    filterItem(filterStatus);
-  }, [activeClass]);
-  const classes = useStyles();
-
-  useEffect(() => {
-    getOrderData();
-  }, []);
-
-  const getOrderData = async () => {
-    try {
-      const response = await getAllOrders();
-      console.log(response?.data);
-      setOrders(response?.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
   return (
     <Layout sideContent={<SideBarContent />}>
       <Grid container spacing={2}>
@@ -169,10 +135,10 @@ const OrdersListingStatus = () => {
           </Box>
         </Grid>
         <Grid item xs={12} className={classes.orderListing}>
-          <OrdersListing data={orders} />
+          <OrdersListing orders={data} />
         </Grid>
       </Grid>
     </Layout>
   );
 };
-export default OrdersListingStatus;
+export default React.memo(OrdersListingStatus);

@@ -5,7 +5,13 @@ import theme from "../src/theme";
 import { providerConfig } from "./Config/Auth0 Authentication/Auth0Provider";
 import { Auth0Provider } from "@auth0/auth0-react";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: true
+    }
+  }
+});
 interface Props {
   children: React.ReactNode | JSX.Element | JSX.Element[];
 }

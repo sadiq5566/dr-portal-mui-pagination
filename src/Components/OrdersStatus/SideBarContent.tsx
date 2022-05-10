@@ -13,6 +13,7 @@ const useStyles = makeStyles({
     fontFamily: "regular-400 !important"
   }
 });
+
 const SideBarContent = () => {
   const classes = useStyles();
   const theme = useTheme();

@@ -3,15 +3,16 @@ import React from "react";
 import Button from "../Button/index";
 import theme from "../../theme";
 import { Link } from "react-router-dom";
+import { OrderResponse } from "../../Interfaces/orderInterface";
 
 interface IProps {
-  TableMockData: any;
+  order: OrderResponse;
 }
-const DataStatus: React.FC<IProps> = ({ TableMockData }) => {
+const DataStatus: React.FC<IProps> = ({ order }) => {
   return (
     <Box sx={{ display: "flex", marginRight: "100px" }}>
       <Box>
-        <Link to={`/orderdetails/${TableMockData?.id}`}>
+        <Link to={`/orderdetails/${order?.id}`}>
           <Button variant="outlined" text="View" color="View" />
         </Link>
       </Box>
