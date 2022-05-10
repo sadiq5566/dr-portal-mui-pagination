@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
 import { Theme, Button as Buttons } from "@mui/material";
+
 const useStyles = makeStyles((theme: Theme) => ({
   primary: {
     background: `${theme.palette.primary.main} !important`,
@@ -104,13 +105,16 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginRight: "1rem !important"
   },
   Batchorder: {
-    whiteSpace: "nowrap"
+    whiteSpace: "nowrap",
+    fontFamily: "interMedium-500 !important",
+    fontSize: "12px !important"
   },
   View: {
-    minWidth: "70px",
     height: "31px",
     border: 1,
-    borderColor: "#E5E6E8 !important"
+    borderColor: "#E5E6E8 !important",
+    fontFamily: "medium-500 !important",
+    fontSize: "12px !important"
   },
   chooseStatus: {
     borderRadius: "7px !important",
@@ -119,7 +123,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderColor: `${theme.palette.success.contrastText} !important`,
     color: `${theme.palette.primary.dark} !important`,
     whiteSpace: "nowrap",
-    height: "28px"
+    height: "28px",
+    fontFamily: "medium-500 !important",
+    fontSize: "10px !important"
   },
   ActiveButtonStatus: {
     backgroundColor: `${theme.palette.warning.contrastText} !important`,

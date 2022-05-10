@@ -1,70 +1,109 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 import { Typography } from "@mui/material";
 import DataStatus from "./DataStatus";
 import Button from "../Button/index";
 import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
-import { Order } from "../../Interfaces/orderInterface";
-import axios, { AxiosRequestConfig } from "axios";
+import { makeStyles } from "@mui/styles";
 
 interface IProps {
   data: any;
 }
 
+const useStyles = makeStyles({
+  RegularFont: {
+    fontFamily: "regular-400 !important"
+  }
+});
 const OrdersListing = ({ data }) => {
+  const classes = useStyles();
   const columns = [
     {
-      name: <Typography variant="typo1">Order Number</Typography>,
+      name: (
+        <Typography variant="typo1" className={classes.RegularFont}>
+          Order Number
+        </Typography>
+      ),
       selector: (orderCell) => orderCell.id,
-      cell: (orderCell) => <Typography variant="typo2">{orderCell.id}</Typography>
+      cell: (orderCell) => (
+        <Typography variant="typo2" className={classes.RegularFont}>
+          {orderCell.id}
+        </Typography>
+      )
     },
     {
-      name: <Typography variant="typo1">VIN</Typography>,
+      name: (
+        <Typography variant="typo1" className={classes.RegularFont}>
+          VIN
+        </Typography>
+      ),
 
       selector: (TableMockData) => TableMockData.VIN,
       cell: (TableMockData) => (
-        <Typography variant="typo3"> {TableMockData.attributes.vehicle.vin}</Typography>
+        <Typography variant="typo3" className={classes.RegularFont}>
+          {TableMockData.attributes.vehicle.vin}
+        </Typography>
       )
     },
     {
-      name: <Typography variant="typo1">Date Created</Typography>,
+      name: (
+        <Typography variant="typo1" className={classes.RegularFont}>
+          Date Created
+        </Typography>
+      ),
       selector: (TableMockData) => TableMockData.attributes.date_created,
       cell: (TableMockData) => (
-        <Typography variant="typo2">{TableMockData.attributes.date_created}</Typography>
+        <Typography variant="typo2" className={classes.RegularFont}>
+          {TableMockData.attributes.date_created}
+        </Typography>
       )
     },
     {
-      name: <Typography variant="typo1">Customer Name</Typography>,
+      name: (
+        <Typography variant="typo1" className={classes.RegularFont}>
+          Customer Name
+        </Typography>
+      ),
       selector: (TableMockData) => TableMockData.customerName,
       cell: (TableMockData) => (
-        <Typography variant="typo2">{TableMockData.customerName}</Typography>
+        <Typography variant="typo2" className={classes.RegularFont}>
+          {TableMockData.customerName}
+        </Typography>
       )
     },
     {
-      name: <Typography variant="typo1">Dealership</Typography>,
+      name: (
+        <Typography variant="typo1" className={classes.RegularFont}>
+          Dealership
+        </Typography>
+      ),
       selector: (TableMockData) => TableMockData.dealership,
       cell: (TableMockData) => (
-        <Typography variant="typo2">
+        <Typography variant="typo2" className={classes.RegularFont}>
           {TableMockData.dealership}
-          <Typography variant="body3">{TableMockData.dealershipText}</Typography>
+          <Typography variant="body3" className={classes.RegularFont}>
+            {TableMockData.dealershipText}
+          </Typography>
         </Typography>
       )
     },
     {
       name: <Typography variant="typo1">Registration Type</Typography>,
-      // selector: (TableMockData) => TableMockData.attributes.registration_type,
       cell: (TableMockData) => (
-        <Typography variant="typo2">
+        <Typography variant="typo2" className={classes.RegularFont}>
           {TableMockData.attributes.registration_type}
         </Typography>
       )
     },
     {
-      name: <Typography variant="typo1">Status</Typography>,
+      name: (
+        <Typography variant="typo1" className={classes.RegularFont}>
+          Status
+        </Typography>
+      ),
       selector: (TableMockData) => TableMockData.Status,
       cell: (TableMockData) => (
         <Button
-          size="small"
           variant="outlined"
           text={TableMockData?.attributes?.status}
           color="chooseStatus"
@@ -84,7 +123,6 @@ const OrdersListing = ({ data }) => {
       }
     }
   };
-
   return (
     <div>
       <DataTable

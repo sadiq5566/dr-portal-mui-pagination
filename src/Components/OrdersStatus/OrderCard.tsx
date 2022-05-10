@@ -62,6 +62,9 @@ const useStyles: any = makeStyles({
   ordersStatusBox: {
     display: "flex",
     flexDirection: "column"
+  },
+  RegularFont: {
+    fontFamily: "regular-400 !important"
   }
 });
 const OrderCard: React.FC<props> = ({ ordersdata, orderStatus }: props) => {
@@ -82,15 +85,21 @@ const OrderCard: React.FC<props> = ({ ordersdata, orderStatus }: props) => {
             sx={{ border: 1, borderColor: "grey.300", borderRadius: "5px" }}
           >
             <Box className={classes.ordersStatusBox}>
-              <Typography variant="subtitle1">{ordersdata.name}</Typography>
-              <Typography variant="body4">{ordersdata.location}</Typography>
+              <Typography variant="subtitle1" className={classes.RegularFont}>
+                {ordersdata.name}
+              </Typography>
+              <Typography variant="body4" className={classes.RegularFont}>
+                {ordersdata.location}
+              </Typography>
             </Box>
             <Box
               className={
                 ordersdata.orderStatus ? classes.MiniTextColor : classes.MiniText
               }
             >
-              <Typography variant="body3">{ordersdata?.numbering}</Typography>
+              <Typography variant="body3" className={classes.RegularFont}>
+                {ordersdata?.numbering}
+              </Typography>
             </Box>
           </Box>
         </Grid>

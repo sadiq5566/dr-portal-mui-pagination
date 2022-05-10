@@ -7,7 +7,14 @@ import Divider from "@mui/material/Divider";
 import OrderData from "../data/OrderData";
 import OrderStatusMockData from "../data/OrderStatusMockData";
 import { Scrollbars } from "react-custom-scrollbars-2";
+import { makeStyles } from "@mui/styles";
+const useStyles = makeStyles({
+  RegularFont: {
+    fontFamily: "regular-400 !important"
+  }
+});
 const SideBarContent = () => {
+  const classes = useStyles();
   const theme = useTheme();
   return (
     <Grid container>
@@ -34,7 +41,11 @@ const SideBarContent = () => {
           >
             <Box px={2}>
               <Stack spacing={1}>
-                <Typography variant="subtitle1" color={theme.palette.primary.dark}>
+                <Typography
+                  variant="subtitle1"
+                  className={classes.RegularFont}
+                  color={theme.palette.primary.dark}
+                >
                   General Queues
                 </Typography>
                 {OrderStatusMockData.map((orderstatusMockData, i) => {
@@ -48,7 +59,11 @@ const SideBarContent = () => {
                 })}
               </Stack>
               <Stack spacing={1} pt={3}>
-                <Typography variant="subtitle1" color={theme.palette.primary.dark}>
+                <Typography
+                  variant="subtitle1"
+                  className={classes.RegularFont}
+                  color={theme.palette.primary.dark}
+                >
                   Dealership Location Queues
                 </Typography>
 

@@ -1,3 +1,19 @@
+@font-face {
+  font-family: regular-400;
+  src: url("../src/Assets/fonts/regular-400.ttf");
+}
+@font-face {
+  font-family: medium-500;
+  src: url("../src/Assets/fonts/medium-500.ttf");
+}
+@font-face {
+  font-family: interMedium-500;
+  src: url("../src/Assets/fonts/interMedium-500.ttf");
+}
+@font-face {
+  font-family: robotoBold-700;
+  src: url("../src/Assets/fonts/robotoBold-700.ttf");
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",

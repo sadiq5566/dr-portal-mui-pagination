@@ -1,5 +1,13 @@
 import React from "react";
-import { Grid, Box, Paper, Typography, InputBase, IconButton } from "@mui/material";
+import {
+  Grid,
+  Box,
+  Paper,
+  Typography,
+  InputBase,
+  IconButton,
+  Stack
+} from "@mui/material";
 import Divider from "@mui/material/Divider";
 import { useTheme } from "@mui/material/styles";
 import { makeStyles } from "@mui/styles";
@@ -9,8 +17,8 @@ import theme from "../../theme";
 const useStyles = makeStyles({
   mainHeading: {
     fontSize: "21px !important",
-    fontWeight: "700 !important",
-    paddingTop: "35.5px"
+    paddingTop: "35.5px",
+    fontFamily: "robotoBold-700 !important"
   },
   SearchDiv: {
     background: theme.palette.success.main,
@@ -25,6 +33,9 @@ const useStyles = makeStyles({
   MainBox: {
     backgroundColor: theme.palette.common.white,
     borderRadius: "5px"
+  },
+  RegularFont: {
+    fontFamily: "regular-400 !important"
   }
 });
 const Header = () => {
@@ -41,7 +52,7 @@ const Header = () => {
       <Grid item xs={12} pt={2} px={4}>
         <Box p={2} my={3} className={classes.MainBox}>
           <Box sx={{ display: "flex" }}>
-            <Box>
+            <Stack alignItems="center" justifyContent="center">
               <Paper
                 component="form"
                 sx={{
@@ -55,14 +66,18 @@ const Header = () => {
                   <SearchSvg />
                 </IconButton>
                 <InputBase sx={{ ml: 1, flex: 1 }} placeholder="Search" />
-                <Typography variant="body3" color={theme.palette.primary.dark}>
+                <Typography
+                  className={classes.RegularFont}
+                  variant="body3"
+                  color={theme.palette.primary.dark}
+                >
                   VIN
                 </Typography>
                 <IconButton color="primary" sx={{ p: "10px" }} aria-label="directions">
                   <DropDownSvg />
                 </IconButton>
               </Paper>
-            </Box>
+            </Stack>
             <Box className={classes.SearchDiv}>
               <SearchSvg color="whiteColor" />
             </Box>
