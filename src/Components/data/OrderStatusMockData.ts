@@ -4,11 +4,11 @@ const OrderStatusMockData = [
     name: "New Orders",
     numbering: "82",
     location: "",
-    orderStatus: true
+    orderStatus: false
   },
   {
     id: "2",
-    name: "Unassigned Order",
+    name: "Unassigned Orders",
     numbering: "345",
     location: "",
 
@@ -16,7 +16,7 @@ const OrderStatusMockData = [
   },
   {
     id: "3",
-    name: "Batch Order",
+    name: "Batch Orders",
     numbering: "2345",
     location: "",
 

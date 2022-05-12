@@ -14,7 +14,7 @@ const DataStatus: React.FC<Ipops> = ({ setDeleteModal, setEditModal }) => {
     <Box sx={{ display: "flex", marginRight: "100px" }}>
       <Box
         sx={{
-          // backgroundColor: "whitesmoke",
+          
           width: "100%",
           height: "100%",
           display: "flex",

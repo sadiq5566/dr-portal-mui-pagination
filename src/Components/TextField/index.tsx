@@ -8,6 +8,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     background: theme.palette.primary.light,
     borderRadius: "10px"
   },
+  batchInput: {
+    width: "90%",
+    background: theme.palette.primary.light,
+    borderRadius: "5px"
+  },
   info: {
     border: `2px solid ${theme.palette.primary.contrastText} !important`,
     "& .MuiInput-underline:after": {
@@ -67,7 +72,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 interface IProps {
   readonly type: string;
-
+  readonly clsName?: string;
   readonly color?: "info" | "success" | "error";
   readonly name?: string;
   readonly success?: string;
@@ -96,7 +101,8 @@ const InputField: React.FC<IProps> = ({
   size,
   value,
   variant,
-  label
+  label,
+  clsName
 }) => {
   const classes = useStyles();
   return (
@@ -104,7 +110,9 @@ const InputField: React.FC<IProps> = ({
       <Grid container justifyContent="center">
         <Grid item xs={12} sm={12} md={12} lg={12}>
           <TextField
-            className={`${classes.inputField} ${color ? classes[color] : ""}`}
+            className={`${
+              classes[`${clsName}`] ? classes[`${clsName}`] : classes["inputField"]
+            } ${color ? classes[color] : ""}`}
             type={type}
             name={name}
             color={color}

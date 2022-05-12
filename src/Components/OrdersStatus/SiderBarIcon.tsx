@@ -63,14 +63,16 @@ const SideBarIcon = () => {
             <HistoryIcon active={isActive === "history" ? "active" : ""} />
           </Box>
         </Link>
-        <Box
-          className={`${classes.mainBox} ${
-            isActive === "settings" ? classes.activeClass : ""
-          }`}
-          onClick={() => setActive("settings")}
-        >
-          <SettingIcon active={isActive === "settings" ? "active" : ""} />
-        </Box>
+        <Link to="/bmv/:name  ">
+          <Box
+            className={`${classes.mainBox} ${
+              isActive === "settings" ? classes.activeClass : ""
+            }`}
+            onClick={() => setActive("settings")}
+          >
+            <SettingIcon active={isActive === "settings" ? "active" : ""} />
+          </Box>
+        </Link>
         <Box pt={33}>
           <ProfileModal />
         </Box>

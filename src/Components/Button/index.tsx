@@ -207,6 +207,46 @@ const useStyles = makeStyles((theme: Theme) => ({
     textTransform: "none",
     width: "4 rem",
     whiteSpace: "nowrap"
+  },
+  batchOrderComplete: {
+    color: `${theme.palette.success.main}  !important`,
+    borderRadius: "6px !important",
+    border: "1px solid !important",
+    fontSize: "12px !important",
+    borderColor: `${theme.palette.success.main}  !important`,
+    marginRight: "0.6rem !important",
+    height: "33px"
+  },
+  batchOrderReject: {
+    // backgroundColor: `${theme.palette.secondary.light} !important`,
+    color: `${theme.palette.secondary.light}  !important`,
+    borderRadius: "6px !important",
+    border: "1px solid !important",
+    fontSize: "12px !important",
+    borderColor: `${theme.palette.secondary.light}  !important`,
+    marginRight: "0.6rem !important",
+    height: "33px"
+  },
+  batchReject: {
+    backgroundColor: `${theme.palette.secondary.light} !important`,
+    color: `${theme.palette.success.light}  !important`,
+    borderRadius: "5px",
+    fontSize: "12px !important",
+    height: "34px !important",
+    borderColor: `${theme.palette.success.contrastText}  !important`,
+    "&:hover": {
+      background: `${theme.palette.error.contrastText} !important`,
+      color: `${theme.palette.primary.light} !important`
+    }
+  },
+
+  batchDisable: {
+    background: theme.palette.primary.contrastText,
+    color: `${theme.palette.primary.light} !important`,
+    borderRadius: "5px",
+    fontSize: "12px !important",
+    marginRight: "0.6rem !important",
+    height: "34px"
   }
 }));
 interface IProps {
@@ -240,7 +280,11 @@ interface IProps {
     | "ActiveLock"
     | "ActiveComp"
     | "ActiveReject"
-    | "profileButton";
+    | "profileButton"
+    | "batchReject"
+    | "batchOrderComplete"
+    | "batchOrderReject"
+    | "batchDisable";
   readonly warning?: string;
   readonly info?: string;
   readonly variant?: "text" | "outlined" | "contained";

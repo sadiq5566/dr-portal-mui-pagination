@@ -1,5 +1,5 @@
 import React from "react";
-import DataTable, { TableColumn } from "react-data-table-component";
+import DataTable from "react-data-table-component";
 import { Typography } from "@mui/material";
 import DataStatus from "./DataStatus";
 import Button from "../Button/index";
@@ -7,7 +7,9 @@ import StatusSvg from "../../Assets/svgs/StatusSvg/StatusSvg";
 import { makeStyles } from "@mui/styles";
 import { OrderResponse } from "../../Interfaces/orderInterface";
 import { dateFormat } from "../../Config/constant/contant";
-
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
+import { Box, MenuItem, FormControl, Select } from "@mui/material";
 interface IProps {
   orders: OrderResponse | undefined | any;
 }
@@ -19,6 +21,7 @@ const useStyles = makeStyles({
 });
 const OrdersListing: React.FC<IProps> = ({ orders }: IProps) => {
   const classes = useStyles();
+  const [count, setCount] = React.useState("10");
   const columns = [
     {
       name: (
@@ -124,6 +127,76 @@ const OrdersListing: React.FC<IProps> = ({ orders }: IProps) => {
       }
     }
   };
+  const handleChange = (event) => {
+    setCount(event.target.value);
+  };
+
+  function getNumberOfPages(rowCount: any, count: any) {
+    return Math.ceil(rowCount / Number(count));
+  }
+
+  const BootyPagination = ({
+    rowCount,
+    onChangePage,
+    currentPage
+  }: {
+    rowCount: any;
+    onChangePage: any;
+    currentPage: any;
+  }) => {
+    const pages = getNumberOfPages(rowCount, count);
+
+    const handlePageNumber = (e: any) => {
+      onChangePage(Number(e.target.value));
+    };
+
+    return (
+      <Box
+        sx={{
+          display: "inline-flex",
+          justifyContent: "space-between",
+          width: "100%",
+          mt: 2,
+          mb: 3
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center"
+          }}
+        >
+          <Typography variant="typo3">Rows per Page: </Typography>
+
+          <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+            <Select
+              value={count}
+              onChange={handleChange}
+              displayEmpty
+              inputProps={{ "aria-label": "Without label" }}
+            >
+              <MenuItem value={10}>10 per page</MenuItem>
+              <MenuItem value={20}>20 per page</MenuItem>
+              <MenuItem value={30}>30 per page</MenuItem>
+              <MenuItem value={50}>50 per page</MenuItem>
+              <MenuItem value={100}>100 per page</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
+        <Stack spacing={2}>
+          <Pagination
+            count={pages}
+            showFirstButton
+            showLastButton
+            variant="outlined"
+            shape="rounded"
+            color="primary"
+            onChange={handlePageNumber}
+          />
+        </Stack>
+      </Box>
+    );
+  };
   return (
     <div>
       <DataTable
@@ -135,6 +208,7 @@ const OrdersListing: React.FC<IProps> = ({ orders }: IProps) => {
         data={orders}
         selectableRows
         pagination
+        paginationComponent={BootyPagination}
       />
     </div>
   );

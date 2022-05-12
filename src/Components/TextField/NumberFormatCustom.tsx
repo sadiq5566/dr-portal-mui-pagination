@@ -9,6 +9,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: "100%",
     background: theme.palette.primary.light
   },
+  batchInput: {
+    width: "1 0%",
+    background: theme.palette.common.black
+  },
   label: {
     fontSize: "12px"
   }
@@ -23,6 +27,8 @@ interface IProps {
   readonly value?: string | number;
   readonly label?: string;
   readonly size?: "small";
+  readonly clsName?: string;
+
   readonly variant?: "filled" | "standard" | "outlined";
   readonly onChange?: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -31,6 +37,7 @@ interface IProps {
 const NumberFormatCustom: React.FC<IProps> = ({
   type,
   name,
+  clsName,
   onChange,
   color,
   placeholder,
@@ -45,7 +52,9 @@ const NumberFormatCustom: React.FC<IProps> = ({
     <Grid container justifyContent="center">
       <Grid item xs={12} sm={12} md={12} lg={12}>
         <NumberFormat
-          className={classes.inputField}
+          className={
+            classes[`${clsName}`] ? classes[`${clsName}`] : classes["inputField"]
+          }
           customInput={InputField}
           name={name}
           color={color}
@@ -57,6 +66,7 @@ const NumberFormatCustom: React.FC<IProps> = ({
           placeholder={placeholder}
           size={size}
           variant={variant}
+          clsName={clsName}
         />
       </Grid>
     </Grid>

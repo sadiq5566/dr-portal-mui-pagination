@@ -33,7 +33,7 @@ declare module "@mui/material/styles" {
 }
 const blue = "#4362EA";
 const blueHover = "#173EE8";
-const red = "#FFF8F8";
+const red = "#D75041";
 const blackIcon = "#585F67 ";
 const yellow = "#F7CB68 ";
 const docbg = "#F6F6F7 ";
